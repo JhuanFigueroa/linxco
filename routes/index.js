@@ -5,6 +5,7 @@ const maestrosRouter=require('../routes/maestros.router');
 const authRouter=require('../routes/auth.router');
 const rolRouter=require('../routes/rol.router');
 const carreraRouter=require('../routes/carrera.router');
+const empleadoRouter=require('../routes/empleado.router');
 
 function routerApi(app) {
   const router = express.Router();
@@ -15,6 +16,7 @@ function routerApi(app) {
   router.use('/auth', authRouter);
   router.use('/roles', rolRouter);
   router.use('/carreras', carreraRouter);
+  router.use('/empleados', empleadoRouter);
 
 
 }
