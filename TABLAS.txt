@@ -1,0 +1,10 @@
+Tipo de carga--- Omar
+Semestre	--  Carlos
+Grupo		--- Carlos
+Carrera		....Juan
+Curso 		---- Omar
+Rol		---Juan
+Tipo de Evaluacion -- Yo
+
+Materia 		--Yo
+Periodo			--- Karen
