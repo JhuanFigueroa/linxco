@@ -37,7 +37,8 @@ const MaestroSchema = {
   status:{
     field:'status_maestro',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   },
   username:{
     field:'username_maestro',

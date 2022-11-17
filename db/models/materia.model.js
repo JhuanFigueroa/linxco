@@ -21,6 +21,12 @@ const MateriaSchema = {
     field:'creditos_materia',
     allowNull:false,
     type:DataTypes.INTEGER
+  },
+  status:{
+    field:'status_materia',
+    allowNull:false,
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 

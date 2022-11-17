@@ -13,7 +13,7 @@ const createCarreraSchema = Joi.object({
   nombre:nombre.required(),
   especialidad:especialidad.required(),
   plan_estudios:plan_estudios.required(),
-  status:status.required(),
+
 
 
 });

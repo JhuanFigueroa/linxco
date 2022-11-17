@@ -30,7 +30,8 @@ const CarreraSchema = {
   status:{
     field:'status_carrera',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 

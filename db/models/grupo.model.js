@@ -21,7 +21,8 @@ const GrupoSchema = {
   status:{
     field:'status_grupo',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 

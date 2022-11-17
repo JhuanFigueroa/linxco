@@ -9,9 +9,6 @@ const createRolSchema = Joi.object({
 
   nombre:nombre.required(),
 
-  status:status.required(),
-
-
 });
 
 const updateRolSchema = Joi.object({

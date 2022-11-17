@@ -57,7 +57,8 @@ const AlumnoSchema = {
   status:{
     field:'status_alumno',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   },
   username:{
     field:'username_alumno',

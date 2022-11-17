@@ -18,7 +18,6 @@ const createMaestroSchema = Joi.object({
   correo:correo.required(),
   username:username.required(),
   password:password.required(),
-  status:status.required(),
   idRol:idRol.required()
 
 });

@@ -22,7 +22,8 @@ const RolSchema = {
   status:{
     field:'status_rol',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 
