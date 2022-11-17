@@ -1,5 +1,6 @@
 const Joi = require('joi');
 
+const id=Joi.number();
 const nombre=Joi.string();
 const apellido_paterno=Joi.string();
 const apellido_materno=Joi.string();
@@ -11,7 +12,7 @@ const password = Joi.string().min(8);
 const idRol=Joi.number();
 
 
-const createAlumnoSchema = Joi.object({
+const createEmpleadoSchema = Joi.object({
   nombre:nombre.required(),
   apellido_paterno:apellido_paterno.required(),
   apellido_materno:apellido_materno.required(),
@@ -23,7 +24,7 @@ const createAlumnoSchema = Joi.object({
 
 });
 
-const updateAlumnoSchema = Joi.object({
+const updateEmpleadoSchema = Joi.object({
   nombre:nombre,
   apellido_paterno:apellido_paterno,
   apellido_materno:apellido_materno,
@@ -32,8 +33,8 @@ const updateAlumnoSchema = Joi.object({
 
 });
 
-const getAlumnoSchema = Joi.object({
-  matricula: matricula.required(),
+const getEmpleadoSchema = Joi.object({
+  id: id.required(),
 });
 
-module.exports = { createAlumnoSchema,  updateAlumnoSchema,  getAlumnoSchema }
+module.exports = { createEmpleadoSchema,  updateEmpleadoSchema,  getEmpleadoSchema }
