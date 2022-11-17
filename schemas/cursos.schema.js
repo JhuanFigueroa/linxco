@@ -24,3 +24,4 @@ const getCursosSchema = Joi.object({
 
 module.exports = { createCursosSchema,  updateCursosSchema,  getCursosSchema }
 print();
+print();
