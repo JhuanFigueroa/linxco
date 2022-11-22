@@ -2,32 +2,32 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const carga_academicaService = require('../services/carga_academica.service');
+const FacturaService = require('../services/Factura.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updatecarga_academicaSchema, createcarga_academicaSchema, getcarga_academicaSchema } = require('../schemas/carga_academica.schema');
+const { updateFacturaSchema, createFacturaSchema, getFacturaSchema } = require('../schemas/Factura.schema');
 
 const router = express.Router();
-const service = new carga_academicaService();
+const service = new FacturaService();
 
 
 router.get('/',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
-    try {
-      const carga_academicas = await service.find();
-      res.json(carga_academicas);
-    } catch (error) {
-      next(error);
-    }
-  });
+  try {
+    const Factura = await service.find();
+    res.json(Factura);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
+  validatorHandler(getFacturaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const carga_academica = await service.findOne(id);
-      res.json(carga_academica);
+      const Factura = await service.findOne(id);
+      res.json(Factura);
     } catch (error) {
       next(error);
     }
@@ -36,12 +36,13 @@ router.get('/:id',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  validatorHandler(createcarga_academicaSchema, 'body'),
+  checkAdminRole,
+  validatorHandler(createFacturaSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newCategory = await service.create(body);
-      res.status(201).json(newCategory);
+      const newCurso = await service.create(body);
+      res.status(201).json(newCurso);
     } catch (error) {
       next(error);
     }
@@ -49,14 +50,14 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
-  validatorHandler(updatecarga_academicaSchema, 'body'),
+  validatorHandler(getFacturaSchema, 'params'),
+  validatorHandler(updateFacturaSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       const body = req.body;
-      const category = await service.update(id, body);
-      res.json(category);
+      const curso = await service.update(id, body);
+      res.json(curso);
     } catch (error) {
       next(error);
     }
@@ -64,7 +65,7 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
+  validatorHandler(getFacturaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -77,4 +78,3 @@ router.delete('/:id',
 );
 
 module.exports = router;
-

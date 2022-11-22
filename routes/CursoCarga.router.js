@@ -2,32 +2,32 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const carga_academicaService = require('../services/carga_academica.service');
+const CursoCargaService = require('../services/CursoCarga.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updatecarga_academicaSchema, createcarga_academicaSchema, getcarga_academicaSchema } = require('../schemas/carga_academica.schema');
+const { updateCursoCargaSchema, createCursoCargaSchema, getCursoCargaSchema } = require('../schemas/CursoCarga.schema');
 
 const router = express.Router();
-const service = new carga_academicaService();
+const service = new CursoCargaService();
 
 
 router.get('/',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
-    try {
-      const carga_academicas = await service.find();
-      res.json(carga_academicas);
-    } catch (error) {
-      next(error);
-    }
-  });
+  try {
+    const CursoCarga = await service.find();
+    res.json(CursoCarga);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
+  validatorHandler(getCursoCargaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const carga_academica = await service.findOne(id);
-      res.json(carga_academica);
+      const CursoCarga = await service.findOne(id);
+      res.json(CursoCarga);
     } catch (error) {
       next(error);
     }
@@ -36,12 +36,13 @@ router.get('/:id',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  validatorHandler(createcarga_academicaSchema, 'body'),
+  checkAdminRole,
+  validatorHandler(createCursoCargaSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newCategory = await service.create(body);
-      res.status(201).json(newCategory);
+      const newCurso = await service.create(body);
+      res.status(201).json(newCurso);
     } catch (error) {
       next(error);
     }
@@ -49,14 +50,14 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
-  validatorHandler(updatecarga_academicaSchema, 'body'),
+  validatorHandler(getCursoCargaSchema, 'params'),
+  validatorHandler(updateCursoCargaSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       const body = req.body;
-      const category = await service.update(id, body);
-      res.json(category);
+      const curso = await service.update(id, body);
+      res.json(curso);
     } catch (error) {
       next(error);
     }
@@ -64,7 +65,7 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getcarga_academicaSchema, 'params'),
+  validatorHandler(getCursoCargaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -77,4 +78,3 @@ router.delete('/:id',
 );
 
 module.exports = router;
-
