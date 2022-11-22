@@ -10,7 +10,6 @@ class carga_academicaService {
 
     const newCargaAcademica=await models.CargaAcademica.create(data);
 
-    delete newCargaAcademica.dataValues.password;
 
     return newCargaAcademica;
   }

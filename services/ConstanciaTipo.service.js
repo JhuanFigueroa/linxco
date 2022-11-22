@@ -3,27 +3,27 @@ const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
 
 
-class FacturaService {
+class ConstanciaTipoService {
   constructor() {}
 
   async create(data) {
 
-    const newFactura=await models.Factura.create(data);
+    const newConstanciaTipo=await models.ConstanciaTipo.create(data);
 
 
-    return newFactura;
+    return newConstanciaTipo;
   }
 
   async find() {
-    const rta = await models.Factura.findAll()
+    const rta = await models.ConstanciaTipo.findAll()
 
     return rta;
   }
 
   async findOne(id) {
-    const rta=await models.Factura.findByPk(id);
+    const rta=await models.ConstanciaTipo.findByPk(id);
     if (!rta) {
-      throw boom.notFound('Factura not found')
+      throw boom.notFound('ConstanciaTipo not found')
     }
     return rta;
   }
@@ -42,4 +42,4 @@ class FacturaService {
     return {id};
   }
 }
-module.exports = FacturaService;
+module.exports = ConstanciaTipoService;

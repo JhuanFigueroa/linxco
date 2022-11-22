@@ -10,7 +10,6 @@ class CursoCargaService {
 
     const newCursoCarga=await models.CursoCarga.create(data);
 
-    delete newCursoCarga.dataValues.password;
 
     return newCursoCarga;
   }
