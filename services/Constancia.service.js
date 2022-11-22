@@ -10,7 +10,6 @@ class ConstanciaService {
 
     const newConstancia=await models.Constancia.create(data);
 
-    delete newConstancia.dataValues.password;
 
     return newConstancia;
   }
