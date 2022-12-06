@@ -12,7 +12,7 @@
  Target Server Version : 140005
  File Encoding         : 65001
 
- Date: 24/11/2022 11:50:07
+ Date: 06/12/2022 11:27:21
 */
 
 
@@ -87,17 +87,6 @@ CACHE 1;
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."constancia_alumno_id_seq";
 CREATE SEQUENCE "public"."constancia_alumno_id_seq" 
-INCREMENT 1
-MINVALUE  1
-MAXVALUE 2147483647
-START 1
-CACHE 1;
-
--- ----------------------------
--- Sequence structure for constancia_tipo_id_seq
--- ----------------------------
-DROP SEQUENCE IF EXISTS "public"."constancia_tipo_id_seq";
-CREATE SEQUENCE "public"."constancia_tipo_id_seq" 
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -571,53 +560,44 @@ INSERT INTO "public"."constancia_alumno" VALUES (10, 'lksjdfklsdj', '201923158')
 INSERT INTO "public"."constancia_alumno" VALUES (11, 'oiuoiu', '201923158');
 
 -- ----------------------------
--- Table structure for constancia_tipo
--- ----------------------------
-DROP TABLE IF EXISTS "public"."constancia_tipo";
-CREATE TABLE "public"."constancia_tipo" (
-  "id" int4 NOT NULL DEFAULT nextval('constancia_tipo_id_seq'::regclass),
-  "id_tipo_constancia" int4 NOT NULL,
-  "clave_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
-)
-;
-
--- ----------------------------
--- Records of constancia_tipo
--- ----------------------------
-INSERT INTO "public"."constancia_tipo" VALUES (3, 2, 'wklerjwj');
-INSERT INTO "public"."constancia_tipo" VALUES (4, 5, 'lkjfskljer');
-INSERT INTO "public"."constancia_tipo" VALUES (5, 3, 'lksjdfklsdj');
-INSERT INTO "public"."constancia_tipo" VALUES (6, 4, 'slkdjf');
-INSERT INTO "public"."constancia_tipo" VALUES (7, 2, 'sjdfdskjfhs');
-INSERT INTO "public"."constancia_tipo" VALUES (8, 5, 'wklerjwj');
-INSERT INTO "public"."constancia_tipo" VALUES (9, 4, 'sdfjkshf');
-INSERT INTO "public"."constancia_tipo" VALUES (10, 4, 'lksjdfklsdj');
-INSERT INTO "public"."constancia_tipo" VALUES (11, 1, 'slkdjf');
-INSERT INTO "public"."constancia_tipo" VALUES (12, 3, 'lksjdfklsdj');
-
--- ----------------------------
 -- Table structure for contsancia_table
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."contsancia_table";
 CREATE TABLE "public"."contsancia_table" (
   "clave_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "fecha_constancia" timestamptz(6) NOT NULL
+  "fecha_constancia" timestamptz(6) NOT NULL,
+  "id_tipo_constancia" int4 NOT NULL
 )
 ;
 
 -- ----------------------------
 -- Records of contsancia_table
 -- ----------------------------
-INSERT INTO "public"."contsancia_table" VALUES ('kjhsfjkh', '2022-11-02 22:22:12-06');
-INSERT INTO "public"."contsancia_table" VALUES ('oiuoiu', '2022-02-22 22:22:20-06');
-INSERT INTO "public"."contsancia_table" VALUES ('hjkshfdjkh', '2022-02-25 22:22:29-06');
-INSERT INTO "public"."contsancia_table" VALUES ('sdfjkshf', '2022-10-04 22:22:38-05');
-INSERT INTO "public"."contsancia_table" VALUES ('jhwjekrwkje', '2022-12-10 22:22:49-06');
-INSERT INTO "public"."contsancia_table" VALUES ('lksjdfklsdj', '2022-01-23 22:22:57-06');
-INSERT INTO "public"."contsancia_table" VALUES ('slkdjf', '2022-11-11 22:23:15-06');
-INSERT INTO "public"."contsancia_table" VALUES ('sjdfdskjfhs', '2022-11-26 22:23:23-06');
-INSERT INTO "public"."contsancia_table" VALUES ('wklerjwj', '2022-11-02 22:23:31-06');
-INSERT INTO "public"."contsancia_table" VALUES ('lkjfskljer', '2022-11-11 22:23:38-06');
+INSERT INTO "public"."contsancia_table" VALUES ('kjhsfjkh', '2022-11-02 22:22:12-06', 1);
+INSERT INTO "public"."contsancia_table" VALUES ('oiuoiu', '2022-02-22 22:22:20-06', 1);
+INSERT INTO "public"."contsancia_table" VALUES ('hjkshfdjkh', '2022-02-25 22:22:29-06', 2);
+INSERT INTO "public"."contsancia_table" VALUES ('sdfjkshf', '2022-10-04 22:22:38-05', 1);
+INSERT INTO "public"."contsancia_table" VALUES ('jhwjekrwkje', '2022-12-10 22:22:49-06', 3);
+INSERT INTO "public"."contsancia_table" VALUES ('lksjdfklsdj', '2022-01-23 22:22:57-06', 2);
+INSERT INTO "public"."contsancia_table" VALUES ('slkdjf', '2022-11-11 22:23:15-06', 1);
+INSERT INTO "public"."contsancia_table" VALUES ('sjdfdskjfhs', '2022-11-26 22:23:23-06', 3);
+INSERT INTO "public"."contsancia_table" VALUES ('wklerjwj', '2022-11-02 22:23:31-06', 2);
+INSERT INTO "public"."contsancia_table" VALUES ('lkjfskljer', '2022-11-11 22:23:38-06', 1);
+
+-- ----------------------------
+-- Table structure for credencial
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."credencial";
+CREATE TABLE "public"."credencial" (
+  "idCredencial" int4 NOT NULL,
+  "statusCredencial" char(1) COLLATE "pg_catalog"."default",
+  "matricula_alumno" varchar COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of credencial
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for curso
@@ -693,8 +673,6 @@ DROP TABLE IF EXISTS "public"."factura";
 CREATE TABLE "public"."factura" (
   "id_factura" int4 NOT NULL DEFAULT nextval('factura_id_factura_seq'::regclass),
   "numero_comprobante" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "cantidad_factura" int4 NOT NULL,
-  "monto_factura" float8 NOT NULL,
   "monto_total_factura" float8 NOT NULL
 )
 ;
@@ -702,16 +680,16 @@ CREATE TABLE "public"."factura" (
 -- ----------------------------
 -- Records of factura
 -- ----------------------------
-INSERT INTO "public"."factura" VALUES (3, 'sdfksdlkfj', 1, 200, 200);
-INSERT INTO "public"."factura" VALUES (4, '34289347', 2, 11, 22);
-INSERT INTO "public"."factura" VALUES (5, 'sjdfhksdj', 1, 399, 399);
-INSERT INTO "public"."factura" VALUES (6, 'etejkrthjk', 4, 10, 40);
-INSERT INTO "public"."factura" VALUES (7, 'djkfh', 4, 40, 160);
-INSERT INTO "public"."factura" VALUES (8, 'dkjfhdgjkf', 1, 1500, 1500);
-INSERT INTO "public"."factura" VALUES (9, 'sjkdfhjksdh', 1, 2000, 2000);
-INSERT INTO "public"."factura" VALUES (10, 'skdjfsnmb', 1, 100, 100);
-INSERT INTO "public"."factura" VALUES (11, 'dlrhgjk', 1, 80, 80);
-INSERT INTO "public"."factura" VALUES (12, 'jhkh', 1, 50, 50);
+INSERT INTO "public"."factura" VALUES (3, 'sdfksdlkfj', 200);
+INSERT INTO "public"."factura" VALUES (4, '34289347', 22);
+INSERT INTO "public"."factura" VALUES (5, 'sjdfhksdj', 399);
+INSERT INTO "public"."factura" VALUES (6, 'etejkrthjk', 40);
+INSERT INTO "public"."factura" VALUES (7, 'djkfh', 160);
+INSERT INTO "public"."factura" VALUES (8, 'dkjfhdgjkf', 1500);
+INSERT INTO "public"."factura" VALUES (9, 'sjkdfhjksdh', 2000);
+INSERT INTO "public"."factura" VALUES (10, 'skdjfsnmb', 100);
+INSERT INTO "public"."factura" VALUES (11, 'dlrhgjk', 80);
+INSERT INTO "public"."factura" VALUES (12, 'jhkh', 50);
 
 -- ----------------------------
 -- Table structure for grupo
@@ -980,6 +958,23 @@ INSERT INTO "public"."periodo" VALUES (8, '2025-1', 'Primer periodo 2025', 0);
 INSERT INTO "public"."periodo" VALUES (9, '2025-2', 'Segundo periodo 2025', 0);
 
 -- ----------------------------
+-- Table structure for peticiones
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."peticiones";
+CREATE TABLE "public"."peticiones" (
+  "idPeticion" int8 NOT NULL,
+  "tipoPeticion" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "statusPetcion" char(1) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of peticiones
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for razon_baja
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."razon_baja";
@@ -1006,21 +1001,22 @@ DROP TABLE IF EXISTS "public"."razon_factura";
 CREATE TABLE "public"."razon_factura" (
   "clave_razon_factura" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
   "nombre_razon_factura" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "status_razon_factura" int4 NOT NULL
+  "status_razon_factura" int4 NOT NULL,
+  "precio_unitario" float4 NOT NULL
 )
 ;
 
 -- ----------------------------
 -- Records of razon_factura
 -- ----------------------------
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000001', 'INSCRIPCION', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000002', 'REINSCRIPCION', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000003', 'CREDENCIAL', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000004', 'RECURSE', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000005', 'CONSTANCIA', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000006', 'INSCRIPCION(DUAL)', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000007', 'SEGURO', 1);
-INSERT INTO "public"."razon_factura" VALUES ('RZF-000008', 'CURSO DE VERANO', 1);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000001', 'INSCRIPCION', 1, 2400);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000002', 'REINSCRIPCION', 1, 2400);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000003', 'CREDENCIAL', 1, 70);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000004', 'RECURSE', 1, 90);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000005', 'CONSTANCIA', 1, 120);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000006', 'INSCRIPCION(DUAL)', 1, 1800);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000007', 'SEGURO', 1, 105);
+INSERT INTO "public"."razon_factura" VALUES ('RZF-000008', 'CURSO DE VERANO', 1, 80);
 
 -- ----------------------------
 -- Table structure for razonf_factura
@@ -1184,6 +1180,23 @@ INSERT INTO "public"."tipo_evaluacion" VALUES (1, 'ORDINARIO', 'PRIMERA OPORTUNI
 INSERT INTO "public"."tipo_evaluacion" VALUES (2, 'RECUPERACION', 'SEGUNDA OPORTUNIDAD PARA PASAR UNA UNIDAD');
 
 -- ----------------------------
+-- Table structure for usuario_admision
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."usuario_admision";
+CREATE TABLE "public"."usuario_admision" (
+  "id_usAs" int8 NOT NULL,
+  "usuari_usAs" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "pasword_usAs" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "numero_ficha_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of usuario_admision
+-- ----------------------------
+INSERT INTO "public"."usuario_admision" VALUES (1, '201923178', '1234', '201923178');
+
+-- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."acta_evaluacion_id_seq"
@@ -1231,13 +1244,6 @@ SELECT setval('"public"."carga_academica_id_carga_academica_seq"', 3, false);
 ALTER SEQUENCE "public"."constancia_alumno_id_seq"
 OWNED BY "public"."constancia_alumno"."id";
 SELECT setval('"public"."constancia_alumno_id_seq"', 3, false);
-
--- ----------------------------
--- Alter sequences owned by
--- ----------------------------
-ALTER SEQUENCE "public"."constancia_tipo_id_seq"
-OWNED BY "public"."constancia_tipo"."id";
-SELECT setval('"public"."constancia_tipo_id_seq"', 3, false);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -1449,14 +1455,14 @@ ALTER TABLE "public"."carrera" ADD CONSTRAINT "carrera_pkey" PRIMARY KEY ("clave
 ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_pkey" PRIMARY KEY ("id", "clave_constancia", "matricula_alumno");
 
 -- ----------------------------
--- Primary Key structure for table constancia_tipo
--- ----------------------------
-ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_pkey" PRIMARY KEY ("id", "id_tipo_constancia", "clave_constancia");
-
--- ----------------------------
 -- Primary Key structure for table contsancia_table
 -- ----------------------------
 ALTER TABLE "public"."contsancia_table" ADD CONSTRAINT "contsancia_table_pkey" PRIMARY KEY ("clave_constancia");
+
+-- ----------------------------
+-- Primary Key structure for table credencial
+-- ----------------------------
+ALTER TABLE "public"."credencial" ADD CONSTRAINT "Credenciales_pkey" PRIMARY KEY ("idCredencial");
 
 -- ----------------------------
 -- Primary Key structure for table curso
@@ -1547,6 +1553,11 @@ ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_pkey" PRI
 ALTER TABLE "public"."periodo" ADD CONSTRAINT "periodo_pkey" PRIMARY KEY ("id_periodo");
 
 -- ----------------------------
+-- Primary Key structure for table peticiones
+-- ----------------------------
+ALTER TABLE "public"."peticiones" ADD CONSTRAINT "peticiones_pkey" PRIMARY KEY ("idPeticion");
+
+-- ----------------------------
 -- Primary Key structure for table razon_baja
 -- ----------------------------
 ALTER TABLE "public"."razon_baja" ADD CONSTRAINT "razon_baja_pkey" PRIMARY KEY ("clave_razon_baja");
@@ -1595,6 +1606,11 @@ ALTER TABLE "public"."tipo_constancia" ADD CONSTRAINT "tipo_constancia_pkey" PRI
 -- Primary Key structure for table tipo_evaluacion
 -- ----------------------------
 ALTER TABLE "public"."tipo_evaluacion" ADD CONSTRAINT "tipo_evaluacion_pkey" PRIMARY KEY ("id_tipo_evaluacion");
+
+-- ----------------------------
+-- Primary Key structure for table usuario_admision
+-- ----------------------------
+ALTER TABLE "public"."usuario_admision" ADD CONSTRAINT "usuario_admision_pkey" PRIMARY KEY ("id_usAs");
 
 -- ----------------------------
 -- Foreign Keys structure for table acta_evaluacion
@@ -1646,10 +1662,14 @@ ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_clave
 ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- ----------------------------
--- Foreign Keys structure for table constancia_tipo
+-- Foreign Keys structure for table contsancia_table
 -- ----------------------------
-ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_clave_constancia_fkey" FOREIGN KEY ("clave_constancia") REFERENCES "public"."contsancia_table" ("clave_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
-ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_id_tipo_constancia_fkey" FOREIGN KEY ("id_tipo_constancia") REFERENCES "public"."tipo_constancia" ("id_tipo_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."contsancia_table" ADD CONSTRAINT "id_tipo_constancia" FOREIGN KEY ("id_tipo_constancia") REFERENCES "public"."tipo_constancia" ("id_tipo_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table credencial
+-- ----------------------------
+ALTER TABLE "public"."credencial" ADD CONSTRAINT "matricula_alumno" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- ----------------------------
 -- Foreign Keys structure for table curso_carga
@@ -1705,6 +1725,12 @@ ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_clave_mat
 ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_id_horario_fkey" FOREIGN KEY ("id_horario") REFERENCES "public"."horario" ("id_horario") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- ----------------------------
+-- Foreign Keys structure for table peticiones
+-- ----------------------------
+ALTER TABLE "public"."peticiones" ADD CONSTRAINT "clave_carrera" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."peticiones" ADD CONSTRAINT "matricula_alumno" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
 -- Foreign Keys structure for table razonf_factura
 -- ----------------------------
 ALTER TABLE "public"."razonf_factura" ADD CONSTRAINT "razonf_factura_clave_razon_factura_fkey" FOREIGN KEY ("clave_razon_factura") REFERENCES "public"."razon_factura" ("clave_razon_factura") ON DELETE SET NULL ON UPDATE CASCADE;
@@ -1715,3 +1741,8 @@ ALTER TABLE "public"."razonf_factura" ADD CONSTRAINT "razonf_factura_id_factura_
 -- ----------------------------
 ALTER TABLE "public"."renuncia_seguro_alumno" ADD CONSTRAINT "renuncia_seguro_alumno_id_renuncia_seguro_fkey" FOREIGN KEY ("id_renuncia_seguro") REFERENCES "public"."renuncia_seguro" ("id_renuncia_seguro") ON DELETE SET NULL ON UPDATE CASCADE;
 ALTER TABLE "public"."renuncia_seguro_alumno" ADD CONSTRAINT "renuncia_seguro_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table usuario_admision
+-- ----------------------------
+ALTER TABLE "public"."usuario_admision" ADD CONSTRAINT "numero_ficha_admision" FOREIGN KEY ("numero_ficha_admision") REFERENCES "public"."admision" ("numero_ficha_admision") ON DELETE SET NULL ON UPDATE NO ACTION;
