@@ -680,16 +680,16 @@ CREATE TABLE "public"."factura" (
 -- ----------------------------
 -- Records of factura
 -- ----------------------------
-INSERT INTO "public"."factura" VALUES (3, 'sdfksdlkfj', 200);
-INSERT INTO "public"."factura" VALUES (4, '34289347', 22);
-INSERT INTO "public"."factura" VALUES (5, 'sjdfhksdj', 399);
-INSERT INTO "public"."factura" VALUES (6, 'etejkrthjk', 40);
-INSERT INTO "public"."factura" VALUES (7, 'djkfh', 160);
-INSERT INTO "public"."factura" VALUES (8, 'dkjfhdgjkf', 1500);
-INSERT INTO "public"."factura" VALUES (9, 'sjkdfhjksdh', 2000);
-INSERT INTO "public"."factura" VALUES (10, 'skdjfsnmb', 100);
-INSERT INTO "public"."factura" VALUES (11, 'dlrhgjk', 80);
-INSERT INTO "public"."factura" VALUES (12, 'jhkh', 50);
+INSERT INTO "public"."factura" VALUES (3, 'SOF-300', 200);
+INSERT INTO "public"."factura" VALUES (4, 'ODN-301', 22);
+INSERT INTO "public"."factura" VALUES (5, 'ORM-302', 399);
+INSERT INTO "public"."factura" VALUES (6, 'JDO-303', 40);
+INSERT INTO "public"."factura" VALUES (7, 'JDI-304', 160);
+INSERT INTO "public"."factura" VALUES (8, 'ODK-305', 1500);
+INSERT INTO "public"."factura" VALUES (9, 'ELD-306', 2000);
+INSERT INTO "public"."factura" VALUES (10, 'MFO-307', 100);
+INSERT INTO "public"."factura" VALUES (11, 'PEK-308', 80);
+INSERT INTO "public"."factura" VALUES (12, 'DOM-309', 50);
 
 -- ----------------------------
 -- Table structure for grupo

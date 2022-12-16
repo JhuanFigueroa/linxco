@@ -1,0 +1,18 @@
+/** Crear Factura**/
+CREATE OR REPLACE FUNCTION insertarazonFfactura(idFactura INTEGER, claveRazonFactura VARCHAR)
+RETURNS void
+AS
+$$		
+		/**Insertar en la tabla de razonf-factura**/
+		INSERT INTO "public".razonf_factura VALUES 
+		(DEFAULT,idFactura,claveRazonFactura);	
+		
+		/**Actualizando el pecio total**/
+			UPDATE factura SET monto_total_factura = 
+			((SELECT monto_total_factura FROM factura WHERE id_factura = idFactura)
+			+(SELECT precio_unitario_factura FROM razon_factura WHERE clave_razon_factura = claveRazonFactura))
+			WHERE id_factura =  idFactura
+$$
+LANGUAGE SQL
+
+SELECT insertarazonFfactura('11','RZF-000007')

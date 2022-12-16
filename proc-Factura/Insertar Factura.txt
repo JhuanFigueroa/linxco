@@ -1,0 +1,14 @@
+/** Crear Factura**/
+CREATE OR REPLACE FUNCTION insertarfactura(numeroComprobante VARCHAR)
+RETURNS INTEGER
+AS
+$$
+		/**Insertar en la tabla se factura**/
+		INSERT INTO "public".factura VALUES 
+		(DEFAULT,numeroComprobante,0);	
+		/**Seleccionar el Ultimi id**/
+		SELECT MAX(id_factura) FROM factura WHERE numero_comprobante = numeroComprobante;
+$$
+LANGUAGE SQL
+
+SELECT insertarfactura('PRUEBILLA 2')

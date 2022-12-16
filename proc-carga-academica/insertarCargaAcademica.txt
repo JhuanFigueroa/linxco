@@ -1,0 +1,25 @@
+
+DROP FUNCTION insertarcargaacademica(character varying,character varying,character varying)
+/** Crear Factura**/
+CREATE OR REPLACE FUNCTION insertarcargaAcademica(nombreTipocarga VARCHAR, matriculaAlumno varchar,numeroPeriodo VARCHAR)
+RETURNS INTEGER
+AS
+$$
+		/**Insertar en la tabla de carga academica**/
+		INSERT INTO "public".carga_academica VALUES 
+		(DEFAULT,(select current_date),(SELECT clave_tipo_carga FROM tipo_carga WHERE nombre_tipo_carga = nombreTipocarga),
+		matriculaAlumno, (SELECT id_periodo from periodo where numero_periodo = numeroPeriodo)
+		);	
+		
+		SELECT MAX(id_carga_academica) FROM carga_academica
+	
+$$
+LANGUAGE SQL
+
+SELECT * from carga_academica
+
+SELECT insertarcargaAcademica('REINSCRIPCION','201923158','2024-1')
+
+
+
+
