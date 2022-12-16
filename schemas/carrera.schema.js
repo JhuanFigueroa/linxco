@@ -5,6 +5,7 @@ const nombre=Joi.string();
 const especialidad=Joi.string();
 const plan_estudios=Joi.string();
 const status=Joi.number();
+const imagen=Joi.object();
 
 
 const createCarreraSchema = Joi.object({
@@ -13,7 +14,6 @@ const createCarreraSchema = Joi.object({
   nombre:nombre.required(),
   especialidad:especialidad.required(),
   plan_estudios:plan_estudios.required(),
-
 
 
 });

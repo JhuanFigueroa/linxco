@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
-
+const bodyParser=require('body-parser')
+var multer = require('multer');
+var upload = multer();
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();

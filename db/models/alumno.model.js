@@ -54,6 +54,12 @@ const AlumnoSchema = {
     allowNull: false,
     type: DataTypes.STRING
   },
+  num_seguro:{
+    field:'numero_seguro_alumno',
+    allowNull:false,
+    type:DataTypes.STRING,
+    unique:true
+  },
   status:{
     field:'status_alumno',
     allowNull:false,
@@ -135,6 +141,14 @@ class Alumno extends Model {
     this.hasMany(models.CargaAcademica,{
       as:'cargas',
       foreignKey:'matricula_alumno'
+    });
+    this.hasMany(models.Credencial,{
+      as: 'credencial',
+      foreignKey: 'id_credencial'
+    });
+    this.hasMany(models.Peticion,{
+      as: 'peticiones',
+      foreignKey: 'id_peticion'
     });
   }
 

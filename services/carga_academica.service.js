@@ -1,14 +1,21 @@
 const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
+const sequilize=require('../libs/sequelize')
 const {models}=require('../libs/sequelize')
 
 
 class carga_academicaService {
   constructor() {}
 
-  async create(data) {
+  async create(data,materias) {
 
     const newCargaAcademica=await models.CargaAcademica.create(data);
+
+    for (const materia in materias) {
+      var queryMateriaCara="  ";
+      var resultMateriaCarga=sequilize.query(queryMateriaCara);
+    }
+
 
 
     return newCargaAcademica;

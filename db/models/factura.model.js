@@ -18,21 +18,11 @@ const FacturaSchema = {
     type: DataTypes.STRING,
 
   },
-  cantidad: {
-    field:'cantidad_factura',
-    allowNull: false,
-    type: DataTypes.INTEGER
-  },
-  monto: {
-    field:'monto_factura',
-    allowNull: false,
-    type: DataTypes.FLOAT
-  },
+
   monto_total: {
     field:'monto_total_factura',
     allowNull: false,
-    type: DataTypes.FLOAT,
-    unique: true
+    type: DataTypes.FLOAT
   }
 }
 

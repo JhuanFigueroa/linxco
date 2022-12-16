@@ -7,7 +7,14 @@ const {Carrera} = require("../db/models/carrera.model");
 class CarreraService {
   constructor() {}
 
-  async create(data) {
+  async create(data,file) {
+    var filename = file.filename;
+    filename = 'http://localhost:3000/storage/' + filename;
+    data = {
+      ...data,
+      imagen: filename,
+    };
+
     const newCarrera=await models.Carrera.create(data);
 
     return newCarrera;

@@ -27,6 +27,11 @@ const CarreraSchema = {
     allowNull:false,
     type:DataTypes.STRING
   },
+  imagen:{
+    field:'imagen_carrera',
+    allowNull:false,
+    type:DataTypes.STRING
+  },
   status:{
     field:'status_carrera',
     allowNull:false,

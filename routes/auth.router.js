@@ -14,17 +14,27 @@ router.post('/login',
       const user = req.user;
       console.log(user)
       const payload = {
-        sub: user.clave,
-        role: user.idRol
+        clave: user.username,
+        nombre:user.nombre+' '+user.apellido_paterno+' '+user.apellido_materno,
+        rol: user.idRol
       }
       const token = jwt.sign(payload, config.jwtSecret);
-      res.json({
-        user,
-        token
-      });
+      res.json(token);
     } catch (error) {
       next(error);
     }
+  }
+);
+router.get(
+  '/profile',
+  async (req,res,next)=>{
+    //obtenemos el token
+    const token = req.headers.authorization.split(' ')[1]
+
+    //desciframos el token
+    const user=jwt.decode(token,config.jwtSecret);
+
+    res.json(user);
   }
 );
 

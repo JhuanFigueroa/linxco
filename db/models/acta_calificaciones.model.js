@@ -1,5 +1,6 @@
 
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const {MATERIA_TABLE} = require("./materia.model");
 
 const ACTA_TABLE = 'acta_calificaciones';
 
@@ -22,6 +23,18 @@ const ActaSchema = {
     allowNull:false,
     type:DataTypes.DATE,
     defaultValue: Sequelize.Now
+  },
+  claveMateria: {
+    field:'clave_materia',
+    allowNull: false,
+    primaryKey: true,
+    type:DataTypes.STRING,
+    references: {
+      model: MATERIA_TABLE,
+      key: 'clave_materia'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   }
 }
 
@@ -35,6 +48,8 @@ class Acta extends Model {
       foreignKey: 'folio_acta',
       otherKey: 'id_tipo_evaluacion'
     });
+
+    this.belongsTo(models.Materia, { as: 'materia' });
   }
 
   static config(sequelize) {

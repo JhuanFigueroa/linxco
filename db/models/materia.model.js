@@ -40,6 +40,10 @@ class Materia extends Model {
       foreignKey:'clave_materia',
       otherKey:'id_horario'
     });
+    this.hasMany(models.Acta, {
+      as: 'actas',
+      foreignKey: 'clave_materia'
+    });
   }
 
   static config(sequelize) {

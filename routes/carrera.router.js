@@ -5,6 +5,7 @@ const {checkAdminRole} =require('./../middlewares/auth.handler')
 const CarreraService = require('../services/carrera.service');
 const validatorHandler = require('./../middlewares/validator.handler');
 const { updateCarreraSchema, createCarreraSchema, getCarreraSchema } = require('../schemas/carrera.schema');
+const upload = require("../libs/storage");
 
 const router = express.Router();
 const service = new CarreraService();
@@ -35,13 +36,15 @@ router.get('/:clave',
 );
 
 router.post('/',
+  upload.single('imagen'),
   passport.authenticate('jwt',{session:false}),
   checkAdminRole,
   validatorHandler(createCarreraSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newCarrera = await service.create(body);
+      const file=req.file;
+      const newCarrera = await service.create(body,file);
       res.status(201).json(newCarrera);
     } catch (error) {
       next(error);

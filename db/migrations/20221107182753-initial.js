@@ -50,6 +50,9 @@ const {HORARIO_TABLE, HorarioSchema} = require("../models/horario.model");
 const {MAESTRO_HORARIO_TABLE, MaestroHorarioSchema} = require("../models/maestro_horario.model");
 const {MATERIA_HORARIO_TABLE, MateriaHorarioSchema} = require("../models/materia_horario.model");
 
+const {USUARIO_ADMISION_TABLE,UsuarioAdmisionSchema}=require('../models/usuario_admision.model');
+const {PETICION_TABLE,PeticionSchema}=require('../models/peticiones.model');
+const {CREDENCIAL_TABLE,CredencialSchema}=require('../models/credencial.model');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface) {
@@ -104,6 +107,10 @@ module.exports = {
     await queryInterface.createTable(CARGA_TABLE,CargaSchema);
     await queryInterface.createTable(CURSO_CARGA_TABLE,CursoCargaSchema);
     await queryInterface.createTable(MATERIA_CARGA_TABLE,MateriaCargaSchema);
+
+    await queryInterface.createTable(PETICION_TABLE,PeticionSchema);
+    await queryInterface.createTable(CREDENCIAL_TABLE,CredencialSchema);
+    await queryInterface.createTable(USUARIO_ADMISION_TABLE,UsuarioAdmisionSchema);
 
 
 
