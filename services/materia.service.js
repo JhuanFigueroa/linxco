@@ -1,7 +1,7 @@
 const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
-
+const sequilize=require('../libs/sequelize')
 
 class MateriaService {
   constructor() {}
@@ -21,15 +21,9 @@ class MateriaService {
     return rta;
   }
 
-  async findByUser(materia){
-    const rta = await models.Materia.findOne({
-      where: { materia }
-    });
-    return rta;
-  }
-
-  async findOne(id) {
-    const rta=await models.Materia.findByPk(id);
+  async findOne(clave) {
+    console.log(clave)
+    const rta=await models.Materia.findByPk(clave);
     if (!rta) {
       throw boom.notFound('materia not found')
     }

@@ -25,5 +25,10 @@ router.get('/boleta/:clave/:periodo',
   }
 );
 
+router.get('/periodo',
+  async (req,res,next)=>{
+      const periodo=await service.obtnerPeriodo();
+    res.status(200).json(periodo);
+  })
 
 module.exports = router;

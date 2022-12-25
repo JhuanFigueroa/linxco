@@ -20,7 +20,7 @@
 -- Sequence structure for acta_evaluacion_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."acta_evaluacion_id_seq";
-CREATE SEQUENCE "public"."acta_evaluacion_id_seq" 
+CREATE SEQUENCE "public"."acta_evaluacion_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -31,7 +31,7 @@ CACHE 1;
 -- Sequence structure for alumno_acta_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."alumno_acta_id_seq";
-CREATE SEQUENCE "public"."alumno_acta_id_seq" 
+CREATE SEQUENCE "public"."alumno_acta_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -42,7 +42,7 @@ CACHE 1;
 -- Sequence structure for baja_alumno_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."baja_alumno_id_seq";
-CREATE SEQUENCE "public"."baja_alumno_id_seq" 
+CREATE SEQUENCE "public"."baja_alumno_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -53,7 +53,7 @@ CACHE 1;
 -- Sequence structure for baja_razon_baja_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."baja_razon_baja_id_seq";
-CREATE SEQUENCE "public"."baja_razon_baja_id_seq" 
+CREATE SEQUENCE "public"."baja_razon_baja_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -64,7 +64,7 @@ CACHE 1;
 -- Sequence structure for baja_temp_def_id_baja_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."baja_temp_def_id_baja_seq";
-CREATE SEQUENCE "public"."baja_temp_def_id_baja_seq" 
+CREATE SEQUENCE "public"."baja_temp_def_id_baja_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -75,7 +75,7 @@ CACHE 1;
 -- Sequence structure for carga_academica_id_carga_academica_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."carga_academica_id_carga_academica_seq";
-CREATE SEQUENCE "public"."carga_academica_id_carga_academica_seq" 
+CREATE SEQUENCE "public"."carga_academica_id_carga_academica_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -86,7 +86,7 @@ CACHE 1;
 -- Sequence structure for constancia_alumno_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."constancia_alumno_id_seq";
-CREATE SEQUENCE "public"."constancia_alumno_id_seq" 
+CREATE SEQUENCE "public"."constancia_alumno_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -97,7 +97,7 @@ CACHE 1;
 -- Sequence structure for curso_carga_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."curso_carga_id_seq";
-CREATE SEQUENCE "public"."curso_carga_id_seq" 
+CREATE SEQUENCE "public"."curso_carga_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -108,7 +108,7 @@ CACHE 1;
 -- Sequence structure for curso_id_curso_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."curso_id_curso_seq";
-CREATE SEQUENCE "public"."curso_id_curso_seq" 
+CREATE SEQUENCE "public"."curso_id_curso_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -119,7 +119,7 @@ CACHE 1;
 -- Sequence structure for empleado_id_empleado_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."empleado_id_empleado_seq";
-CREATE SEQUENCE "public"."empleado_id_empleado_seq" 
+CREATE SEQUENCE "public"."empleado_id_empleado_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -130,7 +130,7 @@ CACHE 1;
 -- Sequence structure for factura_id_factura_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."factura_id_factura_seq";
-CREATE SEQUENCE "public"."factura_id_factura_seq" 
+CREATE SEQUENCE "public"."factura_id_factura_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -141,7 +141,7 @@ CACHE 1;
 -- Sequence structure for grupo_alumno_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."grupo_alumno_id_seq";
-CREATE SEQUENCE "public"."grupo_alumno_id_seq" 
+CREATE SEQUENCE "public"."grupo_alumno_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -152,7 +152,7 @@ CACHE 1;
 -- Sequence structure for grupo_id_grupo_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."grupo_id_grupo_seq";
-CREATE SEQUENCE "public"."grupo_id_grupo_seq" 
+CREATE SEQUENCE "public"."grupo_id_grupo_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -163,7 +163,7 @@ CACHE 1;
 -- Sequence structure for horario_id_horario_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."horario_id_horario_seq";
-CREATE SEQUENCE "public"."horario_id_horario_seq" 
+CREATE SEQUENCE "public"."horario_id_horario_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -174,7 +174,7 @@ CACHE 1;
 -- Sequence structure for maestro_horario_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."maestro_horario_id_seq";
-CREATE SEQUENCE "public"."maestro_horario_id_seq" 
+CREATE SEQUENCE "public"."maestro_horario_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -185,7 +185,7 @@ CACHE 1;
 -- Sequence structure for materia_carga_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."materia_carga_id_seq";
-CREATE SEQUENCE "public"."materia_carga_id_seq" 
+CREATE SEQUENCE "public"."materia_carga_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -196,7 +196,7 @@ CACHE 1;
 -- Sequence structure for materia_carrera_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."materia_carrera_id_seq";
-CREATE SEQUENCE "public"."materia_carrera_id_seq" 
+CREATE SEQUENCE "public"."materia_carrera_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -207,7 +207,7 @@ CACHE 1;
 -- Sequence structure for materia_horario_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."materia_horario_id_seq";
-CREATE SEQUENCE "public"."materia_horario_id_seq" 
+CREATE SEQUENCE "public"."materia_horario_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -218,7 +218,7 @@ CACHE 1;
 -- Sequence structure for periodo_id_periodo_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."periodo_id_periodo_seq";
-CREATE SEQUENCE "public"."periodo_id_periodo_seq" 
+CREATE SEQUENCE "public"."periodo_id_periodo_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -229,7 +229,7 @@ CACHE 1;
 -- Sequence structure for razonf_factura_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."razonf_factura_id_seq";
-CREATE SEQUENCE "public"."razonf_factura_id_seq" 
+CREATE SEQUENCE "public"."razonf_factura_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -240,7 +240,7 @@ CACHE 1;
 -- Sequence structure for renuncia_seguro_alumno_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."renuncia_seguro_alumno_id_seq";
-CREATE SEQUENCE "public"."renuncia_seguro_alumno_id_seq" 
+CREATE SEQUENCE "public"."renuncia_seguro_alumno_id_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -251,7 +251,7 @@ CACHE 1;
 -- Sequence structure for renuncia_seguro_id_renuncia_seguro_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."renuncia_seguro_id_renuncia_seguro_seq";
-CREATE SEQUENCE "public"."renuncia_seguro_id_renuncia_seguro_seq" 
+CREATE SEQUENCE "public"."renuncia_seguro_id_renuncia_seguro_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -262,7 +262,7 @@ CACHE 1;
 -- Sequence structure for rol_id_rol_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."rol_id_rol_seq";
-CREATE SEQUENCE "public"."rol_id_rol_seq" 
+CREATE SEQUENCE "public"."rol_id_rol_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -273,7 +273,7 @@ CACHE 1;
 -- Sequence structure for semestre_id_semestre_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."semestre_id_semestre_seq";
-CREATE SEQUENCE "public"."semestre_id_semestre_seq" 
+CREATE SEQUENCE "public"."semestre_id_semestre_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -284,7 +284,7 @@ CACHE 1;
 -- Sequence structure for tipo_constancia_id_tipo_constancia_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."tipo_constancia_id_tipo_constancia_seq";
-CREATE SEQUENCE "public"."tipo_constancia_id_tipo_constancia_seq" 
+CREATE SEQUENCE "public"."tipo_constancia_id_tipo_constancia_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -295,7 +295,7 @@ CACHE 1;
 -- Sequence structure for tipo_evaluacion_id_tipo_evaluacion_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."tipo_evaluacion_id_tipo_evaluacion_seq";
-CREATE SEQUENCE "public"."tipo_evaluacion_id_tipo_evaluacion_seq" 
+CREATE SEQUENCE "public"."tipo_evaluacion_id_tipo_evaluacion_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 2147483647
@@ -948,14 +948,14 @@ CREATE TABLE "public"."periodo" (
 -- ----------------------------
 -- Records of periodo
 -- ----------------------------
-INSERT INTO "public"."periodo" VALUES (2, '2022-1', 'Primer periodo 2022', 0);
-INSERT INTO "public"."periodo" VALUES (3, '2022-2', 'Segundo periodo 2022', 1);
-INSERT INTO "public"."periodo" VALUES (4, '2023-1', 'Primer periodo 2023', 0);
-INSERT INTO "public"."periodo" VALUES (5, '2023-2', 'Segundo periodo 2023', 0);
-INSERT INTO "public"."periodo" VALUES (6, '2024-1', 'Primer periodo 2024', 0);
-INSERT INTO "public"."periodo" VALUES (7, '2024-2', 'Segundo periodo 2024', 0);
-INSERT INTO "public"."periodo" VALUES (8, '2025-1', 'Primer periodo 2025', 0);
-INSERT INTO "public"."periodo" VALUES (9, '2025-2', 'Segundo periodo 2025', 0);
+INSERT INTO "public"."periodo" VALUES ( '2022-1', 'Primer periodo 2022', 0);
+INSERT INTO "public"."periodo" VALUES ( '2022-2', 'Segundo periodo 2022', 1);
+INSERT INTO "public"."periodo" VALUES ( '2023-1', 'Primer periodo 2023', 0);
+INSERT INTO "public"."periodo" VALUES ( '2023-2', 'Segundo periodo 2023', 0);
+INSERT INTO "public"."periodo" VALUES ( '2024-1', 'Primer periodo 2024', 0);
+INSERT INTO "public"."periodo" VALUES ( '2024-2', 'Segundo periodo 2024', 0);
+INSERT INTO "public"."periodo" VALUES ( '2025-1', 'Primer periodo 2025', 0);
+INSERT INTO "public"."periodo" VALUES ( '2025-2', 'Segundo periodo 2025', 0);
 
 -- ----------------------------
 -- Table structure for peticiones

@@ -2,9 +2,9 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const MateriaService = require('../services/Materia.service');
+const MateriaService = require('../services/materia.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateMateriaSchema, createMateriaSchema, getMateriaSchema } = require('../schemas/Materia.schema');
+const { updateMateriaSchema, createMateriaSchema, getMateriaSchema } = require('../schemas/materia.schema');
 
 const router = express.Router();
 const service = new MateriaService();
@@ -21,13 +21,13 @@ router.get('/',
     }
   });
 
-router.get('/:clave',
+router.get('/:clave_materia',
   validatorHandler(getMateriaSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { clave } = req.params;
-      const Materia = await service.findOne(clave);
-      res.json(Materia);
+      const { clave_materia } = req.params;
+      const materia = await service.findOne(clave_materia);
+      res.json(materia);
     } catch (error) {
       next(error);
     }

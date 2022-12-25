@@ -3,6 +3,7 @@ const express = require('express');
 const alumnosRouter=require('../routes/alumno.router');
 const admisionRouter=require('../routes/admision.router');
 const maestrosRouter=require('../routes/maestros.router');
+const materiasRouter=require('../routes/materia.router');
 const authRouter=require('../routes/auth.router');
 const rolRouter=require('../routes/rol.router');
 const carreraRouter=require('../routes/carrera.router');
@@ -17,6 +18,7 @@ function routerApi(app) {
   router.use('/alumnos', alumnosRouter);
   router.use('/admision', admisionRouter);
   router.use('/maestros', maestrosRouter);
+  router.use('/materias', materiasRouter);
   router.use('/auth', authRouter);
   router.use('/roles', rolRouter);
   router.use('/carreras', carreraRouter);

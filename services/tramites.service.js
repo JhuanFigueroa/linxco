@@ -35,5 +35,16 @@ class TramitesService {
     return calificaciones
   }
 
+  async obtnerPeriodo(){
+
+    const query="select id_periodo as id, numero_periodo as numero\n" +
+      "from periodo where\n" +
+      "status_periodo='1'";
+
+    const [data]= await sequilize.query(query);
+
+    return data;
+}
+
 }
 module.exports=TramitesService;
