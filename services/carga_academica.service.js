@@ -7,18 +7,11 @@ const {models}=require('../libs/sequelize')
 class carga_academicaService {
   constructor() {}
 
-  async create(data,materias) {
+  async create(data) {
 
     const newCargaAcademica=await models.CargaAcademica.create(data);
 
-    for (const materia in materias) {
-      var queryMateriaCara="  ";
-      var resultMateriaCarga=sequilize.query(queryMateriaCara);
-    }
-
-
-
-    return newCargaAcademica;
+    return newCargaAcademica.id;
   }
 
   async find() {

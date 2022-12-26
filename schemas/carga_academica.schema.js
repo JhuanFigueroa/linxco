@@ -1,16 +1,21 @@
 const Joi = require('joi');
 
 const id_carga_academica = Joi.number();
-const fecha_carga_academica = Joi.string();
+const fecha = Joi.string();
+const claveTipoCarga=Joi.string()
+const matriculaAlumno=Joi.string()
+const idPeriodo=Joi.number()
 
 
 const createcarga_academicaSchema = Joi.object({
-  id_carga_academica:id_carga_academica.required(),
-  fecha_carga_academica:fecha_carga_academica.required(),
+  fecha:fecha.required(),
+  claveTipoCarga:claveTipoCarga.required(),
+  matriculaAlumno:matriculaAlumno.required(),
+  idPeriodo:idPeriodo.required()
 });
 
 const updatecarga_academicaSchema = Joi.object({
-    fecha_carga_academica:fecha_carga_academica
+    fecha:fecha
 
 });
 

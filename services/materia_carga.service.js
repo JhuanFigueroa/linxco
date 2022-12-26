@@ -7,20 +7,20 @@ class materia_cargaService {
 
   async create(data) {
 
-    const newmateriaCarga=await models.materiaCarga.create(data);
+    const newmateriaCarga=await models.MateriaCarga.create(data);
 
 
     return newmateriaCarga;
   }
 
   async find() {
-    const rta = await models.materiaCarga.findAll()
+    const rta = await models.MateriaCarga.findAll()
 
     return rta;
   }
 
   async findOne(id) {
-    const rta=await models.materiaCarga.findByPk(id);
+    const rta=await models.MateriaCarga.findByPk(id);
     if (!rta) {
       throw boom.notFound('materia-carga not found')
     }

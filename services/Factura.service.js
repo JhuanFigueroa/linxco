@@ -1,7 +1,7 @@
 const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
-
+const sequelize=require('../libs/sequelize')
 
 class FacturaService {
   constructor() {}
@@ -18,6 +18,18 @@ class FacturaService {
     const rta = await models.Factura.findAll()
 
     return rta;
+  }
+
+  async findTiposFactura() {
+    const [data] = await sequelize.query("select clave_razon_factura as clave, nombre_razon_factura as nombre, precio_unitario_factura as precio  from razon_factura where status_razon_factura ='1'")
+
+    return data;
+  }
+
+  async findTiposFacturaId(clave) {
+    const [data] = await sequelize.query("select * from razon_factura where clave_razon_factura='"+clave+"'")
+
+    return data;
   }
 
   async findOne(id) {

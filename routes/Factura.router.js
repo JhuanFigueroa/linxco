@@ -21,6 +21,29 @@ router.get('/',
   }
 });
 
+router.get('/tipos',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const factura = await service.findTiposFactura();
+      res.json(factura);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/tipos/:clave',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const{clave}=req.params
+      const factura = await service.findTiposFacturaId(clave);
+      res.json(factura);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 router.get('/:id',
   validatorHandler(getFacturaSchema, 'params'),
   async (req, res, next) => {
