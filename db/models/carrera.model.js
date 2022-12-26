@@ -63,6 +63,10 @@ class Carrera extends Model {
       foreignKey: 'clave_carrera',
       otherKey:'clave_materia'
     });
+
+    this.hasOne(models.JefeDivision,{
+      as:'jefe'
+    })
   }
 
   static config(sequelize) {

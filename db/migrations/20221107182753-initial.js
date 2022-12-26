@@ -53,6 +53,7 @@ const {MATERIA_HORARIO_TABLE, MateriaHorarioSchema} = require("../models/materia
 const {USUARIO_ADMISION_TABLE,UsuarioAdmisionSchema}=require('../models/usuario_admision.model');
 const {PETICION_TABLE,PeticionSchema}=require('../models/peticiones.model');
 const {CREDENCIAL_TABLE,CredencialSchema}=require('../models/credencial.model');
+const {JEFE_TABLE,JefeSchema}=require('../models/jefe_division.model');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface) {
@@ -111,6 +112,7 @@ module.exports = {
     await queryInterface.createTable(PETICION_TABLE,PeticionSchema);
     await queryInterface.createTable(CREDENCIAL_TABLE,CredencialSchema);
     await queryInterface.createTable(USUARIO_ADMISION_TABLE,UsuarioAdmisionSchema);
+    await queryInterface.createTable(JEFE_TABLE,JefeSchema);
 
 
 
