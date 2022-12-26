@@ -31,6 +31,18 @@ values  (1, 'maestro', 1),
            (11, '11', 1),
            (12, '12', 1);
 
+
+           insert into public.carrera (clave_carrera, nombre_carrera, especialidad_carrera, planestudio_carrera, imagen_carrera, status_carrera)
+           values  ('ISIC', 'INGENIIERIA EN SISTEMAS', 'CLOUD COMPUTIN', 'CLOUD-C', 'http://localhost:3000/storage/1671390264365-577364018-sistemas-transformed.png', 1),
+                   ('ADMON', 'LIC EN ADMINISTRACION', 'ADMINISTRAR', 'ADMON-II', 'http://localhost:3000/storage/1671390387694-775532311-admin-transformed.png', 1),
+                   ('CIVIL', 'INGENRIERIA CIVIL', 'MEZCLAS', 'CIVIL-II', 'http://localhost:3000/storage/1671390437304-279022702-civil-9XdM7iuZU-transformed.png', 1),
+                   ('ELECTRICA', 'INGENRIERIA ELECTRICA', 'FOCOS Y CABLES', 'ELEC-II', 'http://localhost:3000/storage/1671390527210-167273244-elect-transformed.png', 1),
+                   ('INDUSTRIAL', 'INGENRIERIA INDUSTRIAL', 'PLANOS', 'IND-II', 'http://localhost:3000/storage/1671390574292-126446760-indus-transformed.png', 1),
+                   ('LOGIS', 'INGENRIERIA LOGISTICA', 'EMBARQUES', 'LOG-II', 'http://localhost:3000/storage/1671390606134-892103902-logi-transformed.jpeg', 1),
+                   ('MECA', 'INGENRIERIA MECATRONICA', 'MAQUINAS', 'MECA-II', 'http://localhost:3000/storage/1671390652445-990177896-mecos-transformed.png', 1),
+                   ('QUMICA', 'INGENRIERIA QUMICA', 'SUSTANCIAS', 'QUIMI-II', 'http://localhost:3000/storage/1671390685573-740557032-quimica-transformed.png', 1),
+                   ('TICS', 'INGENRIERIA EN TICS', 'COMPUTADORAS', 'TICS-II', 'http://localhost:3000/storage/1671390708339-48811829-tics-transformed.jpeg', 1);
+
    insert into public.alumno (matricula_alumno, nombre_alumno, apellido_paterno_alumno, apellido_materno_alumno, telefono_alumno, correo_alumno, curp_alumno, domicilio_alumno, numero_seguro_alumno, status_alumno, username_alumno, password_alumno, clave_carrera, id_rol, id_semestre)
    values  ('201923158', 'Juan', 'Figueroa', 'Trejo', '7731271279', 'juanF@mail.com', 'FITJ010106HHGGRNA9', 'Cañada de Madero Hidalgo', '65461', 1, '201923158', '$2b$10$Q8cUQv6iEwafecLyykD6q.jsjxrWcLS14.sABmXaetP4fzO22Ex4q', 'ISIC', 4, 7),
            ('201923596', 'Carlos', 'Arce', 'Hernandez', '7784569874', 'carlosH@mail.com', 'AEHC001121HMCRRRA0', 'La colonia', '261321', 1, '201923596', '$2b$10$9tTI8Wt5zi6mHmKH3LSumu6LVZYW3okweJz.THNP.i2xKhz7xULS6', 'ADMON', 4, 7),
