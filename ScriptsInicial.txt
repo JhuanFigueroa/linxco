@@ -12,7 +12,7 @@
  Target Server Version : 120008
  File Encoding         : 65001
 
- Date: 26/12/2022 18:32:41
+ Date: 26/12/2022 18:56:53
 */
 
 
@@ -447,6 +447,9 @@ CREATE TABLE "public"."alumno" (
 -- ----------------------------
 -- Records of alumno
 -- ----------------------------
+INSERT INTO "public"."alumno" VALUES ('201923158', 'Juan', 'Figueroa', 'Trejo', '7731271279', 'juanF@mail.com', 'FITJ010106HHGGRNA9', 'Cañada de Madero Hidalgo', '65461', 1, '201923158', '$2b$10$Q8cUQv6iEwafecLyykD6q.jsjxrWcLS14.sABmXaetP4fzO22Ex4q', 'ISIC', 4, 7);
+INSERT INTO "public"."alumno" VALUES ('201923596', 'Carlos', 'Arce', 'Hernandez', '7784569874', 'carlosH@mail.com', 'AEHC001121HMCRRRA0', 'La colonia', '261321', 1, '201923596', '$2b$10$9tTI8Wt5zi6mHmKH3LSumu6LVZYW3okweJz.THNP.i2xKhz7xULS6', 'ADMON', 4, 7);
+INSERT INTO "public"."alumno" VALUES ('201823203', 'Diana', 'Osornio', 'De Jesus', '75421655', 'dianaO@mail.com', 'OOJD00722MMCSNA9', 'Las Huertas', '26265', 1, '201823203', '$2b$10$wmWhKeXvHU6B1FduGRhof.S0mk7Qpx1WGi7iAHzROcsLmAv1fSp9e', 'LOGIS', 4, 9);
 
 -- ----------------------------
 -- Table structure for alumno_acta
@@ -542,6 +545,15 @@ CREATE TABLE "public"."carrera" (
 -- ----------------------------
 -- Records of carrera
 -- ----------------------------
+INSERT INTO "public"."carrera" VALUES ('ISIC', 'INGENIIERIA EN SISTEMAS', 'CLOUD COMPUTIN', 'CLOUD-C', 'http://localhost:3000/storage/1671390264365-577364018-sistemas-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('ADMON', 'LIC EN ADMINISTRACION', 'ADMINISTRAR', 'ADMON-II', 'http://localhost:3000/storage/1671390387694-775532311-admin-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('CIVIL', 'INGENRIERIA CIVIL', 'MEZCLAS', 'CIVIL-II', 'http://localhost:3000/storage/1671390437304-279022702-civil-9XdM7iuZU-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('ELECTRICA', 'INGENRIERIA ELECTRICA', 'FOCOS Y CABLES', 'ELEC-II', 'http://localhost:3000/storage/1671390527210-167273244-elect-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('INDUSTRIAL', 'INGENRIERIA INDUSTRIAL', 'PLANOS', 'IND-II', 'http://localhost:3000/storage/1671390574292-126446760-indus-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('LOGIS', 'INGENRIERIA LOGISTICA', 'EMBARQUES', 'LOG-II', 'http://localhost:3000/storage/1671390606134-892103902-logi-transformed.jpeg', 1);
+INSERT INTO "public"."carrera" VALUES ('MECA', 'INGENRIERIA MECATRONICA', 'MAQUINAS', 'MECA-II', 'http://localhost:3000/storage/1671390652445-990177896-mecos-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('QUMICA', 'INGENRIERIA QUMICA', 'SUSTANCIAS', 'QUIMI-II', 'http://localhost:3000/storage/1671390685573-740557032-quimica-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('TICS', 'INGENRIERIA EN TICS', 'COMPUTADORAS', 'TICS-II', 'http://localhost:3000/storage/1671390708339-48811829-tics-transformed.jpeg', 1);
 
 -- ----------------------------
 -- Table structure for constancia_alumno
@@ -653,6 +665,7 @@ CREATE TABLE "public"."empleado" (
 -- ----------------------------
 -- Records of empleado
 -- ----------------------------
+INSERT INTO "public"."empleado" VALUES (1, 'Omar', 'Aranda', 'Almaraz', '7731271279', 'omarA@mail.com', 1, '201923197', '$2b$10$OmKYSxch2V8wFVHJP2T1fuj2cTSvmCtWPrZ.JVZCEJ0Xut/mnlvGy', 5);
 
 -- ----------------------------
 -- Table structure for factura
@@ -757,6 +770,9 @@ CREATE TABLE "public"."maestro" (
 -- ----------------------------
 -- Records of maestro
 -- ----------------------------
+INSERT INTO "public"."maestro" VALUES ('201923789', 'Angel', 'Rosas', 'Flores', 'angelR@mail.com', 1, '201923789', '$2b$10$f388WqTyy25KwbHcpdIkh.jR0IVEhU39F2n0kky1vbKfF.W1RUe4a', 3);
+INSERT INTO "public"."maestro" VALUES ('201923321', 'Brandon', 'Lee', 'Flores', 'brandonLF@mail.com', 1, '201923321', '$2b$10$yzWdaJ4TYHjeGDUXMCE31OCAy4nYX22qRUYxs8UwgcPnBHS8l7Pla', 1);
+INSERT INTO "public"."maestro" VALUES ('201923157', 'Alexis', 'Antonio', 'Martinez', 'alex@mail.com', 1, '201923158', '$2b$10$9cNjkOVkCC8ngnqnDh5wyOgDeQ6XGG3vna8onDkTzRLLaaRvSn0sG', 1);
 
 -- ----------------------------
 -- Table structure for maestro_horario
@@ -788,6 +804,53 @@ CREATE TABLE "public"."materia" (
 -- ----------------------------
 -- Records of materia
 -- ----------------------------
+INSERT INTO "public"."materia" VALUES ('ACA-0907', 'TALLER DE ETICA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACA-0909', 'TALLER DE INVESTIGACION I', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACC-0906', 'FUNDAMENTOS DE INVESTIGACION', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACD-0908', 'DESARROLLO SUSTENTABLE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0901', 'CALCULO DIFERENCIAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0902', 'CALCULO INTEGRAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0903', 'ALGEBRA LINEAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0904', 'CALCULO VECTORIAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0905', 'ECUACIONES DIFERENCIALES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEB-1055', 'PROGRAMACION WEB', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1008', 'CONTABILIDAD FINANCIERA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1034', 'FUNDAMENTOS DE TELECOMUNICACIONES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1061', 'SISTEMAS OPERATIVOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AED-1026', 'ESTRUCTURA DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AED-1286', 'PROGRAMACION ORIENTADA A OBJETOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1031', 'FUNDAMENTOS DE BASES DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1041', 'MATEMATICAS DISCRETAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1052', 'PROBABILIDAD Y ESTADISTICA', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1058', 'QUIMICA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2001', 'INTERNET DE LAS COSAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2002', 'DESARROLLO DE APLICACIONES PARA DISPOSITIVOS MOVILES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2003', 'CIBERSEGURIDAD', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1002', 'ADMINISTRACION DE REDES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1025', 'TALLER DE BASE DE DATOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1026', 'TALLER DE SISTEMAS OPERATIVOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCB-1001', 'ADMINISTRACION DE BASE DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1007', 'FUNDAMENTOS DE INGENIERIA DE SOFTWARE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1010', 'GRAFICACION', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1012', 'INTELIGENCIA ARTIFICIAL', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1013', 'INVESTIGACION DE OPERACIONES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1014', 'LENGUAJES DE INTERFAZ', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1017', 'METODOS NUMERICOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1019', 'PROGRAMACION LOGICA Y FUNCIONAL', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1023', 'SISTEMAS PROGRAMABLES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1003', 'ARQUITECTURA DE COMPUTADORAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1004', 'CONMUTACION Y ENRUTAMIENTO DE REDES DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1008', 'FUNDAMENTOS DE PROGRAMACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1011', 'INGENIERIA DE SOFTWARE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1015', 'LENGUAJES Y AUTOMATAS I', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1016', 'LENGUAJES Y AUTOMATAS II', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1018', 'PRINCIPIOS ELECTRICOS Y APLICACIONES DIGITALES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1021', 'REDES DE COMPUTADORAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1022', 'SIMULACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1027', 'TOPICOS AVANZADOS DE PROGRAMACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCF-1006', 'FISICA GENERAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCG-1009', 'GESTION DE PROYECTOS DE SOFTWARE', 6, 1);
+INSERT INTO "public"."materia" VALUES ('SCH-102', 'TALLER DE ADMINISTRACION', 4, 1);
 
 -- ----------------------------
 -- Table structure for materia_carga
@@ -1011,6 +1074,9 @@ CREATE TABLE "public"."tipo_carga" (
 -- ----------------------------
 -- Records of tipo_carga
 -- ----------------------------
+INSERT INTO "public"."tipo_carga" VALUES ('INS-1', 'INSCRIPCION', 'ES EL PRIMER PASO PARA SER ESTUDIANTE', 1);
+INSERT INTO "public"."tipo_carga" VALUES ('RES-2', 'REINSCRIPCION', 'CUANDO TE INTEGRAS A UN NUEVO SEMESTRE', 1);
+INSERT INTO "public"."tipo_carga" VALUES ('CUR-3', 'CURSO DE VERANO', 'TIEMPO EXTRA PARA TOMAR UNA MATERIA', 1);
 
 -- ----------------------------
 -- Table structure for tipo_constancia
