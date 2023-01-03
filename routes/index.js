@@ -13,6 +13,8 @@ const facturaRouter=require('../routes/Factura.router');
 const materiaCarga=require('../routes/materia_carga.router');
 const tramiteRouter=require('../routes/tramites.router')
 const tipoCargaRoute=require('../routes/tipo_carga.router')
+const tablaCarrera=require('../routes/carrera.router')
+const tablaPeriodo=require('../routes/periodo.router')
 
 
 function routerApi(app) {
@@ -32,7 +34,8 @@ function routerApi(app) {
   router.use('/materia-carga', materiaCarga);
   router.use('/tramites', tramiteRouter);
   router.use('/tipoCarga', tipoCargaRoute);
-
+  router.use('/carrera',tablaCarrera);
+  router.use('/periodo',tablaPeriodo);
 
 }
 

@@ -15,7 +15,8 @@ router.get('/',
   async (req, res, next) => {
     try {
       const empleados = await service.find();
-      res.json(empleados);
+      const empleados1 = await service.findEmp();
+      res.json({empleados,empleados1});
     } catch (error) {
       next(error);
     }
@@ -35,8 +36,8 @@ router.get('/:id',
 );
 
 router.post('/',
-  passport.authenticate('jwt',{session:false}),
-  validatorHandler(createEmpleadoSchema, 'body'),
+  //passport.authenticate('jwt',{session:false}),
+  //validatorHandler(createEmpleadoSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;

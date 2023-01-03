@@ -5,7 +5,7 @@ const nombre=Joi.string();
 const especialidad=Joi.string();
 const plan_estudios=Joi.string();
 const status=Joi.number();
-const imagen=Joi.object();
+//const imagen=Joi.object();
 
 
 const createCarreraSchema = Joi.object({
@@ -19,9 +19,10 @@ const createCarreraSchema = Joi.object({
 });
 
 const updateCarreraSchema = Joi.object({
+  clave:clave,
+  nombre:nombre,
   especialidad:especialidad,
-  plan_estudios:plan_estudios,
-  status:status,
+  plan_estudios:plan_estudios
 });
 
 const getCarreraSchema = Joi.object({

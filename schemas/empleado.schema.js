@@ -20,7 +20,7 @@ const createEmpleadoSchema = Joi.object({
   telefono:telefono,
   username:username.required(),
   password:password.required(),
-  idRol:idRol.required(),
+  idRol:idRol.required()
 
 });
 
