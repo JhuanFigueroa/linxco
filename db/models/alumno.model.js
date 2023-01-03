@@ -142,6 +142,10 @@ class Alumno extends Model {
       as:'cargas',
       foreignKey:'matricula_alumno'
     });
+    this.hasMany(models.Factura,{
+      as:'facturas',
+      foreignKey:'matricula_alumno'
+    });
     this.hasMany(models.Credencial,{
       as: 'credencial',
       foreignKey: 'id_credencial'

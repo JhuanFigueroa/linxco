@@ -1,6 +1,7 @@
 const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
+const sequelize=require('../libs/sequelize')
 
 
 
@@ -9,6 +10,11 @@ class BajaAlumnoService {
 
   async create(data) {
     const newBaja=await models.BajaAlumno.create(data);
+
+    const rta=await sequelize.query("UPDATE alumno \n" +
+      "SET status_alumno = 0 \n" +
+      "WHERE\n" +
+      "\tmatricula_alumno = '"+data.matriculaAlumno+"'");
 
     return newBaja;
   }

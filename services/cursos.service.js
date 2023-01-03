@@ -8,7 +8,7 @@ class CursosService {
 
   async create(data) {
 
-    const newCursos=await models.Cursos.create(data);
+    const newCursos=await models.Curso.create(data);
 
     delete newCursos.dataValues.password;
 
@@ -16,13 +16,13 @@ class CursosService {
   }
 
   async find() {
-    const rta = await models.Cursos.findAll()
+    const rta = await models.Curso.findAll()
 
     return rta;
   }
 
   async findOne(id) {
-    const rta=await models.Cursos.findByPk(id);
+    const rta=await models.Curso.findByPk(id);
     if (!rta) {
       throw boom.notFound('Cursos not found')
     }

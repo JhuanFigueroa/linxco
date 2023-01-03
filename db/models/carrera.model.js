@@ -53,6 +53,10 @@ class Carrera extends Model {
       foreignKey: 'clave_carrera'
     });
 
+    this.hasMany(models.Grupo,{
+      as: 'alumnos',
+      foreignKey: 'clave_carrera'
+    });
     this.belongsTo(models.Horario,{
       as:'horaio',
     });

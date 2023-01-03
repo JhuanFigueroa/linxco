@@ -36,7 +36,6 @@ router.get('/:id',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
   validatorHandler(createBajaAlumnoSchema, 'body'),
   async (req, res, next) => {
     try {

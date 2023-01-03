@@ -31,4 +31,45 @@ router.get('/periodo',
     res.status(200).json(periodo);
   })
 
+router.get('/reinscribir/estudiantes/:clave',
+  async (req,res,next)=>{
+    const{clave}=req.params
+    const periodo=await service.getAlumnosReinscripcion(clave);
+    res.status(200).json(periodo);
+  })
+
+router.post('/reinscribir',
+  async (req,res,next)=>{
+    const body=req.body
+    const periodo=await service.asignarReinscripcion(body);
+    res.status(200).json(periodo);
+  })
+
+router.get('/reinscribir/carga/:matricula/:periodo',
+  async (req,res,next)=>{
+    const {matricula}=req.params
+    const {periodo}=req.params
+    const tipoCarga=await service.obtnerTipoCarga(matricula,periodo);
+    const carga=await service.obtenerCargaAlumno(matricula,periodo);
+    res.status(200).json({tipoCarga, carga});
+  })
+router.post('/reinscribir-alumno',
+  async (req,res,next)=>{
+    const body=req.body
+    const periodo=await service.reinscribirAlumno(body);
+    res.status(200).json(periodo);
+  })
+
+router.post('/credencial',
+  async (req,res,next)=>{
+    const body=req.body
+    const periodo=await service.credencial(body);
+    res.status(200).json(periodo);
+  })
+router.post('/renuncia-seguro',
+  async (req,res,next)=>{
+    const body=req.body
+    const periodo=await service.renunciaSeguro(body);
+    res.status(200).json(periodo);
+  })
 module.exports = router;

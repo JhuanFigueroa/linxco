@@ -2,9 +2,9 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const Grupoervice = require('../services/Grupo.service');
+const Grupoervice = require('../services/grupo.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateGrupoSchema, createGrupochema, getGrupochema } = require('../schemas/Grupo.schema');
+const { updateGrupoSchema, createGrupochema, getGrupochema } = require('../schemas/grupo.schema');
 
 const router = express.Router();
 const service = new Grupoervice();
@@ -15,6 +15,30 @@ router.get('/',
   async (req, res, next) => {
     try {
       const Grupo = await service.find();
+      res.json(Grupo);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/nombre/:grupo',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const{grupo}=req.params
+      const Grupo = await service.findByNombre(grupo);
+      res.json(Grupo);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/carrera/:clave',
+ // passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const {clave}=req.params
+      const Grupo = await service.findByCarrera(clave);
       res.json(Grupo);
     } catch (error) {
       next(error);
@@ -51,7 +75,7 @@ router.post('/',
 
 router.patch('/:id',
   validatorHandler(getGrupochema, 'params'),
-  validatorHandler(updateGrupochema, 'body'),
+  validatorHandler(updateGrupoSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;

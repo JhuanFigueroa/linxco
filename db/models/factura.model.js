@@ -1,5 +1,6 @@
 
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const {ALUMNO_TABLE} = require("./alumno.model");
 
 const FACTURA_TABLE = 'factura';
 
@@ -23,6 +24,24 @@ const FacturaSchema = {
     field:'monto_total_factura',
     allowNull: false,
     type: DataTypes.FLOAT
+  },
+  matriculaAlumno: {
+    field: 'matricula_alumno',
+    allowNull: false,
+    type: DataTypes.STRING,
+
+    references: {
+      model: ALUMNO_TABLE,
+      key: 'matricula_alumno'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
+
+  },
+  status:{
+    field:'status_factura',
+    allowNull:false,
+    type:DataTypes.INTEGER
   }
 }
 
@@ -30,6 +49,8 @@ const FacturaSchema = {
 class Factura extends Model {
   static associate(models) {
     // associate
+    this.belongsTo(models.Alumno, {as: 'alumno'});
+
     this.belongsToMany(models.RazonFactura,{
       as:'razones',
       through:models.RazonfFactura,
