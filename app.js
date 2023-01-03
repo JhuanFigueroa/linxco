@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use('/storage', express.static(__dirname + '/storage'));
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co'];
+const whitelist = ['http://localhost:8081', 'https://myapp.co'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
@@ -36,6 +36,17 @@ app.get('/nueva-ruta', (req, res) => {
 
 routerApi(app);
 
+app.get('/descargar/:id', function(req,res){
+      res.download(__dirname+'/storage/'+ req.params.id,
+      req.params.id,function(err){
+        if(err){
+          console.log(err);
+        }else{
+          console.log("LISTO");
+        }
+
+      })
+});
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
