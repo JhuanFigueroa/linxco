@@ -12,10 +12,10 @@ const service = new AdmisionService();
 
 
 router.get('/',
-  passport.authenticate('jwt',{session:false}),
+  //passport.authenticate('jwt',{session:false}),//Esta sirve va validar que se haya iniciado sesion
   async (req, res, next) => {
     try {
-      const users = await service.find();
+      const users = await service.find();//Aqui se ejecuta el metodo que ete en service
       res.json(users);
     } catch (error) {
       next(error);
@@ -36,15 +36,16 @@ router.get('/:numero',
 );
 
 router.post('/',
-  upload.single('curp'),
-  passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createAdmisionSchema, 'body'),
+  //upload.single('curp'),//para subir la curp solo un archivo
+  //passport.authenticate('jwt',{session:false}),
+  //checkAdminRole,
+  //validatorHandler(createAdmisionSchema, 'body'),//valida que todos los datos se esten enviando
   async (req, res, next) => {
     try {
       const file=req.file
       const body = req.body;
-      const newAdmision = await service.create(file,body);
+      //const newAdmision = await service.create(file,body);
+      const newAdmision = await service.create(body);
       res.status(201).json(newAdmision);
     } catch (error) {
       next(error);

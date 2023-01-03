@@ -29,7 +29,7 @@ const CarreraSchema = {
   },
   imagen:{
     field:'imagen_carrera',
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING
   },
   status:{
