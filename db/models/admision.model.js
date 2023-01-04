@@ -45,6 +45,11 @@ const Admisionchema = {
     type: DataTypes.STRING,
     unique: true
   },
+  promedio:{
+    field:'promedio_admision',
+    allowNull:false,
+    type:DataTypes.FLOAT
+  },
   curp: {
     field:'curp_admision',
     allowNull: false,
@@ -79,7 +84,8 @@ const Admisionchema = {
   lugar_aplicacion: {
     field:'lugar_aplicaion_admision',
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    defaultValue: 'TESJI'
   },
   persona_emergencia: {
     field:'persona_emergencia_admision',
@@ -111,7 +117,10 @@ class Admision extends Model {
     // associate
   this.belongsTo(models.Carrera,{
     as:'carrera'
-  })
+  });
+  this.hasOne(models.UsuarioAdmision,{
+    as:'usuario'
+  });
   }
 
   static config(sequelize) {

@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
-
+const bodyParser=require('body-parser')
+var multer = require('multer');
+var upload = multer();
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
@@ -11,7 +13,7 @@ app.use(express.json());
 
 app.use('/storage', express.static(__dirname + '/storage'));
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co'];
+const whitelist = ['http://localhost:8081', 'https://myapp.co'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {

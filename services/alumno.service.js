@@ -1,7 +1,7 @@
 const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
-
+const sequilize=require('../libs/sequelize')
 
 class AlumnoService {
   constructor() {}
@@ -38,6 +38,18 @@ class AlumnoService {
       throw boom.notFound('user not found')
     }
     return rta;
+  }
+
+  async findForCarga(matricula){
+    const query="SELECT concat(nombre_alumno,' ',apellido_paterno_alumno,' ', apellido_materno_alumno) as nombre\n" +
+      ",telefono_alumno as telefono,correo_alumno as correo,nombre_carrera as carrera\n" +
+      "from alumno,carrera\n" +
+      "where carrera.clave_carrera=alumno.clave_carrera\n" +
+      "and matricula_alumno='"+matricula+"'";
+
+    const [data]=await sequilize.query(query);
+
+    return data;
   }
 
   async update(id, changes) {

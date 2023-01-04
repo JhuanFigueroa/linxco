@@ -5,6 +5,7 @@ const {checkAdminRole} =require('./../middlewares/auth.handler')
 const CarreraService = require('../services/carrera.service');
 const validatorHandler = require('./../middlewares/validator.handler');
 const { updateCarreraSchema, createCarreraSchema, getCarreraSchema } = require('../schemas/carrera.schema');
+const upload = require("../libs/storage");
 
 const router = express.Router();
 const service = new CarreraService();
@@ -15,7 +16,8 @@ router.get('/',
   async (req, res, next) => {
     try {
       const carreras = await service.find();
-      res.json(carreras);
+      const vercarreras = await service.verDatos();
+      res.json({carreras,vercarreras}); //En caso de usar mas de 2 servicios
     } catch (error) {
       next(error);
     }
@@ -35,12 +37,14 @@ router.get('/:clave',
 );
 
 router.post('/',
-  passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
+  //upload.single('imagen'),
+  //passport.authenticate('jwt',{session:false}),
+  //checkAdminRole,
   validatorHandler(createCarreraSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
+      //const file=req.file;
       const newCarrera = await service.create(body);
       res.status(201).json(newCarrera);
     } catch (error) {

@@ -21,6 +21,11 @@ const RazonFacturaSchema = {
     field:'status_razon_factura',
     allowNull: false,
     type: DataTypes.INTEGER
+  },
+  precioUnitario:{
+    field:'precio_unitario_factura',
+    allowNull:false,
+    type:DataTypes.FLOAT
   }
 }
 

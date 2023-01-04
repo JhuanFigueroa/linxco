@@ -26,7 +26,6 @@ const createAlumnoSchema = Joi.object({
   telefono:telefono,
   username:username.required(),
   password:password.required(),
-  status:status.required(),
   idRol:idRol.required(),
   claveCarrera:claveCarrera.required(),
   idSemestre:idSemestre.required()

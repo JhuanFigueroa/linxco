@@ -34,6 +34,18 @@ router.get('/:id',
   }
 );
 
+router.get('/datosCarga/:clave',
+  async (req, res, next) => {
+    try {
+      const { clave } = req.params;
+      const alumno = await service.findForCarga(clave);
+      res.json(alumno);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   checkAdminRole,

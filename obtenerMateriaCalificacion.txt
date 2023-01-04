@@ -1,0 +1,10 @@
+DROP FUNCTION obtenerMateriaCalificacion
+CREATE OR REPLACE FUNCTION obtenerMateriaCalificacion(claveMatAlumno VARCHAR, claveMateria VARCHAR)
+RETURNS TABLE (clave_materia VARCHAR(255),nombre_materia VARCHAR(255), calificacion_acta FLOAT)
+AS
+$$
+	Select materia.clave_materia, materia.nombre_materia,acta_calificaciones.calificacion_acta from materia,acta_calificaciones,alumno_acta where materia.clave_materia=acta_calificaciones.clave_materia and acta_calificaciones.folio_acta=alumno_acta.folio_acta and alumno_acta.matricula_alumno=claveMatAlumno and materia.clave_materia=claveMateria;
+$$
+LANGUAGE SQL
+
+select obtenerMateriaCalificacion('201923158','ACA-0909')

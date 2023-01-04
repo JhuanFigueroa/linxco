@@ -12,18 +12,6 @@ const RenunicaSeguroAlumnoSchema =  {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  idRenuncia: {
-    field:'id_renuncia_seguro',
-    allowNull: false,
-    primaryKey: true,
-    type:DataTypes.INTEGER,
-    references: {
-      model: RENUNCIA_SEGURO_TABLE,
-      key: 'id_renuncia_seguro'
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'SET NULL'
-  },
   matriculaAlumno: {
     field:'matricula_alumno',
     allowNull: false,
@@ -35,6 +23,11 @@ const RenunicaSeguroAlumnoSchema =  {
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
+  },
+  fecha: {
+    field:'fecha_renuncia_seguro',
+    allowNull: false,
+    type: DataTypes.DATE
   }
 }
 

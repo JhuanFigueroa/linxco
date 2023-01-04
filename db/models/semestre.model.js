@@ -21,7 +21,8 @@ const SemestreSchema = {
   status:{
     field:'status_semestre',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 

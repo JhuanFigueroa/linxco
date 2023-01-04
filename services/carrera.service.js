@@ -2,12 +2,20 @@ const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
 const {Carrera} = require("../db/models/carrera.model");
+const sequilize=require('../libs/sequelize') //Libreria para mysql
 
 
 class CarreraService {
   constructor() {}
 
-  async create(data) {
+  async create(data) { //Lleva un segundo parametro llamado file
+    /*var filename = file.filename;
+    filename = 'http://localhost:3000/storage/' + filename;
+    data = {
+      ...data,
+      imagen: filename,
+    };*/
+
     const newCarrera=await models.Carrera.create(data);
 
     return newCarrera;
@@ -18,6 +26,15 @@ class CarreraService {
 
     return rta;
   }
+  async verDatos(){
+    const [datosCarrera] = await sequilize.query("Select carrera.clave_carrera,carrera.nombre_carrera, carrera.especialidad_carrera, carrera.planestudio_carrera from carrera where carrera.status_carrera=1")
+    return datosCarrera
+  }
+  async extraerDatos(clvaveEx){
+    const [datosExCar] = await sequilize.query("Select carrera.clave_carrera,carrera.nombre_carrera, carrera.especialidad_carrera, carrera.planestudio_carrera from carrera where carrera.clave_carrera = '"+clvaveEx+"'")
+    return datosExCar
+  }
+
 
   async findOne(id) {
     const rta=await models.Carrera.findByPk(id);

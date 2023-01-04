@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION obtenerMateriasCargaAcademica(clave VARCHAR, periodo int)
+RETURNS VARCHAR
+AS
+$$
+	SELECT materia.clave_materia FROM materia, carga_academica, materia_carga WHERE materia_carga.id_carga_academica = carga_academica.id_carga_academica AND materia.clave_materia = materia_carga.clave_materia and carga_academica.matricula_alumno=clave and carga_academica.id_periodo=periodo
+$$
+LANGUAGE SQL
+
+
+select obtenermateriascargaacademica('201923158', 5)

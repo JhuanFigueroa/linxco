@@ -1,0 +1,33 @@
+Juan
+acta_calif
+acta_evaluacion
+admision
+alumno_acta
+baja_alumno
+baja_razon
+baja_temp_def
+
+Lee
+carga_academica		*:
+constancia		*:
+constancia_alumnos	*:
+constancia_tipo		*:
+curso_carga		*:
+factura			*:
+
+Omar
+grupo-_alumno
+horario
+maestro_horario
+materia_carga
+materia_carrera
+materia_horario
+
+Carlos
+razon_baja
+razon_factura
+razonf_factura
+renuncia_seguro
+renunciaseg_alumno
+tipo_constancia
+

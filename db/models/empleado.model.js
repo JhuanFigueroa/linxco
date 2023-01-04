@@ -42,18 +42,19 @@ const EmpleadoSchema = {
     unique: true
   },
   status:{
-    field:'status_maestro',
+    field:'status_empleado',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   },
   username:{
-    field:'username_maestro',
+    field:'username_empleado',
     allowNull:false,
     type:DataTypes.STRING,
     unique:true
   },
   password:{
-    field:'password_maestro',
+    field:'password_empleado',
     allowNull:false,
     type:DataTypes.STRING
   },

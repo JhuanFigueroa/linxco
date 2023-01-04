@@ -27,10 +27,16 @@ const CarreraSchema = {
     allowNull:false,
     type:DataTypes.STRING
   },
+  imagen:{
+    field:'imagen_carrera',
+    allowNull:true,
+    type:DataTypes.STRING
+  },
   status:{
     field:'status_carrera',
     allowNull:false,
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    defaultValue:1
   }
 }
 
@@ -47,6 +53,10 @@ class Carrera extends Model {
       foreignKey: 'clave_carrera'
     });
 
+    this.hasMany(models.Grupo,{
+      as: 'alumnos',
+      foreignKey: 'clave_carrera'
+    });
     this.belongsTo(models.Horario,{
       as:'horaio',
     });
@@ -57,6 +67,10 @@ class Carrera extends Model {
       foreignKey: 'clave_carrera',
       otherKey:'clave_materia'
     });
+
+    this.hasOne(models.JefeDivision,{
+      as:'jefe'
+    })
   }
 
   static config(sequelize) {

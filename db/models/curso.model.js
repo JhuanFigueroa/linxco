@@ -34,6 +34,10 @@ const CursoSchema = {
 class Curso extends Model {
   static associate() {
     // associate
+    this.hasMany(models.MateriaCarga,{
+      as: 'materia_carga',
+      foreignKey: 'id_curso'
+    });
   }
 
   static config(sequelize) {
