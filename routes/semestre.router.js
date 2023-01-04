@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const Semestreervice = require('../services/Semestre.service');
+const Semestreervice = require('../services/semestre.service');
 const validatorHandler = require('./../middlewares/validator.handler');
 const { updateSemestreSchema, createSemestrechema, getSemestrechema } = require('../schemas/Semestre.schema');
 
@@ -34,6 +34,19 @@ router.get('/:id',
   }
 );
 
+router.get('/maestro/:clave',
+  //validatorHandler(getSemestrechema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { clave } = req.params;
+      const Semestre = await service.findByMaestro(clave);
+      res.json(Semestre);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   checkAdminRole,
@@ -51,7 +64,7 @@ router.post('/',
 
 router.patch('/:id',
   validatorHandler(getSemestrechema, 'params'),
-  validatorHandler(updateSemestrechema, 'body'),
+  validatorHandler(updateSemestreSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
