@@ -10,6 +10,7 @@ const {Empleado,EmpleadoSchema}=require('./empleado.model')
 const {MateriaCarga,MateriaCargaSchema}=require('./materia_carga.model')
 const {TipoCarga,TipoCargaSchema}=require('./tipo_carga.model')
 const {Periodo,PeriodoSchema}=require('./periodo.model')
+const {Semestre,SemestreSchema}=require('./semestre.model')
 
 
 function setupModels(sequelize) {
