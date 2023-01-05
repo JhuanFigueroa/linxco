@@ -36,6 +36,17 @@ app.get('/nueva-ruta', (req, res) => {
 
 routerApi(app);
 
+app.get('/descargar/:id', function(req,res){
+      res.download(__dirname+'/storage/'+ req.params.id,
+      req.params.id,function(err){
+        if(err){
+          console.log(err);
+        }else{
+          console.log("LISTO");
+        }
+
+      })
+});
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);

@@ -11,7 +11,7 @@ class FacturaService {
     const newFactura=await models.Factura.create(data);
 
 
-    return newFactura;
+    return newFactura.id;
   }
 
   async find() {
@@ -38,6 +38,22 @@ class FacturaService {
       throw boom.notFound('Factura not found')
     }
     return rta;
+  }
+
+  async finbyAlumno(clave) {
+    const [data]=await sequelize.query("SELECT\n" +
+      "\tfactura.numero_comprobante as numero, \n" +
+      "\tfactura.monto_total_factura as monto\n" +
+      "FROM\n" +
+      "\talumno\n" +
+      "\tINNER JOIN\n" +
+      "\tfactura\n" +
+      "\tON \n" +
+      "\t\talumno.matricula_alumno = factura.matricula_alumno\n" +
+      "WHERE\n" +
+      "\tfactura.status_factura = '1' AND\n" +
+      "\talumno.matricula_alumno = '"+clave+"'");
+    return data;
   }
 
   async update(id, changes) {

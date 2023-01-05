@@ -11,6 +11,7 @@ const {MateriaCarga,MateriaCargaSchema}=require('./materia_carga.model')
 const {TipoCarga,TipoCargaSchema}=require('./tipo_carga.model')
 const {Periodo,PeriodoSchema}=require('./periodo.model')
 
+
 function setupModels(sequelize) {
   Maestro.init(MaestroSchema, Maestro.config(sequelize));//enviamos el esquema al modelo
   Alumno.init(AlumnoSchema,Alumno.config(sequelize));
@@ -23,6 +24,7 @@ function setupModels(sequelize) {
   MateriaCarga.init(MateriaCargaSchema,MateriaCarga.config(sequelize))
   TipoCarga.init(TipoCargaSchema,TipoCarga.config(sequelize))
   Periodo.init(PeriodoSchema,Periodo.config(sequelize))
+  Semestre.init(SemestreSchema,Semestre.config(sequelize))
 }
 
 module.exports = setupModels;

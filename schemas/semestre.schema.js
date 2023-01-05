@@ -13,11 +13,11 @@ const createSemestreSchema = Joi.object({
 });
 
 const updateSemestreSchema = Joi.object({
-  status_Semestre:status_Semestre,
+  status_semestre:status_semestre,
 });
 
 const getSemestreSchema = Joi.object({
-  id_Semestre:id_Semestre.required(),
+  id_semestre:id_semestre.required(),
 });
 
 module.exports = { createSemestreSchema,  updateSemestreSchema,  getSemestreSchema }

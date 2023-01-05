@@ -7,6 +7,13 @@ class materia_cargaService {
 
   async create(data) {
 
+    const grupo=data.grupo
+    const idcurso=await models.Grupo.findOne({where:{numero:grupo}})
+    delete  data['grupo']
+    data={
+      ...data,
+      idGrupo:""+idcurso.id+""
+    }
     const newmateriaCarga=await models.MateriaCarga.create(data);
 
 

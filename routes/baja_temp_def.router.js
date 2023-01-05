@@ -10,11 +10,22 @@ const router = express.Router();
 const service = new BajaService();
 
 
-router.get('/',
+router.get('/:carrera',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
     try {
-      const baja = await service.find();
+      const {carrera}=req.params
+      const baja = await service.find(carrera);
+      res.json(baja);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/razones',
+  async (req, res, next) => {
+    try {
+      const baja = await service.findRazones();
       res.json(baja);
     } catch (error) {
       next(error);
@@ -36,12 +47,23 @@ router.get('/:id',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createGrupochema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
       const newBaja = await service.create(body);
+      res.status(201).json(newBaja);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.post('/razones',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newBaja = await service. createRazones(body);
       res.status(201).json(newBaja);
     } catch (error) {
       next(error);

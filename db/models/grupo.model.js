@@ -1,5 +1,6 @@
 
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const {CARRERA_TABLE} = require("./carrera.model");
 
 const  GRUPO_TABLE = 'grupo';
 
@@ -23,6 +24,17 @@ const GrupoSchema = {
     allowNull:false,
     type:DataTypes.INTEGER,
     defaultValue:1
+  },
+  claveCarrera:{
+    field:'clave_carrera',
+    allowNull:false,
+    type:DataTypes.STRING,
+    references: {
+      model: CARRERA_TABLE,
+      key: 'clave_carrera'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
   }
 }
 
@@ -30,6 +42,7 @@ const GrupoSchema = {
 class Grupo extends Model {
   static associate(models) {
     // associate
+    this.belongsTo(models.Carrera,{as:'carrera'});
     this.belongsToMany(models.Alumno,{
       as:'alumnos',
       through:models.GrupoAlumno,
@@ -37,10 +50,14 @@ class Grupo extends Model {
       otherKey:'id_grupo'
     });
 
-    is.belongsTo(models.Horario,{
+    this.belongsTo(models.Horario,{
       as:'horaio',
     });
 
+    this.hasMany(models.MateriaCarga,{
+      as: 'materia_carga',
+      foreignKey: 'id_curso'
+    });
   }
 
   static config(sequelize) {

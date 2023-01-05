@@ -2,45 +2,43 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const Semestreervice = require('../services/semestre.service');
+const razonf_facturaService = require('../services/razonf_factura.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateSemestreSchema, createSemestrechema, getSemestrechema } = require('../schemas/Semestre.schema');
+const { updaterazonf_facturaSchema, createrazonf_facturaSchema, getrazonf_facturaSchema } = require('../schemas/razonf_factura.schema');
 
 const router = express.Router();
-const service = new Semestreervice();
+const service = new razonf_facturaService();
 
 
 router.get('/',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
     try {
-      const Semestre = await service.find();
-      res.json(Semestre);
+      const materiaCarga = await service.find();
+      res.json(materiaCarga);
     } catch (error) {
       next(error);
     }
   });
 
 router.get('/:id',
-  validatorHandler(getSemestrechema, 'params'),
+  validatorHandler(getrazonf_facturaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const Semestre = await service.findOne(id);
-      res.json(Semestre);
+      const materiaCarga = await service.findOne(id);
+      res.json(materiaCarga);
     } catch (error) {
       next(error);
     }
   }
 );
-
-router.get('/maestro/:clave',
-  //validatorHandler(getSemestrechema, 'params'),
+router.get('/factura/:numero',
   async (req, res, next) => {
     try {
-      const { clave } = req.params;
-      const Semestre = await service.findByMaestro(clave);
-      res.json(Semestre);
+      const { numero } = req.params;
+      const materiaCarga = await service.findbyFactura(numero);
+      res.json(materiaCarga);
     } catch (error) {
       next(error);
     }
@@ -49,13 +47,12 @@ router.get('/maestro/:clave',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createSemestrechema, 'body'),
+  validatorHandler(createrazonf_facturaSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newSemestre = await service.create(body);
-      res.status(201).json(newSemestre);
+      const newmateriaCarga = await service.create(body);
+      res.status(201).json(newmateriaCarga);
     } catch (error) {
       next(error);
     }
@@ -63,32 +60,30 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getSemestrechema, 'params'),
-  validatorHandler(updateSemestreSchema, 'body'),
+  validatorHandler(getrazonf_facturaSchema, 'params'),
+  validatorHandler(updaterazonf_facturaSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       const body = req.body;
-      const Semestre = await service.update(id, body);
-      res.json(Semestre);
+      const materiaCarga = await service.update(id, body);
+      res.json(materiaCarga);
     } catch (error) {
       next(error);
     }
   }
 );
-
+/*
 router.delete('/:id',
-  validatorHandler(getSemestrechema, 'params'),
+  validatorHandler(getmateriaCargaSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(200).json({id});
+      res.status(201).json({id});
     } catch (error) {
       next(error);
     }
   }
-);
-
+);*/
 module.exports = router;
-

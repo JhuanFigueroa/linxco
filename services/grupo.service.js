@@ -1,0 +1,70 @@
+const boom = require('@hapi/boom');
+const bcrypt=require('bcrypt');
+const {models}=require('../libs/sequelize')
+const {Carrera} = require("../db/models/carrera.model");
+const sequelize=require('../libs/sequelize')
+
+class GrupoService {
+  constructor() {}
+
+  async create(data) {
+
+    const newCarrera=await models.Grupo.create(data);
+
+    return newCarrera;
+  }
+
+  async find() {
+    const rta = await models.Grupo.findAll({where: {status : 1}})
+
+    return rta;
+  }
+
+  async findByNombre(grupo){
+    const idcurso=await models.Grupo.findOne({where:{numero:grupo}})
+    return idcurso.id
+  }
+
+
+  async findByCarrera(clave) {
+
+    const [data]=await sequelize.query("SELECT\n" +
+      "\tgrupo.numero_grupo\n" +
+      "FROM\n" +
+      "\tgrupo\n" +
+      "\tINNER JOIN\n" +
+      "\tcarrera\n" +
+      "\tON \n" +
+      "\t\tgrupo.clave_carrera = carrera.clave_carrera\n" +
+      "WHERE\n" +
+      "\tcarrera.clave_carrera = '"+clave+"'")
+
+    return data;
+  }
+
+  async findOne(id) {
+    const rta=await models.Grupo.findByPk(id);
+    if (!rta) {
+      throw boom.notFound('carrera not found')
+    }
+    return rta;
+  }
+
+  async update(id, changes) {
+
+    const carrera= await this.findOne(id);
+    const rta=await carrera.update(changes);
+    return rta;
+  }
+
+  async delete(id) {
+    const changes={
+      'status':0
+    }
+    const carrera= await this.findOne(id);
+    const rta=await carrera.update(changes);
+    return rta;
+  }
+}
+
+module.exports = GrupoService;

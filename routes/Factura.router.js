@@ -57,9 +57,21 @@ router.get('/:id',
   }
 );
 
+router.get('/reinscripcion/:matricula',
+  async (req, res, next) => {
+    try {
+      const { matricula } = req.params;
+      const Factura = await service.finbyAlumno(matricula);
+      res.json(Factura);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
   validatorHandler(createFacturaSchema, 'body'),
   async (req, res, next) => {
     try {
