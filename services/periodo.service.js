@@ -15,9 +15,7 @@ class PeriodoService {
       ...data,
       imagen: filename,
     };*/
-
     const newPeriodo=await models.Periodo.create(data);
-
     return newPeriodo;
   }
 
@@ -38,7 +36,7 @@ class PeriodoService {
   async findOne(id) {
     const rta=await models.Periodo.findByPk(id);
     if (!rta) {
-      throw boom.notFound('periodo not found')
+      throw boom.notFound('periodo1 not found'+id)
     }
     return rta;
   }
