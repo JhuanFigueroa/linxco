@@ -15,7 +15,7 @@ const createFacturaSchema = Joi.object({
 });
 
 const updateFacturaSchema = Joi.object({
-    monto_total:monto_total,
+  numero_comprobante:numero_comprobante
 });
 
 const getFacturaSchema = Joi.object({

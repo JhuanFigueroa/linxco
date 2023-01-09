@@ -9,6 +9,15 @@ const { updateBajaSchema, createBajaSchema, getBajachema } = require('../schemas
 const router = express.Router();
 const service = new BajaService();
 
+router.get('/razones',
+  async (req, res, next) => {
+    try {
+      const baja = await service.findRazones();
+      res.json(baja);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 router.get('/:carrera',
   passport.authenticate('jwt',{session:false}),
@@ -22,15 +31,6 @@ router.get('/:carrera',
     }
   });
 
-router.get('/razones',
-  async (req, res, next) => {
-    try {
-      const baja = await service.findRazones();
-      res.json(baja);
-    } catch (error) {
-      next(error);
-    }
-  });
 
 router.get('/:id',
   validatorHandler(getBajachema, 'params'),
