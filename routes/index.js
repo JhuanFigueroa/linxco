@@ -20,6 +20,7 @@ const tramiteRouter=require('../routes/tramites.router')
 const tipoCargaRoute=require('../routes/tipo_carga.router')
 const tablaCarrera=require('../routes/carrera.router')
 const tablaPeriodo=require('../routes/periodo.router')
+const semestre=require('../routes/semestre.router')
 
 
 function routerApi(app) {
@@ -47,6 +48,7 @@ function routerApi(app) {
   router.use('/tipoCarga', tipoCargaRoute);
   router.use('/carrera',tablaCarrera);
   router.use('/periodo',tablaPeriodo);
+  router.use('/semestre',semestre);
 
 }
 

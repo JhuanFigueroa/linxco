@@ -34,6 +34,19 @@ router.get('/:clave_materia',
   }
 );
 
+router.get('/:grupo/:mtro',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+  try {
+    const {grupo} = req.params
+    const {mtro} = req.params
+    const consul = await service.findMtro(grupo,mtro);
+    res.json(consul);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   checkAdminRole,

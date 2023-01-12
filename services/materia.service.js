@@ -21,6 +21,17 @@ class MateriaService {
     return rta;
   }
 
+  async findMtro(grupo, mtro){
+    const [datosMtro]=await sequilize.query("SELECT DISTINCT materia.clave_materia, materia.nombre_materia FROM materia INNER JOIN materia_carga ON materia.clave_materia = materia_carga.clave_materia, maestro_grupo, grupo WHERE grupo.id_grupo = "+grupo+" AND maestro_grupo.clave_maestro = '"+mtro+"'")
+    return datosMtro
+  }
+  async findByUser(username){
+    const rta = await models.Maestro.findOne({
+      where: { username }
+    });
+    return rta;
+  }
+
   async findOne(clave) {
     console.log(clave)
     const rta=await models.Materia.findByPk(clave);

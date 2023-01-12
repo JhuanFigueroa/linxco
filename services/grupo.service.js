@@ -42,6 +42,15 @@ class GrupoService {
     return data;
   }
 
+  async findByMaestro(clave, carrera) {
+    console.log(clave)
+    const [data]=await sequelize.query("SELECT DISTINCT grupo.numero_grupo as grupo FROM carrera INNER JOIN grupo ON carrera.clave_carrera = grupo.clave_carrera INNER JOIN maestro_grupo ON grupo.id_grupo = maestro_grupo.id_grupo INNER JOIN maestro ON maestro_grupo.clave_maestro = maestro.clave_maestro WHERE maestro.clave_maestro = '"+ clave+"' AND carrera.clave_carrera = '"+ carrera+"' ");
+    if (!data) {
+      throw boom.notFound('materia not found')
+    }
+    return data;
+  }
+
   async findOne(id) {
     const rta=await models.Grupo.findByPk(id);
     if (!rta) {

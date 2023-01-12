@@ -23,7 +23,11 @@ const createMaestroSchema = Joi.object({
 });
 
 const updateMaestroSchema = Joi.object({
-  correo: correo,
+  clave:clave,
+  nombre:nombre,
+  apellido_paterno:apellido_paterno,
+  apellido_materno:apellido_materno,
+  correo:correo,
 
 });
 

@@ -45,6 +45,19 @@ router.get('/carrera/:clave',
     }
   });
 
+  router.get('/maestro/:clave/:carrera',
+  //validatorHandler(getSemestrechema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { clave } = req.params;
+      const { carrera } = req.params
+      const Grupo = await service.findByMaestro(clave, carrera);
+      res.json(Grupo);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 router.get('/:id',
   validatorHandler(getGrupochema, 'params'),
   async (req, res, next) => {

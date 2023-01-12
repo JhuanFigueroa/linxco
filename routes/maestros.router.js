@@ -14,19 +14,20 @@ router.get('/',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
   try {
+    const maestros1 = await service.findMtro();
     const users = await service.find();
-    res.json(users);
+    res.json({users,maestros1});
   } catch (error) {
     next(error);
   }
 });
 
-router.get('/:id',
+router.get('/:clave',
   validatorHandler(getMaestroSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { id } = req.params;
-      const category = await service.findOne(id);
+      const { clave } = req.params;
+      const category = await service.findOne(clave);
       res.json(category);
     } catch (error) {
       next(error);
@@ -49,14 +50,14 @@ router.post('/',
   }
 );
 
-router.patch('/:id',
+router.patch('/:clave',
   validatorHandler(getMaestroSchema, 'params'),
   validatorHandler(updateMaestroSchema, 'body'),
   async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { clave } = req.params;
       const body = req.body;
-      const category = await service.update(id, body);
+      const category = await service.update(clave, body);
       res.json(category);
     } catch (error) {
       next(error);
@@ -64,13 +65,13 @@ router.patch('/:id',
   }
 );
 
-router.delete('/:id',
+router.delete('/:clave',
   validatorHandler(getMaestroSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { id } = req.params;
-      await service.delete(id);
-      res.status(201).json({id});
+      const { clave } = req.params;
+      await service.delete(clave);
+      res.status(201).json({clave});
     } catch (error) {
       next(error);
     }
