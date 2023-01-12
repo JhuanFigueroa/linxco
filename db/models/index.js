@@ -25,6 +25,7 @@ const {TipoConstancia,TipoConstanciaSchema}=require('./tipo_constanica.model')
 const {Periodo,PeriodoSchema}=require('./periodo.model')
 const {Semestre,SemestreSchema}=require('./semestre.model')
 const {Peticion,PeticionSchema}=require('./peticiones.model')
+const {Grupo,GrupoSchema}=require('./grupo.model')
 
 
 
@@ -55,6 +56,8 @@ function setupModels(sequelize) {
   TipoConstancia.init(TipoConstanciaSchema,TipoConstancia.config(sequelize))
 Semestre.init(SemestreSchema,Semestre.config(sequelize))
   Peticion.init(PeticionSchema,Peticion.config(sequelize))
+  Grupo.init(GrupoSchema,Grupo.config(sequelize))
+
 }
 
 module.exports = setupModels;
