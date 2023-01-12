@@ -66,6 +66,19 @@ router.post('/credencial',
     const periodo=await service.credencial(body);
     res.status(200).json(periodo);
   })
+router.get('/credenciales',
+  async (req,res,next)=>{
+    const periodo=await service.getCredenciales();
+    res.status(200).json(periodo);
+  });
+
+router.get('/credenciales/factura/:matricula',
+  async (req,res,next)=>{
+    const {matricula}=req.params
+    const periodo=await service.getFacturaCredencial(matricula);
+    res.status(200).json(periodo);
+  })
+
 router.post('/renuncia-seguro',
   async (req,res,next)=>{
     const body=req.body

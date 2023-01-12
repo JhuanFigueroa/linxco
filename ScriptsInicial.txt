@@ -912,14 +912,14 @@ CREATE TABLE "public"."periodo" (
 -- ----------------------------
 -- Records of periodo
 -- ----------------------------
-INSERT INTO "public"."periodo" VALUES (1, '2022-1', 'Primer periodo 2022', 0);
-INSERT INTO "public"."periodo" VALUES (2, '2022-2', 'Segundo periodo 2022', 1);
-INSERT INTO "public"."periodo" VALUES (3, '2023-1', 'Primer periodo 2023', 0);
-INSERT INTO "public"."periodo" VALUES (4, '2023-2', 'Segundo periodo 2023', 0);
-INSERT INTO "public"."periodo" VALUES (5, '2024-1', 'Primer periodo 2024', 0);
-INSERT INTO "public"."periodo" VALUES (6, '2024-2', 'Segundo periodo 2024', 0);
-INSERT INTO "public"."periodo" VALUES (7, '2025-1', 'Primer periodo 2025', 0);
-INSERT INTO "public"."periodo" VALUES (8, '2025-2', 'Segundo periodo 2025', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2022-1', 'Primer periodo 2022', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2022-2', 'Segundo periodo 2022', 1);
+INSERT INTO "public"."periodo" VALUES (default, '2023-1', 'Primer periodo 2023', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2023-2', 'Segundo periodo 2023', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2024-1', 'Primer periodo 2024', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2024-2', 'Segundo periodo 2024', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2025-1', 'Primer periodo 2025', 0);
+INSERT INTO "public"."periodo" VALUES (default, '2025-2', 'Segundo periodo 2025', 0);
 
 -- ----------------------------
 -- Table structure for peticion

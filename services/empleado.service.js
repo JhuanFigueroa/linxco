@@ -8,21 +8,21 @@ class EmpleadoService {
   constructor() {}
 
   async create(data) {
-    /*const hash = await bcrypt.hash(data.password, 10);
+    const hash = await bcrypt.hash(data.password, 10);
 
     const newEmpleado = await models.Empleado.create({
       ...data,
       password: hash
     });
 
-    delete newEmpleado.dataValues.password;*/
-    const newEmpleado=await models.Empleado.create(data)
+    delete newEmpleado.dataValues.password;
+    //const newEmpleado=await models.Empleado.create(data)
     return newEmpleado;
   }
 
   async find() {
     //const rta = await models.Empleado.findAll()
-    const [data]=await sequilize.query('SELECT rol.id_rol, rol.nombre_rol FROM rol')
+    const [data]=await sequilize.query("SELECT rol.id_rol, rol.nombre_rol FROM rol where rol.nombre_rol='jefa control' or rol.nombre_rol='empleado'")
     return data;
   }
 

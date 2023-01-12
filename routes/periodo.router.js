@@ -73,9 +73,9 @@ router.delete('/:id',
   validatorHandler(getPeriodoSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { idP } = req.params;
-      await service.delete(idP);
-      res.status(200).json({idP});
+      const { id } = req.params;
+      await service.delete(id);
+      res.status(200).json({id});
     } catch (error) {
       next(error);
     }
