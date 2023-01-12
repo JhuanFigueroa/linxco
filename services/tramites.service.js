@@ -142,6 +142,39 @@ class TramitesService {
     return rta.id;
   }
 
+  async getCredenciales(){
+
+    const [data] =await sequilize.query("SELECT\n" +
+      "\talumno.matricula_alumno AS matricula,\n" +
+      "\tconcat ( alumno.nombre_alumno, ' ', alumno.apellido_paterno_alumno, ' ', alumno.apellido_materno_alumno ) AS nombre,\n" +
+      "\tcarrera.nombre_carrera AS carrera,\n" +
+      "\tsemestre.numero_semestre AS semestre \n" +
+      "FROM\n" +
+      "\talumno\n" +
+      "\tINNER JOIN carrera ON alumno.clave_carrera = carrera.clave_carrera\n" +
+      "\tINNER JOIN semestre ON alumno.id_semestre = semestre.id_semestre\n" +
+      "\tINNER JOIN credencial ON alumno.matricula_alumno = credencial.matricula_alumno")
+
+    return data;
+  }
+
+  async getFacturaCredencial(matricula){
+
+    const [data] =await sequilize.query("SELECT\n" +
+      "\tfactura.id_factura,\n" +
+      "\tfactura.numero_comprobante \n" +
+      "FROM\n" +
+      "\tfactura\n" +
+      "\tINNER JOIN razonf_factura ON factura.id_factura = razonf_factura.id_factura\n" +
+      "\tINNER JOIN razon_factura ON razonf_factura.clave_razon_factura = razon_factura.clave_razon_factura \n" +
+      "WHERE\n" +
+      "\tfactura.matricula_alumno = '"+matricula+"' \n" +
+      "\tAND factura.status_factura = '1' \n" +
+      "\tAND razon_factura.clave_razon_factura = 'CR323'")
+
+    return data;
+  }
+
   async renunciaSeguro(dta){
 
     const rta =await models.RenunciaSegAlumno.create(dta)
