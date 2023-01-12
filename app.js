@@ -12,8 +12,9 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use('/storage', express.static(__dirname + '/storage'));
+app.use('/storage/horarios', express.static(__dirname + '/storage/horarios'));
 
-const whitelist = ['http://localhost:8081', 'https://myapp.co'];
+const whitelist = ['http://127.0.0.1:8081', 'https://myapp.co','http://192.168.0.110:8081','http://localhost:8081'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
@@ -23,7 +24,7 @@ const options = {
     }
   }
 }
-app.use(cors(options));
+app.use(cors());
 require('./utils/auth');
 
 app.get('/', (req, res) => {

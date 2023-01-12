@@ -1,24 +1,24 @@
 const Joi = require('joi');
 
-const clave_constancia=Joi.string();
-const fecha_constancia=Joi.string();
+const clave=Joi.string();
+const fecha=Joi.string();
 
 
 
 const createConstanciaSchema = Joi.object({
 
-  clave_constancia:clave_constancia.required(),
-  fecha_constancia:fecha_constancia.required(),
+  clave:clave.required(),
+  fecha:fecha.required(),
 
 
 });
 
 const updateConstanciaSchema = Joi.object({
-    fecha_constancia:fecha_constancia,
+    fecha:fecha,
 });
 
 const getConstanciaSchema = Joi.object({
-    clave_constancia:clave_constancia.required(),
+    clave:clave.required(),
 });
 
 module.exports = { createConstanciaSchema,  updateConstanciaSchema,  getConstanciaSchema }

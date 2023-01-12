@@ -181,5 +181,12 @@ class TramitesService {
 
     return rta.id;
   }
+
+  async createPeticion(dta){
+
+    const rta =await models.Peticion.create(dta)
+
+    return rta.id;
+  }
 }
 module.exports=TramitesService;

@@ -22,6 +22,7 @@ const tablaCarrera=require('../routes/carrera.router')
 const tablaPeriodo=require('../routes/periodo.router')
 const semestre=require('../routes/semestre.router')
 
+const peticionRouter=require('../routes/peticion.router')
 
 function routerApi(app) {
   const router = express.Router();
@@ -48,6 +49,7 @@ function routerApi(app) {
   router.use('/tipoCarga', tipoCargaRoute);
   router.use('/carrera',tablaCarrera);
   router.use('/periodo',tablaPeriodo);
+  router.use('/peticiones',peticionRouter);
   router.use('/semestre',semestre);
 
 }

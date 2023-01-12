@@ -69,7 +69,17 @@ router.get('/reinscripcion/:matricula',
   }
 );
 
-
+router.get('/constancias/:matricula',
+  async (req, res, next) => {
+    try {
+      const { matricula } = req.params;
+      const Factura = await service.finbyAlumnoConst(matricula);
+      res.json(Factura);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   validatorHandler(createFacturaSchema, 'body'),
@@ -77,6 +87,18 @@ router.post('/',
     try {
       const body = req.body;
       const newCurso = await service.create(body);
+      res.status(201).json(newCurso);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+router.post('/pagar',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newCurso = await service.updateFactConst(body);
       res.status(201).json(newCurso);
     } catch (error) {
       next(error);

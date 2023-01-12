@@ -10,7 +10,6 @@ class FacturaService {
 
     const newFactura=await models.Factura.create(data);
 
-
     return newFactura.id;
   }
 
@@ -42,18 +41,55 @@ class FacturaService {
 
   async finbyAlumno(clave) {
     const [data]=await sequelize.query("SELECT\n" +
-      "\tfactura.numero_comprobante as numero, \n" +
-      "\tfactura.monto_total_factura as monto\n" +
+      "\tfactura.numero_comprobante AS numero, \n" +
+      "\tfactura.monto_total_factura AS monto\n" +
       "FROM\n" +
       "\talumno\n" +
       "\tINNER JOIN\n" +
       "\tfactura\n" +
       "\tON \n" +
       "\t\talumno.matricula_alumno = factura.matricula_alumno\n" +
+      "\tINNER JOIN\n" +
+      "\trazonf_factura\n" +
+      "\tON \n" +
+      "\t\tfactura.id_factura = razonf_factura.id_factura\n" +
       "WHERE\n" +
       "\tfactura.status_factura = '1' AND\n" +
-      "\talumno.matricula_alumno = '"+clave+"'");
+      "\talumno.matricula_alumno = '"+clave+"' AND\n" +
+      "\trazonf_factura.clave_razon_factura = 'IN454'");
     return data;
+  }
+
+  async finbyAlumnoConst(clave) {
+    const [data]=await sequelize.query("SELECT\n" +
+      "\tfactura.numero_comprobante AS numero, \n" +
+      "\tfactura.monto_total_factura AS monto\n" +
+      "FROM\n" +
+      "\talumno\n" +
+      "\tINNER JOIN\n" +
+      "\tfactura\n" +
+      "\tON \n" +
+      "\t\talumno.matricula_alumno = factura.matricula_alumno\n" +
+      "\tINNER JOIN\n" +
+      "\trazonf_factura\n" +
+      "\tON \n" +
+      "\t\tfactura.id_factura = razonf_factura.id_factura\n" +
+      "WHERE\n" +
+      "\tfactura.status_factura = '1' AND\n" +
+      "\talumno.matricula_alumno = '"+clave+"' AND\n" +
+      "\trazonf_factura.clave_razon_factura = 'FFD64'");
+    return data;
+  }
+  async updateFactConst(data){
+    const numero=data.numero
+    const matricula=data.matricula
+    const res=await sequelize.query("UPDATE factura \n" +
+      "SET status_factura = 0 \n" +
+      "WHERE\n" +
+      "\tnumero_comprobante = '"+numero+"';UPDATE peticion \n" +
+      "SET status_peticion = 0 \n" +
+      "WHERE\n" +
+      "\tmatricula_alumno = '"+matricula+"'");
   }
 
   async update(id, changes) {

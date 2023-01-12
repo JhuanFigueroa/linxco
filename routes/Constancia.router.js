@@ -21,6 +21,40 @@ router.get('/',
   }
 });
 
+router.get('/tipos',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const Constancia = await service.findTipos();
+      res.json(Constancia);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/tipos/:matriculaAlumno',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const Constancia = await service.findTipoByAlumno();
+      res.json(Constancia);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/tipo/:descripcion',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const {descripcion}=req.params
+      const Constancia = await service.getTipoByDescrip(descripcion);
+      res.json(Constancia);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 router.get('/:id',
   validatorHandler(getConstanciaSchema, 'params'),
   async (req, res, next) => {
@@ -36,12 +70,37 @@ router.get('/:id',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
   validatorHandler(createConstanciaSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
       const newCurso = await service.create(body);
+      res.status(201).json(newCurso);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.post('/cons-tipo',
+  passport.authenticate('jwt',{session:false}),
+
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newCurso = await service.createConstanciaTipo(body);
+      res.status(201).json(newCurso);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+router.post('/cons-alumno',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const body = req.body;
+      const newCurso = await service.createConstanciaAlumno(body);
       res.status(201).json(newCurso);
     } catch (error) {
       next(error);
