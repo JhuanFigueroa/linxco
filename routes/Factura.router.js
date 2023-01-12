@@ -80,8 +80,6 @@ router.get('/constancias/:matricula',
     }
   }
 );
-
-
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   validatorHandler(createFacturaSchema, 'body'),
