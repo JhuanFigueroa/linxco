@@ -57,8 +57,8 @@ class Carrera extends Model {
       as: 'alumnos',
       foreignKey: 'clave_carrera'
     });
-    this.belongsTo(models.Horario,{
-      as:'horaio',
+    this.belongsTo(models.Horarios,{
+      as:'horarios',
     });
 
     this.belongsToMany(models.Materia,{

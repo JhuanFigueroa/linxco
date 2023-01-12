@@ -1,13 +1,14 @@
 const express = require('express');
 const passport = require('passport');
+const {uploadHorarios} = require('../libs/storage');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const AlumnoService = require('../services/alumno.service');
+const JefeDivisionService = require('../services/jefe_division.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateAlumnoSchema, createAlumnoSchema, getAlumnoSchema } = require('../schemas/alumno.schema');
+const { updateJefeSchema, createJefeSchema, getJefeSchema } = require('../schemas/jefe_division.schema');
 
 const router = express.Router();
-const service = new AlumnoService();
+const service = new JefeDivisionService();
 
 
 router.get('/',
@@ -21,37 +22,13 @@ router.get('/',
     }
   });
 
-router.get('/:matricula',
-  validatorHandler(getAlumnoSchema, 'params'),
-  async (req, res, next) => {
-    try {
-      const { matricula } = req.params;
-      const alumno = await service.findOne(matricula);
-      res.json(alumno);
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
-router.get('/datosCarga/:clave',
+router.get('/:clave',
+  validatorHandler(getJefeSchema, 'params'),
   async (req, res, next) => {
     try {
       const { clave } = req.params;
-      const alumno = await service.findForCarga(clave);
-      res.json(alumno);
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
-router.get('/constancia/:matricula',
-  async (req, res, next) => {
-    try {
-      const { matricula } = req.params;
-      const alumno = await service.findForConstancia(matricula);
-      res.json(alumno);
+      const category = await service.findOne(clave);
+      res.json(category);
     } catch (error) {
       next(error);
     }
@@ -60,8 +37,7 @@ router.get('/constancia/:matricula',
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createAlumnoSchema, 'body'),
+  validatorHandler(createJefeSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
@@ -73,9 +49,25 @@ router.post('/',
   }
 );
 
+router.post('/horarios',
+  uploadHorarios.single('ubicacion'),
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const file=req.file
+      const body = req.body;
+      const newCategory = await service.subirHorario(file,body);
+      res.status(201).json(newCategory);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+
 router.patch('/:id',
-  validatorHandler(getAlumnoSchema, 'params'),
-  validatorHandler(updateAlumnoSchema, 'body'),
+  validatorHandler(getJefeSchema, 'params'),
+  validatorHandler(updateJefeSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -89,7 +81,7 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getAlumnoSchema, 'params'),
+  validatorHandler(getJefeSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;

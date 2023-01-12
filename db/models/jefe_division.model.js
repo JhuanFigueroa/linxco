@@ -67,6 +67,7 @@ const JefeSchema = {
     field:'id_rol',
     allowNull:false,
     type:DataTypes.INTEGER,
+    defaultValue: 3,
     references: {
       model: ROL_TABLE,
       key: 'id_rol'

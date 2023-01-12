@@ -25,6 +25,12 @@ class AuthService {
           where: { username }
         });
         rta=empleado;
+        if (!empleado){
+          const jefe=await models.JefeDivision.findOne({
+            where:{username}
+          });
+          rta=jefe
+        }
       }
     }
   return rta;

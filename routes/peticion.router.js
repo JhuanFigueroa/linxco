@@ -2,31 +2,43 @@ const express = require('express');
 const passport = require('passport');
 const {checkAdminRole} =require('./../middlewares/auth.handler')
 
-const ConstanciaTipoService = require('../services/ConstanciaTipo.service');
+const PeticionService = require('../services/peticion.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateConstanciaTipoSchema, createConstanciaTipoSchema, getConstanciaTipoSchema } = require('../schemas/ConstanciaTipo.schema');
 
 const router = express.Router();
-const service = new ConstanciaTipoService();
+const service = new PeticionService();
+
 
 router.get('/',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
-  try {
-    const ConstanciaTipo = await service.find();
-    res.json(ConstanciaTipo);
-  } catch (error) {
-    next(error);
-  }
-});
+    try {
+      const Grupo = await service.find();
+      res.json(Grupo);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.get('/carrera/:clave',
+  // passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const {clave}=req.params
+      const Grupo = await service.findByCarrera(clave);
+      res.json(Grupo);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 router.get('/:id',
-  validatorHandler(getConstanciaTipoSchema, 'params'),
+
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const ConstanciaTipo = await service.findOne(id);
-      res.json(ConstanciaTipo);
+      const Grupo = await service.findOne(id);
+      res.json(Grupo);
     } catch (error) {
       next(error);
     }
@@ -36,12 +48,11 @@ router.get('/:id',
 router.post('/',
   passport.authenticate('jwt',{session:false}),
   checkAdminRole,
-  validatorHandler(createConstanciaTipoSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const newCurso = await service.create(body);
-      res.status(201).json(newCurso);
+      const newGrupo = await service.create(body);
+      res.status(201).json(newGrupo);
     } catch (error) {
       next(error);
     }
@@ -49,14 +60,12 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getConstanciaTipoSchema, 'params'),
-  validatorHandler(updateConstanciaTipoSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       const body = req.body;
-      const curso = await service.update(id, body);
-      res.json(curso);
+      const Grupo = await service.update(id, body);
+      res.json(Grupo);
     } catch (error) {
       next(error);
     }
@@ -64,12 +73,11 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getConstanciaTipoSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(201).json({id});
+      res.status(200).json({id});
     } catch (error) {
       next(error);
     }
@@ -77,3 +85,4 @@ router.delete('/:id',
 );
 
 module.exports = router;
+

@@ -85,4 +85,11 @@ router.post('/renuncia-seguro',
     const periodo=await service.renunciaSeguro(body);
     res.status(200).json(periodo);
   })
+
+router.post('/constancias',
+  async (req,res,next)=>{
+    const body=req.body
+    const periodo=await service.createPeticion(body);
+    res.status(200).json(periodo);
+  })
 module.exports = router;

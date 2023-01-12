@@ -34,8 +34,8 @@ const PeriodoSchema = {
 class Periodo extends Model {
   static associate(models) {
     // associate
-    this.belongsTo(models.Horario,{
-      as:'horaio',
+    this.belongsTo(models.Horarios,{
+      as:'horario',
     });
     this.hasMany(models.CargaAcademica,{
       as:'cargas',
