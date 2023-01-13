@@ -1,0 +1,1826 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : Postgres
+ Source Server Type    : PostgreSQL
+ Source Server Version : 120008
+ Source Host           : localhost:5432
+ Source Catalog        : control_escolar
+ Source Schema         : public
+
+ Target Server Type    : PostgreSQL
+ Target Server Version : 120008
+ File Encoding         : 65001
+
+ Date: 13/01/2023 09:10:44
+*/
+
+
+-- ----------------------------
+-- Sequence structure for acta_evaluacion_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."acta_evaluacion_id_seq";
+CREATE SEQUENCE "public"."acta_evaluacion_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for alumno_acta_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."alumno_acta_id_seq";
+CREATE SEQUENCE "public"."alumno_acta_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for baja_alumno_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."baja_alumno_id_seq";
+CREATE SEQUENCE "public"."baja_alumno_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for baja_razon_baja_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."baja_razon_baja_id_seq";
+CREATE SEQUENCE "public"."baja_razon_baja_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for baja_temp_def_id_baja_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."baja_temp_def_id_baja_seq";
+CREATE SEQUENCE "public"."baja_temp_def_id_baja_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for carga_academica_id_carga_academica_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."carga_academica_id_carga_academica_seq";
+CREATE SEQUENCE "public"."carga_academica_id_carga_academica_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for constancia_alumno_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."constancia_alumno_id_seq";
+CREATE SEQUENCE "public"."constancia_alumno_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for constancia_tipo_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."constancia_tipo_id_seq";
+CREATE SEQUENCE "public"."constancia_tipo_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for credencial_id_credencial_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."credencial_id_credencial_seq";
+CREATE SEQUENCE "public"."credencial_id_credencial_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for curso_carga_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."curso_carga_id_seq";
+CREATE SEQUENCE "public"."curso_carga_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for curso_id_curso_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."curso_id_curso_seq";
+CREATE SEQUENCE "public"."curso_id_curso_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for empleado_id_empleado_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."empleado_id_empleado_seq";
+CREATE SEQUENCE "public"."empleado_id_empleado_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for factura_id_factura_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."factura_id_factura_seq";
+CREATE SEQUENCE "public"."factura_id_factura_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for grupo_alumno_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."grupo_alumno_id_seq";
+CREATE SEQUENCE "public"."grupo_alumno_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for grupo_id_grupo_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."grupo_id_grupo_seq";
+CREATE SEQUENCE "public"."grupo_id_grupo_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for horario_id_horario_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."horario_id_horario_seq";
+CREATE SEQUENCE "public"."horario_id_horario_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for horarios_id_horarios_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."horarios_id_horarios_seq";
+CREATE SEQUENCE "public"."horarios_id_horarios_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for maestro_horario_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."maestro_horario_id_seq";
+CREATE SEQUENCE "public"."maestro_horario_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for materia_carga_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."materia_carga_id_seq";
+CREATE SEQUENCE "public"."materia_carga_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for materia_carrera_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."materia_carrera_id_seq";
+CREATE SEQUENCE "public"."materia_carrera_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for materia_horario_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."materia_horario_id_seq";
+CREATE SEQUENCE "public"."materia_horario_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for periodo_id_periodo_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."periodo_id_periodo_seq";
+CREATE SEQUENCE "public"."periodo_id_periodo_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for peticion_id_peticion_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."peticion_id_peticion_seq";
+CREATE SEQUENCE "public"."peticion_id_peticion_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for razonf_factura_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."razonf_factura_id_seq";
+CREATE SEQUENCE "public"."razonf_factura_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for renuncia_seguro_alumno_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."renuncia_seguro_alumno_id_seq";
+CREATE SEQUENCE "public"."renuncia_seguro_alumno_id_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for renuncia_seguro_id_renuncia_seguro_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."renuncia_seguro_id_renuncia_seguro_seq";
+CREATE SEQUENCE "public"."renuncia_seguro_id_renuncia_seguro_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for rol_id_rol_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."rol_id_rol_seq";
+CREATE SEQUENCE "public"."rol_id_rol_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for semestre_id_semestre_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."semestre_id_semestre_seq";
+CREATE SEQUENCE "public"."semestre_id_semestre_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for tipo_constancia_id_tipo_constancia_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."tipo_constancia_id_tipo_constancia_seq";
+CREATE SEQUENCE "public"."tipo_constancia_id_tipo_constancia_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for usuario_admision_id_usuario_admision_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."usuario_admision_id_usuario_admision_seq";
+CREATE SEQUENCE "public"."usuario_admision_id_usuario_admision_seq"
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
+-- Table structure for SequelizeMeta
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."SequelizeMeta";
+CREATE TABLE "public"."SequelizeMeta" (
+  "name" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of SequelizeMeta
+-- ----------------------------
+INSERT INTO "public"."SequelizeMeta" VALUES ('20221107182753-initial.js');
+
+-- ----------------------------
+-- Table structure for acta_calificaciones
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."acta_calificaciones";
+CREATE TABLE "public"."acta_calificaciones" (
+  "folio_acta" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "calificacion_acta" float8 NOT NULL,
+  "fecha_acta" timestamptz(6) NOT NULL,
+  "clave_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of acta_calificaciones
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for acta_evaluacion
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."acta_evaluacion";
+CREATE TABLE "public"."acta_evaluacion" (
+  "id" int4 NOT NULL DEFAULT nextval('acta_evaluacion_id_seq'::regclass),
+  "folio_acta" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_curso" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of acta_evaluacion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for admision
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."admision";
+CREATE TABLE "public"."admision" (
+  "numero_ficha_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_paterno_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_materno_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "telefono_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "telefono_emegencia_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "correo_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "promedio_admision" float8 NOT NULL,
+  "curp_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "domicilio_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "escuela_procedencia_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "tipo_sangre_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "genero_admision" char(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "lugar_nacimineto_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "lugar_aplicaion_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL DEFAULT 'TESJI'::character varying,
+  "persona_emergencia_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "fecha_admision" timestamptz(6) NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of admision
+-- ----------------------------
+INSERT INTO "public"."admision" VALUES ('56462565', 'dfgfd', 'gdfg', 'fgdfg', '23232', '322', 'gdfgdfg', 5, 'gdfgdfg', 'dgdfgw', 'gegerg', 'gregerg', 'm                                                                                                                                                                                                                                                              ', 'ergerg', 'greger', 'fgdfg', '2023-01-10 18:00:00-06', 'ADMON');
+INSERT INTO "public"."admision" VALUES ('201923198', 'Alan', 'Perez', 'Lopex', '15456454', '5545454', 'alan@mail.com', 8, 'HHKSJD12161', 'Dongu', 'Cbtis', 'o', 'M                                                                                                                                                                                                                                                              ', 'Jilotepec', 'TESJI', 'Jose Lopez', '2023-01-11 18:00:00-06', 'CIVIL');
+
+-- ----------------------------
+-- Table structure for alumno
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."alumno";
+CREATE TABLE "public"."alumno" (
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_paterno_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_materno_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "telefono_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "correo_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "curp_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "domicilio_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "numero_seguro_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_alumno" int4 NOT NULL DEFAULT 1,
+  "username_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "password_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_rol" int4 NOT NULL,
+  "id_semestre" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of alumno
+-- ----------------------------
+INSERT INTO "public"."alumno" VALUES ('201923596', 'Carlos', 'Arce', 'Hernandez', '7784569874', 'carlosH@mail.com', 'AEHC001121HMCRRRA0', 'La colonia', '261321', 0, '201923596', '$2b$10$9tTI8Wt5zi6mHmKH3LSumu6LVZYW3okweJz.THNP.i2xKhz7xULS6', 'ISIC', 4, 7);
+INSERT INTO "public"."alumno" VALUES ('201823203', 'Diana', 'Osornio', 'De Jesus', '75421655', 'dianaO@mail.com', 'OOJD00722MMCSNA9', 'Las Huertas', '26265', 0, '201823203', '$2b$10$wmWhKeXvHU6B1FduGRhof.S0mk7Qpx1WGi7iAHzROcsLmAv1fSp9e', 'LOGIS', 4, 9);
+INSERT INTO "public"."alumno" VALUES ('201923158', 'Juan', 'Figueroa', 'Trejo', '7731271279', 'juanF@mail.com', 'FITJ010106HHGGRNA9', 'Cañada de Madero Hidalgo', '65461', 0, '201923158', '$2b$10$Q8cUQv6iEwafecLyykD6q.jsjxrWcLS14.sABmXaetP4fzO22Ex4q', 'ISIC', 4, 7);
+
+-- ----------------------------
+-- Table structure for alumno_acta
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."alumno_acta";
+CREATE TABLE "public"."alumno_acta" (
+  "id" int4 NOT NULL DEFAULT nextval('alumno_acta_id_seq'::regclass),
+  "folio_acta" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of alumno_acta
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for baja_alumno
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."baja_alumno";
+CREATE TABLE "public"."baja_alumno" (
+  "id" int4 NOT NULL DEFAULT nextval('baja_alumno_id_seq'::regclass),
+  "id_baja" int4 NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of baja_alumno
+-- ----------------------------
+INSERT INTO "public"."baja_alumno" VALUES (4, 11, '201923596');
+INSERT INTO "public"."baja_alumno" VALUES (5, 13, '201823203');
+INSERT INTO "public"."baja_alumno" VALUES (6, 14, '201823203');
+INSERT INTO "public"."baja_alumno" VALUES (7, 15, '201923158');
+
+-- ----------------------------
+-- Table structure for baja_razon_baja
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."baja_razon_baja";
+CREATE TABLE "public"."baja_razon_baja" (
+  "id" int4 NOT NULL DEFAULT nextval('baja_razon_baja_id_seq'::regclass),
+  "id_baja" int4 NOT NULL,
+  "clave_razon_baja" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of baja_razon_baja
+-- ----------------------------
+INSERT INTO "public"."baja_razon_baja" VALUES (8, 11, 'PE79|');
+
+-- ----------------------------
+-- Table structure for baja_temp_def
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."baja_temp_def";
+CREATE TABLE "public"."baja_temp_def" (
+  "id_baja" int4 NOT NULL DEFAULT nextval('baja_temp_def_id_baja_seq'::regclass),
+  "tipo_baja" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "fecha_baja" timestamptz(6) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of baja_temp_def
+-- ----------------------------
+INSERT INTO "public"."baja_temp_def" VALUES (11, 'BAJA DEFINITIVA', '2022-12-29 06:58:56.377-06');
+INSERT INTO "public"."baja_temp_def" VALUES (12, 'BAJA DEFINITIVA', '2023-01-04 17:19:38.32-06');
+INSERT INTO "public"."baja_temp_def" VALUES (13, 'BAJA TEMPORAL', '2023-01-04 17:51:31.261-06');
+INSERT INTO "public"."baja_temp_def" VALUES (14, 'BAJA TEMPORAL', '2023-01-05 12:17:55.093-06');
+INSERT INTO "public"."baja_temp_def" VALUES (15, 'BAJA TEMPORAL', '2023-01-12 09:43:55.848-06');
+
+-- ----------------------------
+-- Table structure for carga_academica
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."carga_academica";
+CREATE TABLE "public"."carga_academica" (
+  "id_carga_academica" int4 NOT NULL DEFAULT nextval('carga_academica_id_carga_academica_seq'::regclass),
+  "fecha_carga_academica" timestamptz(6) NOT NULL,
+  "clave_tipo_carga" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_periodo" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of carga_academica
+-- ----------------------------
+INSERT INTO "public"."carga_academica" VALUES (12, '2023-01-18 18:00:00-06', 'RES-2', '201923158', 2);
+INSERT INTO "public"."carga_academica" VALUES (13, '2023-01-11 18:00:00-06', 'RES-2', '201923158', 2);
+
+-- ----------------------------
+-- Table structure for carrera
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."carrera";
+CREATE TABLE "public"."carrera" (
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "especialidad_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "planestudio_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "imagen_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_carrera" int4 NOT NULL DEFAULT 1
+)
+;
+
+-- ----------------------------
+-- Records of carrera
+-- ----------------------------
+INSERT INTO "public"."carrera" VALUES ('ISIC', 'INGENIIERIA EN SISTEMAS', 'CLOUD COMPUTIN', 'CLOUD-C', 'http://localhost:3000/storage/1671390264365-577364018-sistemas-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('ADMON', 'LIC EN ADMINISTRACION', 'ADMINISTRAR', 'ADMON-II', 'http://localhost:3000/storage/1671390387694-775532311-admin-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('CIVIL', 'INGENRIERIA CIVIL', 'MEZCLAS', 'CIVIL-II', 'http://localhost:3000/storage/1671390437304-279022702-civil-9XdM7iuZU-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('ELECTRICA', 'INGENRIERIA ELECTRICA', 'FOCOS Y CABLES', 'ELEC-II', 'http://localhost:3000/storage/1671390527210-167273244-elect-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('INDUSTRIAL', 'INGENRIERIA INDUSTRIAL', 'PLANOS', 'IND-II', 'http://localhost:3000/storage/1671390574292-126446760-indus-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('LOGIS', 'INGENRIERIA LOGISTICA', 'EMBARQUES', 'LOG-II', 'http://localhost:3000/storage/1671390606134-892103902-logi-transformed.jpeg', 1);
+INSERT INTO "public"."carrera" VALUES ('MECA', 'INGENRIERIA MECATRONICA', 'MAQUINAS', 'MECA-II', 'http://localhost:3000/storage/1671390652445-990177896-mecos-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('QUMICA', 'INGENRIERIA QUMICA', 'SUSTANCIAS', 'QUIMI-II', 'http://localhost:3000/storage/1671390685573-740557032-quimica-transformed.png', 1);
+INSERT INTO "public"."carrera" VALUES ('TICS', 'INGENRIERIA EN TICS', 'COMPUTADORAS', 'TICS-II', 'http://localhost:3000/storage/1671390708339-48811829-tics-transformed.jpeg', 1);
+
+-- ----------------------------
+-- Table structure for constancia_alumno
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."constancia_alumno";
+CREATE TABLE "public"."constancia_alumno" (
+  "id" int4 NOT NULL DEFAULT nextval('constancia_alumno_id_seq'::regclass),
+  "clave_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of constancia_alumno
+-- ----------------------------
+INSERT INTO "public"."constancia_alumno" VALUES (3, '78975', '201923158');
+INSERT INTO "public"."constancia_alumno" VALUES (7, '159778', '201923158');
+INSERT INTO "public"."constancia_alumno" VALUES (8, '5756756', '201923158');
+
+-- ----------------------------
+-- Table structure for constancia_tipo
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."constancia_tipo";
+CREATE TABLE "public"."constancia_tipo" (
+  "id" int4 NOT NULL DEFAULT nextval('constancia_tipo_id_seq'::regclass),
+  "id_tipo_constancia" int4 NOT NULL,
+  "clave_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of constancia_tipo
+-- ----------------------------
+INSERT INTO "public"."constancia_tipo" VALUES (5, 2, '78975');
+INSERT INTO "public"."constancia_tipo" VALUES (6, 3, '741852');
+INSERT INTO "public"."constancia_tipo" VALUES (7, 3, '741852');
+INSERT INTO "public"."constancia_tipo" VALUES (8, 3, '741852');
+INSERT INTO "public"."constancia_tipo" VALUES (9, 3, '159778');
+INSERT INTO "public"."constancia_tipo" VALUES (10, 2, '5756756');
+
+-- ----------------------------
+-- Table structure for contsancia_table
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."contsancia_table";
+CREATE TABLE "public"."contsancia_table" (
+  "clave_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "fecha_constancia" timestamptz(6) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of contsancia_table
+-- ----------------------------
+INSERT INTO "public"."contsancia_table" VALUES ('78975', '2023-01-11 18:00:00-06');
+INSERT INTO "public"."contsancia_table" VALUES ('741852', '2023-01-18 18:00:00-06');
+INSERT INTO "public"."contsancia_table" VALUES ('159778', '2023-01-18 18:00:00-06');
+INSERT INTO "public"."contsancia_table" VALUES ('5756756', '2023-01-11 18:00:00-06');
+
+-- ----------------------------
+-- Table structure for credencial
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."credencial";
+CREATE TABLE "public"."credencial" (
+  "id_credencial" int4 NOT NULL DEFAULT nextval('credencial_id_credencial_seq'::regclass),
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of credencial
+-- ----------------------------
+INSERT INTO "public"."credencial" VALUES (4, '201823203');
+INSERT INTO "public"."credencial" VALUES (5, '201923158');
+
+-- ----------------------------
+-- Table structure for curso
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."curso";
+CREATE TABLE "public"."curso" (
+  "id_curso" int4 NOT NULL DEFAULT nextval('curso_id_curso_seq'::regclass),
+  "nombre_curso" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "descripcion_curso" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_curso" int4 NOT NULL,
+  "evaluacion_curso" varchar(255) COLLATE "pg_catalog"."default"
+)
+;
+
+-- ----------------------------
+-- Records of curso
+-- ----------------------------
+INSERT INTO "public"."curso" VALUES (2, '1A', 'CURSO ORDNINARIO', 1, 'Ev.Ord.1ra');
+INSERT INTO "public"."curso" VALUES (3, '2A', 'CURSO DE REPETICOPN', 1, 'Ev.Rep.2da');
+INSERT INTO "public"."curso" VALUES (4, '3A', 'CURSO ESPECIAL', 1, 'Ev.Esp.3ra');
+
+-- ----------------------------
+-- Table structure for curso_carga
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."curso_carga";
+CREATE TABLE "public"."curso_carga" (
+  "id" int4 NOT NULL DEFAULT nextval('curso_carga_id_seq'::regclass),
+  "id_carga_academica" int4 NOT NULL,
+  "id_curso" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of curso_carga
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for empleado
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."empleado";
+CREATE TABLE "public"."empleado" (
+  "id_empleado" int4 NOT NULL DEFAULT nextval('empleado_id_empleado_seq'::regclass),
+  "nombre_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_paterno_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_materno_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "telefono_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "correo_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_empleado" int4 NOT NULL DEFAULT 1,
+  "username_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "password_empleado" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_rol" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of empleado
+-- ----------------------------
+INSERT INTO "public"."empleado" VALUES (1, 'Omars', 'Aranda', 'Almaraz', '7731271279', 'omarA@mail.com', 1, '201923197', '$2b$10$OmKYSxch2V8wFVHJP2T1fuj2cTSvmCtWPrZ.JVZCEJ0Xut/mnlvGy', 5);
+INSERT INTO "public"."empleado" VALUES (3, 'LUIS', 'MARTINEZ', 'FERNANDEZ', '5665656', 'luis@mail.com', 0, '201923159', '$2b$10$CW6hi47.g1arwXzEY3yuWuzFgUedf3qrb4WrgFeq9Vz7A1XlThjGq', 2);
+INSERT INTO "public"."empleado" VALUES (2, 'Luis', 'Paredes', 'Lopez', '265232321651', 'luismail.com', 0, '201923456', '$2b$10$uy/3CastlOxU8DM/CBqFyumiTtLIRDtVO9I7fasm4B1DmcNHY8p0C', 2);
+
+-- ----------------------------
+-- Table structure for factura
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."factura";
+CREATE TABLE "public"."factura" (
+  "id_factura" int4 NOT NULL DEFAULT nextval('factura_id_factura_seq'::regclass),
+  "numero_comprobante" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "monto_total_factura" float8 NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_factura" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of factura
+-- ----------------------------
+INSERT INTO "public"."factura" VALUES (14, '323232', 50, '201823203', 1);
+INSERT INTO "public"."factura" VALUES (15, '789456', 50, '201923158', 0);
+INSERT INTO "public"."factura" VALUES (17, '956232332', 200, '201923158', 0);
+INSERT INTO "public"."factura" VALUES (19, '159753', 2450, '201923158', 0);
+INSERT INTO "public"."factura" VALUES (20, '789321', 200, '201923158', 0);
+INSERT INTO "public"."factura" VALUES (21, '61561797', 0, '201923158', 1);
+INSERT INTO "public"."factura" VALUES (22, '653565', 200, '201923158', 0);
+
+-- ----------------------------
+-- Table structure for grupo
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."grupo";
+CREATE TABLE "public"."grupo" (
+  "id_grupo" int4 NOT NULL DEFAULT nextval('grupo_id_grupo_seq'::regclass),
+  "numero_grupo" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_grupo" int4 NOT NULL DEFAULT 1,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of grupo
+-- ----------------------------
+INSERT INTO "public"."grupo" VALUES (2, '3101', 1, 'ISIC');
+INSERT INTO "public"."grupo" VALUES (3, '3102', 1, 'ISIC');
+INSERT INTO "public"."grupo" VALUES (4, '3103', 0, 'ISIC');
+INSERT INTO "public"."grupo" VALUES (5, '3701', 1, 'ISIC');
+INSERT INTO "public"."grupo" VALUES (6, '6101', 1, 'ADMON');
+INSERT INTO "public"."grupo" VALUES (7, '6102', 1, 'ADMON');
+INSERT INTO "public"."grupo" VALUES (8, '7103', 1, 'INDUSTRIAL');
+
+-- ----------------------------
+-- Table structure for grupo_alumno
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."grupo_alumno";
+CREATE TABLE "public"."grupo_alumno" (
+  "id" int4 NOT NULL DEFAULT nextval('grupo_alumno_id_seq'::regclass),
+  "id_grupo" int4 NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of grupo_alumno
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for horario
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."horario";
+CREATE TABLE "public"."horario" (
+  "id_horario" int4 NOT NULL DEFAULT nextval('horario_id_horario_seq'::regclass),
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_periodo" int4 NOT NULL,
+  "id_grupo" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of horario
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for horarios
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."horarios";
+CREATE TABLE "public"."horarios" (
+  "idHorario" int4 NOT NULL DEFAULT nextval('horarios_id_horarios_seq'::regclass),
+  "ubicacion" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_periodo" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of horarios
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jefe_division
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."jefe_division";
+CREATE TABLE "public"."jefe_division" (
+  "clave_jefe" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_jefe" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_paterno_jefe" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_materno_jefe" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "correo_jefe" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_jefe" int4 NOT NULL DEFAULT 1,
+  "username_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "password_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_rol" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of jefe_division
+-- ----------------------------
+INSERT INTO "public"."jefe_division" VALUES ('201923321', 'Brandon', 'Lee', 'Flores', 'brandonLF@mail.com', 1, '201923321', '$2b$10$unxGFlFY3QLqFUgO4IrZyOrVZgqlCJ/sWBBZI0uJeUtLZ3rF.yIKq', 'ISIC', 3);
+
+-- ----------------------------
+-- Table structure for maestro
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."maestro";
+CREATE TABLE "public"."maestro" (
+  "clave_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_paterno_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "apellido_materno_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "correo_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_maestro" int4 NOT NULL DEFAULT 1,
+  "username_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "password_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_rol" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of maestro
+-- ----------------------------
+INSERT INTO "public"."maestro" VALUES ('201923157', 'Alexis', 'Antonio', 'Martinez', 'alex@mail.com', 1, '201923158', '$2b$10$9cNjkOVkCC8ngnqnDh5wyOgDeQ6XGG3vna8onDkTzRLLaaRvSn0sG', 1);
+INSERT INTO "public"."maestro" VALUES ('201923147', 'Jose', 'Lee', 'Flores', 'jose@mail.com', 1, '201923147', 'jose1234', 1);
+INSERT INTO "public"."maestro" VALUES ('201923789', 'Perron', 'Rosas', 'Flores', 'angelR@mail.com', 1, '201923789', '$2b$10$f388WqTyy25KwbHcpdIkh.jR0IVEhU39F2n0kky1vbKfF.W1RUe4a', 1);
+INSERT INTO "public"."maestro" VALUES ('219787', 'Predro', 'Lopez', 'perez', 'pedro@mail.com', 0, '201923523', 'pedro1234', 1);
+
+-- ----------------------------
+-- Table structure for maestro_grupo
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."maestro_grupo";
+CREATE TABLE "public"."maestro_grupo" (
+  "id" int4 NOT NULL DEFAULT nextval('maestro_horario_id_seq'::regclass),
+  "clave_maestro" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_grupo" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of maestro_grupo
+-- ----------------------------
+INSERT INTO "public"."maestro_grupo" VALUES (2, '201923789', 5);
+INSERT INTO "public"."maestro_grupo" VALUES (3, '201923789', 3);
+INSERT INTO "public"."maestro_grupo" VALUES (4, '201923789', 6);
+INSERT INTO "public"."maestro_grupo" VALUES (5, '201923789', 8);
+
+-- ----------------------------
+-- Table structure for materia
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."materia";
+CREATE TABLE "public"."materia" (
+  "clave_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "creditos_materia" int4 NOT NULL,
+  "status_materia" int4 NOT NULL DEFAULT 1
+)
+;
+
+-- ----------------------------
+-- Records of materia
+-- ----------------------------
+INSERT INTO "public"."materia" VALUES ('ACA-0907', 'TALLER DE ETICA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACA-0909', 'TALLER DE INVESTIGACION I', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACC-0906', 'FUNDAMENTOS DE INVESTIGACION', 4, 1);
+INSERT INTO "public"."materia" VALUES ('ACD-0908', 'DESARROLLO SUSTENTABLE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0901', 'CALCULO DIFERENCIAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0902', 'CALCULO INTEGRAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0903', 'ALGEBRA LINEAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0904', 'CALCULO VECTORIAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('ACF-0905', 'ECUACIONES DIFERENCIALES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEB-1055', 'PROGRAMACION WEB', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1008', 'CONTABILIDAD FINANCIERA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1034', 'FUNDAMENTOS DE TELECOMUNICACIONES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AEC-1061', 'SISTEMAS OPERATIVOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('AED-1026', 'ESTRUCTURA DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AED-1286', 'PROGRAMACION ORIENTADA A OBJETOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1031', 'FUNDAMENTOS DE BASES DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1041', 'MATEMATICAS DISCRETAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1052', 'PROBABILIDAD Y ESTADISTICA', 5, 1);
+INSERT INTO "public"."materia" VALUES ('AEF-1058', 'QUIMICA', 4, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2001', 'INTERNET DE LAS COSAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2002', 'DESARROLLO DE APLICACIONES PARA DISPOSITIVOS MOVILES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('CLB-2003', 'CIBERSEGURIDAD', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1002', 'ADMINISTRACION DE REDES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1025', 'TALLER DE BASE DE DATOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCA-1026', 'TALLER DE SISTEMAS OPERATIVOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCB-1001', 'ADMINISTRACION DE BASE DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1007', 'FUNDAMENTOS DE INGENIERIA DE SOFTWARE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1010', 'GRAFICACION', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1012', 'INTELIGENCIA ARTIFICIAL', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1013', 'INVESTIGACION DE OPERACIONES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1014', 'LENGUAJES DE INTERFAZ', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1017', 'METODOS NUMERICOS', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1019', 'PROGRAMACION LOGICA Y FUNCIONAL', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCC-1023', 'SISTEMAS PROGRAMABLES', 4, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1003', 'ARQUITECTURA DE COMPUTADORAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1004', 'CONMUTACION Y ENRUTAMIENTO DE REDES DE DATOS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1008', 'FUNDAMENTOS DE PROGRAMACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1011', 'INGENIERIA DE SOFTWARE', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1015', 'LENGUAJES Y AUTOMATAS I', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1016', 'LENGUAJES Y AUTOMATAS II', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1018', 'PRINCIPIOS ELECTRICOS Y APLICACIONES DIGITALES', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1021', 'REDES DE COMPUTADORAS', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1022', 'SIMULACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCD-1027', 'TOPICOS AVANZADOS DE PROGRAMACION', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCF-1006', 'FISICA GENERAL', 5, 1);
+INSERT INTO "public"."materia" VALUES ('SCG-1009', 'GESTION DE PROYECTOS DE SOFTWARE', 6, 1);
+INSERT INTO "public"."materia" VALUES ('SCH-102', 'TALLER DE ADMINISTRACION', 4, 1);
+
+-- ----------------------------
+-- Table structure for materia_carga
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."materia_carga";
+CREATE TABLE "public"."materia_carga" (
+  "id" int4 NOT NULL DEFAULT nextval('materia_carga_id_seq'::regclass),
+  "clave_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "id_carga_academica" int4 NOT NULL,
+  "id_curso" int4,
+  "id_grupo" int4
+)
+;
+
+-- ----------------------------
+-- Records of materia_carga
+-- ----------------------------
+INSERT INTO "public"."materia_carga" VALUES (13, 'SCG-1009', 12, 2, 5);
+INSERT INTO "public"."materia_carga" VALUES (15, 'SCH-102', 13, 2, 5);
+INSERT INTO "public"."materia_carga" VALUES (14, 'SCH-102', 12, 2, 5);
+INSERT INTO "public"."materia_carga" VALUES (16, 'SCG-1009', 13, 2, 5);
+
+-- ----------------------------
+-- Table structure for materia_carrera
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."materia_carrera";
+CREATE TABLE "public"."materia_carrera" (
+  "id" int4 NOT NULL DEFAULT nextval('materia_carrera_id_seq'::regclass),
+  "clave_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "clave_carrera" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of materia_carrera
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for materia_horario
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."materia_horario";
+CREATE TABLE "public"."materia_horario" (
+  "id" int4 NOT NULL DEFAULT nextval('materia_horario_id_seq'::regclass),
+  "id_horario" int4 NOT NULL,
+  "clave_materia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of materia_horario
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for periodo
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."periodo";
+CREATE TABLE "public"."periodo" (
+  "id_periodo" int4 NOT NULL DEFAULT nextval('periodo_id_periodo_seq'::regclass),
+  "numero_periodo" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "descripcion_periodo" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_periodo" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of periodo
+-- ----------------------------
+INSERT INTO "public"."periodo" VALUES (1, '2022-1', 'Primer periodo 2022', 0);
+INSERT INTO "public"."periodo" VALUES (2, '2022-2', 'Segundo periodo 2022', 1);
+INSERT INTO "public"."periodo" VALUES (3, '211', 'fsdfsd', 0);
+INSERT INTO "public"."periodo" VALUES (4, '2023-1', 'PERIODO NUEVO 2023', 0);
+
+-- ----------------------------
+-- Table structure for peticion
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."peticion";
+CREATE TABLE "public"."peticion" (
+  "id_peticion" int4 NOT NULL DEFAULT nextval('peticion_id_peticion_seq'::regclass),
+  "tipo_peticion" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_peticion" int4 NOT NULL DEFAULT 1
+)
+;
+
+-- ----------------------------
+-- Records of peticion
+-- ----------------------------
+INSERT INTO "public"."peticion" VALUES (3, 'CONSTANCIA DE SEMESTRE', '201923158', 0);
+INSERT INTO "public"."peticion" VALUES (2, 'CONSTANCIA DE ESTUDIOS', '201923158', 0);
+INSERT INTO "public"."peticion" VALUES (4, 'CONSTANCIA DE ESTUDIOS', '201923158', 0);
+
+-- ----------------------------
+-- Table structure for razon_baja
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."razon_baja";
+CREATE TABLE "public"."razon_baja" (
+  "clave_razon_baja" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_razon_baja" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "descripcion_razon_baja" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of razon_baja
+-- ----------------------------
+INSERT INTO "public"."razon_baja" VALUES ('PE56', 'SALUD', 'PROBLEMAS DE SALUD');
+INSERT INTO "public"."razon_baja" VALUES ('PE67', 'ECONOMIA', 'PROBLEMAS ECONOMICOS');
+INSERT INTO "public"."razon_baja" VALUES ('PE79|', 'RESIDENCIA', 'CAMBIO DE RESIDENCIA');
+
+-- ----------------------------
+-- Table structure for razon_factura
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."razon_factura";
+CREATE TABLE "public"."razon_factura" (
+  "clave_razon_factura" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_razon_factura" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_razon_factura" int4 NOT NULL,
+  "precio_unitario_factura" float8 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of razon_factura
+-- ----------------------------
+INSERT INTO "public"."razon_factura" VALUES ('IN454', 'INSCRIPCION', 1, 2450);
+INSERT INTO "public"."razon_factura" VALUES ('CR323', 'CREDENCIAL', 1, 50);
+INSERT INTO "public"."razon_factura" VALUES ('SE262', 'SEGURO FACULTATIVO', 1, 105);
+INSERT INTO "public"."razon_factura" VALUES ('FFD64', 'CONSTANCIA', 1, 200);
+
+-- ----------------------------
+-- Table structure for razonf_factura
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."razonf_factura";
+CREATE TABLE "public"."razonf_factura" (
+  "id" int4 NOT NULL DEFAULT nextval('razonf_factura_id_seq'::regclass),
+  "id_factura" int4 NOT NULL,
+  "clave_razon_factura" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of razonf_factura
+-- ----------------------------
+INSERT INTO "public"."razonf_factura" VALUES (12, 14, 'CR323');
+INSERT INTO "public"."razonf_factura" VALUES (13, 15, 'CR323');
+INSERT INTO "public"."razonf_factura" VALUES (17, 19, 'IN454');
+INSERT INTO "public"."razonf_factura" VALUES (18, 20, 'FFD64');
+INSERT INTO "public"."razonf_factura" VALUES (19, 22, 'FFD64');
+
+-- ----------------------------
+-- Table structure for renuncia_seguro
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."renuncia_seguro";
+CREATE TABLE "public"."renuncia_seguro" (
+  "id_renuncia_seguro" int4 NOT NULL DEFAULT nextval('renuncia_seguro_id_renuncia_seguro_seq'::regclass),
+  "fecha_renuncia_seguro" timestamptz(6) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of renuncia_seguro
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for renuncia_seguro_alumno
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."renuncia_seguro_alumno";
+CREATE TABLE "public"."renuncia_seguro_alumno" (
+  "id" int4 NOT NULL DEFAULT nextval('renuncia_seguro_alumno_id_seq'::regclass),
+  "matricula_alumno" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "fecha_renuncia_seguro" timestamptz(6)
+)
+;
+
+-- ----------------------------
+-- Records of renuncia_seguro_alumno
+-- ----------------------------
+INSERT INTO "public"."renuncia_seguro_alumno" VALUES (4, '201823203', '2022-12-29 08:01:40.413-06');
+
+-- ----------------------------
+-- Table structure for rol
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."rol";
+CREATE TABLE "public"."rol" (
+  "id_rol" int4 NOT NULL DEFAULT nextval('rol_id_rol_seq'::regclass),
+  "nombre_rol" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_rol" int4 NOT NULL DEFAULT 1
+)
+;
+
+-- ----------------------------
+-- Records of rol
+-- ----------------------------
+INSERT INTO "public"."rol" VALUES (1, 'maestro', 1);
+INSERT INTO "public"."rol" VALUES (2, 'empleado', 1);
+INSERT INTO "public"."rol" VALUES (3, 'jefe division', 1);
+INSERT INTO "public"."rol" VALUES (4, 'alumno', 1);
+INSERT INTO "public"."rol" VALUES (5, 'jefa control', 1);
+
+-- ----------------------------
+-- Table structure for semestre
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."semestre";
+CREATE TABLE "public"."semestre" (
+  "id_semestre" int4 NOT NULL DEFAULT nextval('semestre_id_semestre_seq'::regclass),
+  "numero_semestre" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_semestre" int4 NOT NULL DEFAULT 1
+)
+;
+
+-- ----------------------------
+-- Records of semestre
+-- ----------------------------
+INSERT INTO "public"."semestre" VALUES (1, '1', 1);
+INSERT INTO "public"."semestre" VALUES (2, '2', 1);
+INSERT INTO "public"."semestre" VALUES (3, '3', 1);
+INSERT INTO "public"."semestre" VALUES (4, '4', 1);
+INSERT INTO "public"."semestre" VALUES (5, '5', 1);
+INSERT INTO "public"."semestre" VALUES (6, '6', 1);
+INSERT INTO "public"."semestre" VALUES (7, '7', 1);
+INSERT INTO "public"."semestre" VALUES (8, '8', 1);
+INSERT INTO "public"."semestre" VALUES (9, '9', 1);
+INSERT INTO "public"."semestre" VALUES (10, '10', 1);
+INSERT INTO "public"."semestre" VALUES (11, '11', 1);
+INSERT INTO "public"."semestre" VALUES (12, '12', 1);
+
+-- ----------------------------
+-- Table structure for tipo_carga
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."tipo_carga";
+CREATE TABLE "public"."tipo_carga" (
+  "clave_tipo_carga" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "nombre_tipo_carga" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "descripcion_carga" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "status_tipo_carga" int4 NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of tipo_carga
+-- ----------------------------
+INSERT INTO "public"."tipo_carga" VALUES ('INS-1', 'INSCRIPCION', 'ES EL PRIMER PASO PARA SER ESTUDIANTE', 1);
+INSERT INTO "public"."tipo_carga" VALUES ('RES-2', 'REINSCRIPCION', 'CUANDO TE INTEGRAS A UN NUEVO SEMESTRE', 1);
+INSERT INTO "public"."tipo_carga" VALUES ('CUR-3', 'CURSO DE VERANO', 'TIEMPO EXTRA PARA TOMAR UNA MATERIA', 1);
+
+-- ----------------------------
+-- Table structure for tipo_constancia
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."tipo_constancia";
+CREATE TABLE "public"."tipo_constancia" (
+  "id_tipo_constancia" int4 NOT NULL DEFAULT nextval('tipo_constancia_id_tipo_constancia_seq'::regclass),
+  "nombre_tipo_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "descripcion_tipo_constancia" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of tipo_constancia
+-- ----------------------------
+INSERT INTO "public"."tipo_constancia" VALUES (2, 'ESTUDIOS', 'CONSTANCIA DE ESTUDIOS');
+INSERT INTO "public"."tipo_constancia" VALUES (3, 'SEMESTRE', 'CONSTANCIA DE SEMESTRE');
+INSERT INTO "public"."tipo_constancia" VALUES (4, 'MATERIAS', 'CONSTANCIA MATERIAS CURSADAS');
+
+-- ----------------------------
+-- Table structure for usuario_admision
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."usuario_admision";
+CREATE TABLE "public"."usuario_admision" (
+  "id_usuario_admision" int4 NOT NULL DEFAULT nextval('usuario_admision_id_usuario_admision_seq'::regclass),
+  "username_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "password_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "numero_ficha_admision" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of usuario_admision
+-- ----------------------------
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."acta_evaluacion_id_seq"
+OWNED BY "public"."acta_evaluacion"."id";
+SELECT setval('"public"."acta_evaluacion_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."alumno_acta_id_seq"
+OWNED BY "public"."alumno_acta"."id";
+SELECT setval('"public"."alumno_acta_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."baja_alumno_id_seq"
+OWNED BY "public"."baja_alumno"."id";
+SELECT setval('"public"."baja_alumno_id_seq"', 8, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."baja_razon_baja_id_seq"
+OWNED BY "public"."baja_razon_baja"."id";
+SELECT setval('"public"."baja_razon_baja_id_seq"', 9, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."baja_temp_def_id_baja_seq"
+OWNED BY "public"."baja_temp_def"."id_baja";
+SELECT setval('"public"."baja_temp_def_id_baja_seq"', 16, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."carga_academica_id_carga_academica_seq"
+OWNED BY "public"."carga_academica"."id_carga_academica";
+SELECT setval('"public"."carga_academica_id_carga_academica_seq"', 14, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."constancia_alumno_id_seq"
+OWNED BY "public"."constancia_alumno"."id";
+SELECT setval('"public"."constancia_alumno_id_seq"', 9, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."constancia_tipo_id_seq"
+OWNED BY "public"."constancia_tipo"."id";
+SELECT setval('"public"."constancia_tipo_id_seq"', 11, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."credencial_id_credencial_seq"
+OWNED BY "public"."credencial"."id_credencial";
+SELECT setval('"public"."credencial_id_credencial_seq"', 7, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."curso_carga_id_seq"
+OWNED BY "public"."curso_carga"."id";
+SELECT setval('"public"."curso_carga_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."curso_id_curso_seq"
+OWNED BY "public"."curso"."id_curso";
+SELECT setval('"public"."curso_id_curso_seq"', 5, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."empleado_id_empleado_seq"
+OWNED BY "public"."empleado"."id_empleado";
+SELECT setval('"public"."empleado_id_empleado_seq"', 4, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."factura_id_factura_seq"
+OWNED BY "public"."factura"."id_factura";
+SELECT setval('"public"."factura_id_factura_seq"', 23, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."grupo_alumno_id_seq"
+OWNED BY "public"."grupo_alumno"."id";
+SELECT setval('"public"."grupo_alumno_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."grupo_id_grupo_seq"
+OWNED BY "public"."grupo"."id_grupo";
+SELECT setval('"public"."grupo_id_grupo_seq"', 9, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."horario_id_horario_seq"
+OWNED BY "public"."horario"."id_horario";
+SELECT setval('"public"."horario_id_horario_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+SELECT setval('"public"."horarios_id_horarios_seq"', 6, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."maestro_horario_id_seq"
+OWNED BY "public"."maestro_grupo"."id";
+SELECT setval('"public"."maestro_horario_id_seq"', 6, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."materia_carga_id_seq"
+OWNED BY "public"."materia_carga"."id";
+SELECT setval('"public"."materia_carga_id_seq"', 17, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."materia_carrera_id_seq"
+OWNED BY "public"."materia_carrera"."id";
+SELECT setval('"public"."materia_carrera_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."materia_horario_id_seq"
+OWNED BY "public"."materia_horario"."id";
+SELECT setval('"public"."materia_horario_id_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."periodo_id_periodo_seq"
+OWNED BY "public"."periodo"."id_periodo";
+SELECT setval('"public"."periodo_id_periodo_seq"', 5, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."peticion_id_peticion_seq"
+OWNED BY "public"."peticion"."id_peticion";
+SELECT setval('"public"."peticion_id_peticion_seq"', 5, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."razonf_factura_id_seq"
+OWNED BY "public"."razonf_factura"."id";
+SELECT setval('"public"."razonf_factura_id_seq"', 20, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."renuncia_seguro_alumno_id_seq"
+OWNED BY "public"."renuncia_seguro_alumno"."id";
+SELECT setval('"public"."renuncia_seguro_alumno_id_seq"', 5, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."renuncia_seguro_id_renuncia_seguro_seq"
+OWNED BY "public"."renuncia_seguro"."id_renuncia_seguro";
+SELECT setval('"public"."renuncia_seguro_id_renuncia_seguro_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."rol_id_rol_seq"
+OWNED BY "public"."rol"."id_rol";
+SELECT setval('"public"."rol_id_rol_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."semestre_id_semestre_seq"
+OWNED BY "public"."semestre"."id_semestre";
+SELECT setval('"public"."semestre_id_semestre_seq"', 3, false);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."tipo_constancia_id_tipo_constancia_seq"
+OWNED BY "public"."tipo_constancia"."id_tipo_constancia";
+SELECT setval('"public"."tipo_constancia_id_tipo_constancia_seq"', 5, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."usuario_admision_id_usuario_admision_seq"
+OWNED BY "public"."usuario_admision"."id_usuario_admision";
+SELECT setval('"public"."usuario_admision_id_usuario_admision_seq"', 3, false);
+
+-- ----------------------------
+-- Primary Key structure for table SequelizeMeta
+-- ----------------------------
+ALTER TABLE "public"."SequelizeMeta" ADD CONSTRAINT "SequelizeMeta_pkey" PRIMARY KEY ("name");
+
+-- ----------------------------
+-- Uniques structure for table acta_calificaciones
+-- ----------------------------
+ALTER TABLE "public"."acta_calificaciones" ADD CONSTRAINT "acta_calificaciones_folio_acta_key" UNIQUE ("folio_acta");
+
+-- ----------------------------
+-- Primary Key structure for table acta_calificaciones
+-- ----------------------------
+ALTER TABLE "public"."acta_calificaciones" ADD CONSTRAINT "acta_calificaciones_pkey" PRIMARY KEY ("folio_acta", "clave_materia");
+
+-- ----------------------------
+-- Primary Key structure for table acta_evaluacion
+-- ----------------------------
+ALTER TABLE "public"."acta_evaluacion" ADD CONSTRAINT "acta_evaluacion_pkey" PRIMARY KEY ("id", "folio_acta", "id_curso");
+
+-- ----------------------------
+-- Uniques structure for table admision
+-- ----------------------------
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_telefono_admision_key" UNIQUE ("telefono_admision");
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_telefono_emegencia_admision_key" UNIQUE ("telefono_emegencia_admision");
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_correo_admision_key" UNIQUE ("correo_admision");
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_curp_admision_key" UNIQUE ("curp_admision");
+
+-- ----------------------------
+-- Primary Key structure for table admision
+-- ----------------------------
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_pkey" PRIMARY KEY ("numero_ficha_admision");
+
+-- ----------------------------
+-- Uniques structure for table alumno
+-- ----------------------------
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_telefono_alumno_key" UNIQUE ("telefono_alumno");
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_correo_alumno_key" UNIQUE ("correo_alumno");
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_curp_alumno_key" UNIQUE ("curp_alumno");
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_numero_seguro_alumno_key" UNIQUE ("numero_seguro_alumno");
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_username_alumno_key" UNIQUE ("username_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table alumno
+-- ----------------------------
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_pkey" PRIMARY KEY ("matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table alumno_acta
+-- ----------------------------
+ALTER TABLE "public"."alumno_acta" ADD CONSTRAINT "alumno_acta_pkey" PRIMARY KEY ("id", "folio_acta", "matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table baja_alumno
+-- ----------------------------
+ALTER TABLE "public"."baja_alumno" ADD CONSTRAINT "baja_alumno_pkey" PRIMARY KEY ("id", "id_baja", "matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table baja_razon_baja
+-- ----------------------------
+ALTER TABLE "public"."baja_razon_baja" ADD CONSTRAINT "baja_razon_baja_pkey" PRIMARY KEY ("id", "id_baja", "clave_razon_baja");
+
+-- ----------------------------
+-- Primary Key structure for table baja_temp_def
+-- ----------------------------
+ALTER TABLE "public"."baja_temp_def" ADD CONSTRAINT "baja_temp_def_pkey" PRIMARY KEY ("id_baja");
+
+-- ----------------------------
+-- Primary Key structure for table carga_academica
+-- ----------------------------
+ALTER TABLE "public"."carga_academica" ADD CONSTRAINT "carga_academica_pkey" PRIMARY KEY ("id_carga_academica");
+
+-- ----------------------------
+-- Primary Key structure for table carrera
+-- ----------------------------
+ALTER TABLE "public"."carrera" ADD CONSTRAINT "carrera_pkey" PRIMARY KEY ("clave_carrera");
+
+-- ----------------------------
+-- Primary Key structure for table constancia_alumno
+-- ----------------------------
+ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_pkey" PRIMARY KEY ("id", "clave_constancia", "matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table constancia_tipo
+-- ----------------------------
+ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_pkey" PRIMARY KEY ("id", "id_tipo_constancia", "clave_constancia");
+
+-- ----------------------------
+-- Primary Key structure for table contsancia_table
+-- ----------------------------
+ALTER TABLE "public"."contsancia_table" ADD CONSTRAINT "contsancia_table_pkey" PRIMARY KEY ("clave_constancia");
+
+-- ----------------------------
+-- Primary Key structure for table credencial
+-- ----------------------------
+ALTER TABLE "public"."credencial" ADD CONSTRAINT "credencial_pkey" PRIMARY KEY ("id_credencial");
+
+-- ----------------------------
+-- Primary Key structure for table curso
+-- ----------------------------
+ALTER TABLE "public"."curso" ADD CONSTRAINT "curso_pkey" PRIMARY KEY ("id_curso");
+
+-- ----------------------------
+-- Primary Key structure for table curso_carga
+-- ----------------------------
+ALTER TABLE "public"."curso_carga" ADD CONSTRAINT "curso_carga_pkey" PRIMARY KEY ("id", "id_carga_academica", "id_curso");
+
+-- ----------------------------
+-- Uniques structure for table empleado
+-- ----------------------------
+ALTER TABLE "public"."empleado" ADD CONSTRAINT "empleado_telefono_empleado_key" UNIQUE ("telefono_empleado");
+ALTER TABLE "public"."empleado" ADD CONSTRAINT "empleado_correo_empleado_key" UNIQUE ("correo_empleado");
+ALTER TABLE "public"."empleado" ADD CONSTRAINT "empleado_username_empleado_key" UNIQUE ("username_empleado");
+
+-- ----------------------------
+-- Primary Key structure for table empleado
+-- ----------------------------
+ALTER TABLE "public"."empleado" ADD CONSTRAINT "empleado_pkey" PRIMARY KEY ("id_empleado");
+
+-- ----------------------------
+-- Primary Key structure for table factura
+-- ----------------------------
+ALTER TABLE "public"."factura" ADD CONSTRAINT "factura_pkey" PRIMARY KEY ("id_factura");
+
+-- ----------------------------
+-- Primary Key structure for table grupo
+-- ----------------------------
+ALTER TABLE "public"."grupo" ADD CONSTRAINT "grupo_pkey" PRIMARY KEY ("id_grupo");
+
+-- ----------------------------
+-- Primary Key structure for table grupo_alumno
+-- ----------------------------
+ALTER TABLE "public"."grupo_alumno" ADD CONSTRAINT "grupo_alumno_pkey" PRIMARY KEY ("id", "id_grupo", "matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table horario
+-- ----------------------------
+ALTER TABLE "public"."horario" ADD CONSTRAINT "horario_pkey" PRIMARY KEY ("id_horario");
+
+-- ----------------------------
+-- Primary Key structure for table horarios
+-- ----------------------------
+ALTER TABLE "public"."horarios" ADD CONSTRAINT "horarios_pkey" PRIMARY KEY ("idHorario");
+
+-- ----------------------------
+-- Uniques structure for table jefe_division
+-- ----------------------------
+ALTER TABLE "public"."jefe_division" ADD CONSTRAINT "jefe_division_correo_jefe_key" UNIQUE ("correo_jefe");
+ALTER TABLE "public"."jefe_division" ADD CONSTRAINT "jefe_division_username_maestro_key" UNIQUE ("username_maestro");
+
+-- ----------------------------
+-- Primary Key structure for table jefe_division
+-- ----------------------------
+ALTER TABLE "public"."jefe_division" ADD CONSTRAINT "jefe_division_pkey" PRIMARY KEY ("clave_jefe");
+
+-- ----------------------------
+-- Uniques structure for table maestro
+-- ----------------------------
+ALTER TABLE "public"."maestro" ADD CONSTRAINT "maestro_correo_maestro_key" UNIQUE ("correo_maestro");
+ALTER TABLE "public"."maestro" ADD CONSTRAINT "maestro_username_maestro_key" UNIQUE ("username_maestro");
+
+-- ----------------------------
+-- Primary Key structure for table maestro
+-- ----------------------------
+ALTER TABLE "public"."maestro" ADD CONSTRAINT "maestro_pkey" PRIMARY KEY ("clave_maestro");
+
+-- ----------------------------
+-- Primary Key structure for table maestro_grupo
+-- ----------------------------
+ALTER TABLE "public"."maestro_grupo" ADD CONSTRAINT "maestro_horario_pkey" PRIMARY KEY ("id", "clave_maestro");
+
+-- ----------------------------
+-- Primary Key structure for table materia
+-- ----------------------------
+ALTER TABLE "public"."materia" ADD CONSTRAINT "materia_pkey" PRIMARY KEY ("clave_materia");
+
+-- ----------------------------
+-- Primary Key structure for table materia_carga
+-- ----------------------------
+ALTER TABLE "public"."materia_carga" ADD CONSTRAINT "materia_carga_pkey" PRIMARY KEY ("id", "clave_materia", "id_carga_academica");
+
+-- ----------------------------
+-- Primary Key structure for table materia_carrera
+-- ----------------------------
+ALTER TABLE "public"."materia_carrera" ADD CONSTRAINT "materia_carrera_pkey" PRIMARY KEY ("id", "clave_materia", "clave_carrera");
+
+-- ----------------------------
+-- Primary Key structure for table materia_horario
+-- ----------------------------
+ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_pkey" PRIMARY KEY ("id", "id_horario", "clave_materia");
+
+-- ----------------------------
+-- Primary Key structure for table periodo
+-- ----------------------------
+ALTER TABLE "public"."periodo" ADD CONSTRAINT "periodo_pkey" PRIMARY KEY ("id_periodo");
+
+-- ----------------------------
+-- Primary Key structure for table peticion
+-- ----------------------------
+ALTER TABLE "public"."peticion" ADD CONSTRAINT "peticion_pkey" PRIMARY KEY ("id_peticion");
+
+-- ----------------------------
+-- Primary Key structure for table razon_baja
+-- ----------------------------
+ALTER TABLE "public"."razon_baja" ADD CONSTRAINT "razon_baja_pkey" PRIMARY KEY ("clave_razon_baja");
+
+-- ----------------------------
+-- Primary Key structure for table razon_factura
+-- ----------------------------
+ALTER TABLE "public"."razon_factura" ADD CONSTRAINT "razon_factura_pkey" PRIMARY KEY ("clave_razon_factura");
+
+-- ----------------------------
+-- Primary Key structure for table razonf_factura
+-- ----------------------------
+ALTER TABLE "public"."razonf_factura" ADD CONSTRAINT "razonf_factura_pkey" PRIMARY KEY ("id", "id_factura", "clave_razon_factura");
+
+-- ----------------------------
+-- Primary Key structure for table renuncia_seguro
+-- ----------------------------
+ALTER TABLE "public"."renuncia_seguro" ADD CONSTRAINT "renuncia_seguro_pkey" PRIMARY KEY ("id_renuncia_seguro");
+
+-- ----------------------------
+-- Primary Key structure for table renuncia_seguro_alumno
+-- ----------------------------
+ALTER TABLE "public"."renuncia_seguro_alumno" ADD CONSTRAINT "renuncia_seguro_alumno_pkey" PRIMARY KEY ("id", "matricula_alumno");
+
+-- ----------------------------
+-- Primary Key structure for table rol
+-- ----------------------------
+ALTER TABLE "public"."rol" ADD CONSTRAINT "rol_pkey" PRIMARY KEY ("id_rol");
+
+-- ----------------------------
+-- Primary Key structure for table semestre
+-- ----------------------------
+ALTER TABLE "public"."semestre" ADD CONSTRAINT "semestre_pkey" PRIMARY KEY ("id_semestre");
+
+-- ----------------------------
+-- Primary Key structure for table tipo_carga
+-- ----------------------------
+ALTER TABLE "public"."tipo_carga" ADD CONSTRAINT "tipo_carga_pkey" PRIMARY KEY ("clave_tipo_carga");
+
+-- ----------------------------
+-- Primary Key structure for table tipo_constancia
+-- ----------------------------
+ALTER TABLE "public"."tipo_constancia" ADD CONSTRAINT "tipo_constancia_pkey" PRIMARY KEY ("id_tipo_constancia");
+
+-- ----------------------------
+-- Uniques structure for table usuario_admision
+-- ----------------------------
+ALTER TABLE "public"."usuario_admision" ADD CONSTRAINT "usuario_admision_username_admision_key" UNIQUE ("username_admision");
+
+-- ----------------------------
+-- Primary Key structure for table usuario_admision
+-- ----------------------------
+ALTER TABLE "public"."usuario_admision" ADD CONSTRAINT "usuario_admision_pkey" PRIMARY KEY ("id_usuario_admision");
+
+-- ----------------------------
+-- Foreign Keys structure for table acta_calificaciones
+-- ----------------------------
+ALTER TABLE "public"."acta_calificaciones" ADD CONSTRAINT "acta_calificaciones_clave_materia_fkey" FOREIGN KEY ("clave_materia") REFERENCES "public"."materia" ("clave_materia") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table acta_evaluacion
+-- ----------------------------
+ALTER TABLE "public"."acta_evaluacion" ADD CONSTRAINT "acta_evaluacion_folio_acta_fkey" FOREIGN KEY ("folio_acta") REFERENCES "public"."acta_calificaciones" ("folio_acta") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."acta_evaluacion" ADD CONSTRAINT "acta_evaluacion_id_tipo_evaluacion_fkey" FOREIGN KEY ("id_curso") REFERENCES "public"."curso" ("id_curso") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table admision
+-- ----------------------------
+ALTER TABLE "public"."admision" ADD CONSTRAINT "admision_clave_carrera_fkey" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table alumno
+-- ----------------------------
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_clave_carrera_fkey" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_id_rol_fkey" FOREIGN KEY ("id_rol") REFERENCES "public"."rol" ("id_rol") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."alumno" ADD CONSTRAINT "alumno_id_semestre_fkey" FOREIGN KEY ("id_semestre") REFERENCES "public"."semestre" ("id_semestre") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table alumno_acta
+-- ----------------------------
+ALTER TABLE "public"."alumno_acta" ADD CONSTRAINT "alumno_acta_folio_acta_fkey" FOREIGN KEY ("folio_acta") REFERENCES "public"."acta_calificaciones" ("folio_acta") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."alumno_acta" ADD CONSTRAINT "alumno_acta_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table baja_alumno
+-- ----------------------------
+ALTER TABLE "public"."baja_alumno" ADD CONSTRAINT "baja_alumno_id_baja_fkey" FOREIGN KEY ("id_baja") REFERENCES "public"."baja_temp_def" ("id_baja") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."baja_alumno" ADD CONSTRAINT "baja_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table baja_razon_baja
+-- ----------------------------
+ALTER TABLE "public"."baja_razon_baja" ADD CONSTRAINT "baja_razon_baja_clave_razon_baja_fkey" FOREIGN KEY ("clave_razon_baja") REFERENCES "public"."razon_baja" ("clave_razon_baja") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."baja_razon_baja" ADD CONSTRAINT "baja_razon_baja_id_baja_fkey" FOREIGN KEY ("id_baja") REFERENCES "public"."baja_temp_def" ("id_baja") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table carga_academica
+-- ----------------------------
+ALTER TABLE "public"."carga_academica" ADD CONSTRAINT "carga_academica_clave_tipo_carga_fkey" FOREIGN KEY ("clave_tipo_carga") REFERENCES "public"."tipo_carga" ("clave_tipo_carga") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."carga_academica" ADD CONSTRAINT "carga_academica_id_periodo_fkey" FOREIGN KEY ("id_periodo") REFERENCES "public"."periodo" ("id_periodo") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."carga_academica" ADD CONSTRAINT "carga_academica_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table constancia_alumno
+-- ----------------------------
+ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_clave_constancia_fkey" FOREIGN KEY ("clave_constancia") REFERENCES "public"."contsancia_table" ("clave_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."constancia_alumno" ADD CONSTRAINT "constancia_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table constancia_tipo
+-- ----------------------------
+ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_clave_constancia_fkey" FOREIGN KEY ("clave_constancia") REFERENCES "public"."contsancia_table" ("clave_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."constancia_tipo" ADD CONSTRAINT "constancia_tipo_id_tipo_constancia_fkey" FOREIGN KEY ("id_tipo_constancia") REFERENCES "public"."tipo_constancia" ("id_tipo_constancia") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table credencial
+-- ----------------------------
+ALTER TABLE "public"."credencial" ADD CONSTRAINT "credencial_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table curso_carga
+-- ----------------------------
+ALTER TABLE "public"."curso_carga" ADD CONSTRAINT "curso_carga_id_carga_academica_fkey" FOREIGN KEY ("id_carga_academica") REFERENCES "public"."carga_academica" ("id_carga_academica") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."curso_carga" ADD CONSTRAINT "curso_carga_id_curso_fkey" FOREIGN KEY ("id_curso") REFERENCES "public"."curso" ("id_curso") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table empleado
+-- ----------------------------
+ALTER TABLE "public"."empleado" ADD CONSTRAINT "empleado_id_rol_fkey" FOREIGN KEY ("id_rol") REFERENCES "public"."rol" ("id_rol") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table grupo
+-- ----------------------------
+ALTER TABLE "public"."grupo" ADD CONSTRAINT "clave_carrera" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table grupo_alumno
+-- ----------------------------
+ALTER TABLE "public"."grupo_alumno" ADD CONSTRAINT "grupo_alumno_id_grupo_fkey" FOREIGN KEY ("id_grupo") REFERENCES "public"."grupo" ("id_grupo") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."grupo_alumno" ADD CONSTRAINT "grupo_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table horario
+-- ----------------------------
+ALTER TABLE "public"."horario" ADD CONSTRAINT "horario_clave_carrera_fkey" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."horario" ADD CONSTRAINT "horario_id_grupo_fkey" FOREIGN KEY ("id_grupo") REFERENCES "public"."grupo" ("id_grupo") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."horario" ADD CONSTRAINT "horario_id_periodo_fkey" FOREIGN KEY ("id_periodo") REFERENCES "public"."periodo" ("id_periodo") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table horarios
+-- ----------------------------
+ALTER TABLE "public"."horarios" ADD CONSTRAINT "horarios_id_periodo_fkey" FOREIGN KEY ("id_periodo") REFERENCES "public"."periodo" ("id_periodo") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table jefe_division
+-- ----------------------------
+ALTER TABLE "public"."jefe_division" ADD CONSTRAINT "jefe_division_clave_carrera_fkey" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."jefe_division" ADD CONSTRAINT "jefe_division_id_rol_fkey" FOREIGN KEY ("id_rol") REFERENCES "public"."rol" ("id_rol") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table maestro
+-- ----------------------------
+ALTER TABLE "public"."maestro" ADD CONSTRAINT "maestro_id_rol_fkey" FOREIGN KEY ("id_rol") REFERENCES "public"."rol" ("id_rol") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table maestro_grupo
+-- ----------------------------
+ALTER TABLE "public"."maestro_grupo" ADD CONSTRAINT "id_grupo_fk" FOREIGN KEY ("id_grupo") REFERENCES "public"."grupo" ("id_grupo") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."maestro_grupo" ADD CONSTRAINT "maestro_horario_clave_maestro_fkey" FOREIGN KEY ("clave_maestro") REFERENCES "public"."maestro" ("clave_maestro") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table materia_carga
+-- ----------------------------
+ALTER TABLE "public"."materia_carga" ADD CONSTRAINT "idcurso" FOREIGN KEY ("id_curso") REFERENCES "public"."curso" ("id_curso") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."materia_carga" ADD CONSTRAINT "idgrupo" FOREIGN KEY ("id_grupo") REFERENCES "public"."grupo" ("id_grupo") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."materia_carga" ADD CONSTRAINT "materia_carga_clave_materia_fkey" FOREIGN KEY ("clave_materia") REFERENCES "public"."materia" ("clave_materia") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."materia_carga" ADD CONSTRAINT "materia_carga_id_carga_academica_fkey" FOREIGN KEY ("id_carga_academica") REFERENCES "public"."carga_academica" ("id_carga_academica") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table materia_carrera
+-- ----------------------------
+ALTER TABLE "public"."materia_carrera" ADD CONSTRAINT "materia_carrera_clave_carrera_fkey" FOREIGN KEY ("clave_carrera") REFERENCES "public"."carrera" ("clave_carrera") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."materia_carrera" ADD CONSTRAINT "materia_carrera_clave_materia_fkey" FOREIGN KEY ("clave_materia") REFERENCES "public"."materia" ("clave_materia") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table materia_horario
+-- ----------------------------
+ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_clave_materia_fkey" FOREIGN KEY ("clave_materia") REFERENCES "public"."materia" ("clave_materia") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."materia_horario" ADD CONSTRAINT "materia_horario_id_horario_fkey" FOREIGN KEY ("id_horario") REFERENCES "public"."horario" ("id_horario") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table peticion
+-- ----------------------------
+ALTER TABLE "public"."peticion" ADD CONSTRAINT "peticion_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table razonf_factura
+-- ----------------------------
+ALTER TABLE "public"."razonf_factura" ADD CONSTRAINT "razonf_factura_clave_razon_factura_fkey" FOREIGN KEY ("clave_razon_factura") REFERENCES "public"."razon_factura" ("clave_razon_factura") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "public"."razonf_factura" ADD CONSTRAINT "razonf_factura_id_factura_fkey" FOREIGN KEY ("id_factura") REFERENCES "public"."factura" ("id_factura") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table renuncia_seguro_alumno
+-- ----------------------------
+ALTER TABLE "public"."renuncia_seguro_alumno" ADD CONSTRAINT "renuncia_seguro_alumno_matricula_alumno_fkey" FOREIGN KEY ("matricula_alumno") REFERENCES "public"."alumno" ("matricula_alumno") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ----------------------------
+-- Foreign Keys structure for table usuario_admision
+-- ----------------------------
+ALTER TABLE "public"."usuario_admision" ADD CONSTRAINT "usuario_admision_numero_ficha_admision_fkey" FOREIGN KEY ("numero_ficha_admision") REFERENCES "public"."admision" ("numero_ficha_admision") ON DELETE SET NULL ON UPDATE CASCADE;

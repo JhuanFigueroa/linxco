@@ -11,6 +11,7 @@ const materiasRouter=require('../routes/materia.router');
 const authRouter=require('../routes/auth.router');
 const rolRouter=require('../routes/rol.router');
 const carreraRouter=require('../routes/carrera.router');
+const constanciaRouter=require('../routes/Constancia.router')
 const empleadoRouter=require('../routes/empleado.router');
 const grupoRouter=require('../routes/grupo.router');
 const facturaRouter=require('../routes/Factura.router');
@@ -21,8 +22,9 @@ const tipoCargaRoute=require('../routes/tipo_carga.router')
 const tablaCarrera=require('../routes/carrera.router')
 const tablaPeriodo=require('../routes/periodo.router')
 const semestre=require('../routes/semestre.router')
-
+const horariosRouter=require('../routes/horarios.router')
 const peticionRouter=require('../routes/peticion.router')
+const jefesRouter=require('../routes/jefe_division.router')
 
 function routerApi(app) {
   const router = express.Router();
@@ -43,7 +45,7 @@ function routerApi(app) {
   router.use('/grupos', grupoRouter);
   router.use('/factura', facturaRouter);
   router.use('/razonf-factura', razonfFacturaRouter);
-
+  router.use('/constancias', constanciaRouter);
   router.use('/materia-carga', materiaCarga);
   router.use('/tramites', tramiteRouter);
   router.use('/tipoCarga', tipoCargaRoute);
@@ -51,6 +53,8 @@ function routerApi(app) {
   router.use('/periodo',tablaPeriodo);
   router.use('/peticiones',peticionRouter);
   router.use('/semestre',semestre);
+  router.use('/horarios',horariosRouter);
+  router.use('/jefes',jefesRouter);
 
 }
 
