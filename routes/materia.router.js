@@ -33,7 +33,17 @@ router.get('/:clave_materia',
     }
   }
 );
-
+router.get('/grupo/:grupo/',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const {grupo} = req.params
+      const consul = await service.findByGrupo(grupo);
+      res.json(consul);
+    } catch (error) {
+      next(error);
+    }
+  });
 router.get('/:grupo/:mtro',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
@@ -46,6 +56,7 @@ router.get('/:grupo/:mtro',
     next(error);
   }
 });
+
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),

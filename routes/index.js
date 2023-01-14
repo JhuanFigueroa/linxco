@@ -25,6 +25,7 @@ const semestre=require('../routes/semestre.router')
 const horariosRouter=require('../routes/horarios.router')
 const peticionRouter=require('../routes/peticion.router')
 const jefesRouter=require('../routes/jefe_division.router')
+const actaCalifRouter=require('../routes/acta_calificaciones.router')
 
 function routerApi(app) {
   const router = express.Router();
@@ -55,6 +56,7 @@ function routerApi(app) {
   router.use('/semestre',semestre);
   router.use('/horarios',horariosRouter);
   router.use('/jefes',jefesRouter);
+  router.use('/acta-calif',actaCalifRouter);
 
 }
 

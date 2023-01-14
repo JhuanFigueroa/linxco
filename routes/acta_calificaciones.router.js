@@ -33,6 +33,18 @@ router.get('/:folio',
     }
   }
 );
+router.get('/alumnos/:materia/:grupo',
+  async (req, res, next) => {
+    try {
+      const { materia } = req.params;
+      const { grupo } = req.params;
+      const acta = await service.findForSetCalif(materia,grupo);
+      res.json(acta);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 router.post('/',
   passport.authenticate('jwt',{session:false}),

@@ -29,7 +29,7 @@ class GrupoService {
   async findByCarrera(clave) {
 
     const [data]=await sequelize.query("SELECT\n" +
-      "\tgrupo.numero_grupo\n" +
+      "\tgrupo.id_grupo as id,grupo.numero_grupo as grupo\n" +
       "FROM\n" +
       "\tgrupo\n" +
       "\tINNER JOIN\n" +
@@ -37,7 +37,7 @@ class GrupoService {
       "\tON \n" +
       "\t\tgrupo.clave_carrera = carrera.clave_carrera\n" +
       "WHERE\n" +
-      "\tcarrera.clave_carrera = '"+clave+"'")
+      "\tcarrera.clave_carrera = '"+clave+"' and grupo.status_grupo='1'")
 
     return data;
   }

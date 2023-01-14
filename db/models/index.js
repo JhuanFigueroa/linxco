@@ -26,6 +26,7 @@ const {Periodo,PeriodoSchema}=require('./periodo.model')
 const {Semestre,SemestreSchema}=require('./semestre.model')
 const {Peticion,PeticionSchema}=require('./peticiones.model')
 const {Grupo,GrupoSchema}=require('./grupo.model')
+const {Acta,ActaSchema}=require('./acta_calificaciones.model')
 
 
 
@@ -57,6 +58,7 @@ function setupModels(sequelize) {
 Semestre.init(SemestreSchema,Semestre.config(sequelize))
   Peticion.init(PeticionSchema,Peticion.config(sequelize))
   Grupo.init(GrupoSchema,Grupo.config(sequelize))
+  Acta.init(ActaSchema,Acta.config(sequelize))
 
 }
 

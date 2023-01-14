@@ -25,11 +25,19 @@ class MateriaService {
     const [datosMtro]=await sequilize.query("SELECT DISTINCT materia.clave_materia, materia.nombre_materia FROM materia INNER JOIN materia_carga ON materia.clave_materia = materia_carga.clave_materia, maestro_grupo, grupo WHERE grupo.id_grupo = "+grupo+" AND maestro_grupo.clave_maestro = '"+mtro+"'")
     return datosMtro
   }
-  async findByUser(username){
-    const rta = await models.Maestro.findOne({
-      where: { username }
-    });
-    return rta;
+
+
+  async findByGrupo(grupo){
+    const [data] = await sequilize.query("SELECT DISTINCT\n" +
+      "\tmateria.clave_materia as clave,\n" +
+      "\tmateria.nombre_materia as nombre \n" +
+      "FROM\n" +
+      "\tmateria\n" +
+      "\tINNER JOIN materia_carga ON materia.clave_materia = materia_carga.clave_materia\n" +
+      "\tINNER JOIN grupo ON materia_carga.id_grupo = grupo.id_grupo \n" +
+      "WHERE\n" +
+      "\tgrupo.id_grupo = '"+grupo+"'")
+    return data;
   }
 
   async findOne(clave) {

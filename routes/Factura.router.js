@@ -43,20 +43,6 @@ router.get('/tipos/:clave',
       next(error);
     }
   });
-
-router.get('/:id',
-  validatorHandler(getFacturaSchema, 'params'),
-  async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const Factura = await service.findOne(id);
-      res.json(Factura);
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
 router.get('/reinscripcion/:matricula',
   async (req, res, next) => {
     try {
@@ -68,6 +54,10 @@ router.get('/reinscripcion/:matricula',
     }
   }
 );
+
+
+
+
 
 router.get('/constancias/:matricula',
   async (req, res, next) => {
