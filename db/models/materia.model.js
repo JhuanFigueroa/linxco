@@ -44,7 +44,12 @@ class Materia extends Model {
       as: 'actas',
       foreignKey: 'clave_materia'
     });
+    this.hasMany(models.ActaControl,{
+      as: 'actaControl',
+      foreignKey: 'clave_materia'
+    });
   }
+
 
   static config(sequelize) {
     return {

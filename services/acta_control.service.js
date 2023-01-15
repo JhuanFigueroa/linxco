@@ -2,36 +2,37 @@ const boom = require('@hapi/boom');
 const bcrypt=require('bcrypt');
 const {models}=require('../libs/sequelize')
 
-class horariosService {
+class ActaControlService {
   constructor() {}
 
   async create(file,data) {
+
     var filename = file.filename;
-    filename = 'http://localhost:3000/storage/horarios/' + filename;
+    filename = 'http://localhost:3000/storage/actas/' + filename;
 
     data = {
       ...data,
       ubicacion: filename,
     };
-    const newHorario=await models.Horarios.create(data)
+    const newHorario=await models.ActaControl.create(data)
     return newHorario
   }
 
   async find() {
-    const rta = await models.Horarios.findAll()
+    const rta = await models.ActaControl.findAll()
 
     return rta;
   }
 
   async findByCarrera(clave){
-      const horario=await models.Horarios.findOne({where:{claveCarrera:clave}});
+    const horario=await models.ActaControl.findOne({where:{claveCarrera:clave}});
 
-      return horario
+    return horario
   }
 
 
   async findOne(id) {
-    const rta=await models.Horarios.findByPk(id);
+    const rta=await models.ActaControl.findByPk(id);
     if (!rta) {
       throw boom.notFound('horario not found')
     }
@@ -55,4 +56,4 @@ class horariosService {
    }*/
 }
 
-module.exports = horariosService;
+module.exports = ActaControlService;

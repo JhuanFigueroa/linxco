@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use('/storage', express.static(__dirname + '/storage'));
 app.use('/storage/horarios', express.static(__dirname + '/storage/horarios'));
+app.use('/storage/actas', express.static(__dirname + '/storage/actas'));
 
 const whitelist = ['http://127.0.0.1:8081', 'https://myapp.co','http://192.168.0.110:8081','http://localhost:8081'];
 const options = {

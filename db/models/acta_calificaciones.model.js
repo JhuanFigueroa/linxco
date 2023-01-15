@@ -1,6 +1,8 @@
 
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const {MATERIA_TABLE} = require("./materia.model");
+const {ALUMNO_TABLE} = require("./alumno.model");
+const {PERIODO_TABLE} = require("./periodo.model");
 
 const ACTA_TABLE = 'acta_calificaciones';
 
@@ -20,7 +22,7 @@ const ActaSchema = {
   },
   fecha:{
     field:'fecha_acta',
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.DATE,
     defaultValue: Sequelize.Now
   },
@@ -35,7 +37,30 @@ const ActaSchema = {
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
-  }
+  },
+  matriculaAlumno: {
+    field:'matricula_alumno',
+    allowNull: false,
+    primaryKey: true,
+    type: DataTypes.STRING,
+    references: {
+      model: ALUMNO_TABLE,
+      key: 'matricula_alumno'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
+  },
+  idPeriodo:{
+    field: 'id_periodo',
+    allowNull: false,
+    type:DataTypes.INTEGER,
+    references: {
+      model: PERIODO_TABLE,
+      key: 'id_periodo'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL'
+  },
 }
 
 //Modelo
@@ -50,6 +75,8 @@ class Acta extends Model {
     });
 
     this.belongsTo(models.Materia, { as: 'materia' });
+    this.belongsTo(models.Alumno, { as: 'alumno' });
+    this.belongsTo(models.Periodo, { as: 'periodo' });
   }
 
   static config(sequelize) {

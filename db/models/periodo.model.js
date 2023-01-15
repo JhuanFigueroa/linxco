@@ -41,6 +41,10 @@ class Periodo extends Model {
       as:'cargas',
       foreignKey:'id_periodo'
     });
+    this.hasMany(models.Acta, {
+      as: 'actas',
+      foreignKey: 'id_periodo'
+    });
   }
 
   static config(sequelize) {

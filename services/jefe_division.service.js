@@ -31,6 +31,8 @@ class JefeDivisionService {
     return newHorario
   }
 
+
+
   async find() {
     const rta = await models.JefeDivision.findAll()
 

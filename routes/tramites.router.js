@@ -6,6 +6,7 @@ const { config } = require('./../config/config');
 const {checkAdminRole} = require("../middlewares/auth.handler");
 const validatorHandler = require("../middlewares/validator.handler");
 const {createAdmisionSchema} = require("../schemas/admision.schema");
+const {uploadActas, uploadHorarios} = require('../libs/storage');
 const BoletaService = require("../services/tramites.service");
 const service = new BoletaService();
 
@@ -90,6 +91,14 @@ router.post('/constancias',
   async (req,res,next)=>{
     const body=req.body
     const periodo=await service.createPeticion(body);
+    res.status(200).json(periodo);
+  })
+
+router.post('/actas',
+  uploadActas.single('ubicacion'),
+  async (req,res,next)=>{
+    const file=req.file
+    const periodo=await service.subirActa(file);
     res.status(200).json(periodo);
   })
 module.exports = router;

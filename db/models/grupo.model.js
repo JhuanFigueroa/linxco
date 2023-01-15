@@ -58,6 +58,11 @@ class Grupo extends Model {
       as: 'materia_carga',
       foreignKey: 'id_curso'
     });
+
+    this.hasMany(models.ActaControl,{
+      as: 'acta_control',
+      foreignKey: 'id_grupo'
+    });
   }
 
   static config(sequelize) {

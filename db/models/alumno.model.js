@@ -154,6 +154,10 @@ class Alumno extends Model {
       as: 'peticiones',
       foreignKey: 'id_peticion'
     });
+    this.hasMany(models.Acta, {
+      as: 'actas',
+      foreignKey: 'matricula_alumno'
+    });
   }
 
 

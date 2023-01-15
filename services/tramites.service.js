@@ -142,6 +142,14 @@ class TramitesService {
     return rta.id;
   }
 
+  async subirActa(file){
+    var filename = file.filename;
+    filename = 'http://localhost:3000/storage/horarios/' + filename;
+
+
+    return "subido"
+  }
+
   async getCredenciales(){
 
     const [data] =await sequilize.query("SELECT\n" +

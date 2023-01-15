@@ -20,6 +20,17 @@ const storageHorarios = multer.diskStorage({
   }
 })
 
+const storageActas = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './storage/actas/')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, uniqueSuffix+'-'+file.originalname  )
+  }
+})
+
   const upload = multer({storage: storage })
   const uploadHorarios=multer({storage:storageHorarios})
-  module.exports= {upload,uploadHorarios};
+const uploadActas=multer({storage:storageActas})
+  module.exports= {upload,uploadHorarios,uploadActas};

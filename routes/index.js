@@ -26,6 +26,7 @@ const horariosRouter=require('../routes/horarios.router')
 const peticionRouter=require('../routes/peticion.router')
 const jefesRouter=require('../routes/jefe_division.router')
 const actaCalifRouter=require('../routes/acta_calificaciones.router')
+const actaControlRouter=require('../routes/acta_control.router')
 
 function routerApi(app) {
   const router = express.Router();
@@ -57,6 +58,7 @@ function routerApi(app) {
   router.use('/horarios',horariosRouter);
   router.use('/jefes',jefesRouter);
   router.use('/acta-calif',actaCalifRouter);
+  router.use('/acta-control',actaControlRouter);
 
 }
 
