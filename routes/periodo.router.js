@@ -24,6 +24,17 @@ router.get('/',
     }
   });
 
+router.get('/all',
+  passport.authenticate('jwt',{session:false}),
+  async (req, res, next) => {
+    try {
+      const periodos = await service.find();
+      res.json(periodos); //En caso de usar mas de 2 servicios
+    } catch (error) {
+      next(error);
+    }
+  });
+
 router.get('/:id',
   validatorHandler(getPeriodoSchema, 'params'),
   async (req, res, next) => {

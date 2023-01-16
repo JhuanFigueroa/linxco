@@ -19,10 +19,10 @@ class PeriodoService {
     return newPeriodo;
   }
 
-  /*async find() {
-    const rta = await models.Periodo.findAll({where: {status : 1}})
+  async find() {
+    const rta = await models.Periodo.findAll()
     return rta;
-  }*/
+  }
   async verDatos(){
     const [datosPeriodo] = await sequilize.query("SELECT periodo.id_periodo,periodo.numero_periodo, periodo.descripcion_periodo from periodo where periodo.status_periodo=1")
     return datosPeriodo
