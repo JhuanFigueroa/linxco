@@ -6,33 +6,24 @@ const {models}=require('../libs/sequelize')
 class TramitesService {
 
   async generateBoleta(clave,periodo){
-    const query="select materia.clave_materia as clave\n" +
-      "from materia,carga_academica,materia_carga\n" +
-      "\n" +
-      "where materia_carga.id_carga_academica=carga_academica.id_carga_academica\n" +
-      "and materia.clave_materia= materia_carga.clave_materia\n" +
-      "and carga_academica.matricula_alumno='"+clave+"'\n" +
-      "and carga_academica.id_periodo='"+periodo+"'";
+    const query="SELECT\n" +
+      "\tmateria.clave_materia as clave,\n" +
+      "\tmateria.nombre_materia as materia,\n" +
+      "\tacta_calificaciones.calificacion_acta as calificacion\n" +
+      "FROM\n" +
+      "\tmateria\n" +
+      "\tINNER JOIN acta_calificaciones ON materia.clave_materia = acta_calificaciones.clave_materia\n" +
+      "\tINNER JOIN materia_carga ON materia.clave_materia = materia_carga.clave_materia\n" +
+      "\tINNER JOIN carga_academica ON materia_carga.id_carga_academica = carga_academica.id_carga_academica\n" +
+      "\tINNER JOIN alumno ON acta_calificaciones.matricula_alumno = alumno.matricula_alumno \n" +
+      "\tAND carga_academica.matricula_alumno = alumno.matricula_alumno \n" +
+      "WHERE\n" +
+      "\tcarga_academica.matricula_alumno = '"+clave+"' \n" +
+      "\tAND carga_academica.id_periodo = '"+periodo+"'";
 
     const [data]=await sequilize.query(query);
-    const claves=data.map(materia=>{
-      return materia.clave
-    });
 
-    var calificaciones=[]
-    for (var i=0;i<claves.length;i++){
-      const calificacion="select materia.clave_materia,materia.nombre_materia,acta_calificaciones.calificacion_acta\n" +
-        "from materia,acta_calificaciones,alumno_acta\n" +
-        "\n" +
-        "where materia.clave_materia=acta_calificaciones.clave_materia\n" +
-        "and acta_calificaciones.folio_acta=alumno_acta.folio_acta\n" +
-        "and alumno_acta.matricula_alumno='"+clave+"'\n" +
-        "and materia.clave_materia='"+claves[i]+"'";
-      const [data]=await sequilize.query(calificacion);
-      calificaciones.push(data[0]);
-    }
-
-    return calificaciones
+    return data;
   }
 
   async obtnerPeriodo(){
