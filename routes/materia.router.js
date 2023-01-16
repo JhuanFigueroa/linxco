@@ -11,7 +11,7 @@ const service = new MateriaService();
 
 
 router.get('/',
-  passport.authenticate('jwt',{session:false}),
+  // passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
     try {
       const materia = await service.find();

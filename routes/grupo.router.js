@@ -72,9 +72,9 @@ router.get('/:id',
 );
 
 router.post('/',
-  passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createGrupochema, 'body'),
+  // passport.authenticate('jwt',{session:false}),
+  // checkAdminRole,
+  // validatorHandler(createGrupochema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
