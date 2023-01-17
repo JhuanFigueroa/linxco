@@ -4,7 +4,7 @@ const {checkAdminRole} =require('./../middlewares/auth.handler')
 
 const Semestreervice = require('../services/semestre.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateSemestreSchema, createSemestrechema, getSemestrechema } = require('../schemas/Semestre.schema');
+const { updateSemestreSchema, createSemestrechema, getSemestrechema } = require('../schemas/semestre.schema');
 
 const router = express.Router();
 const service = new Semestreervice();
