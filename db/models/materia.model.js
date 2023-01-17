@@ -4,25 +4,25 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 const  MATERIA_TABLE = 'materia';
 
 const MateriaSchema = {
-  clave: {
+  clave_materia: {
     field:'clave_materia',
     allowNull: false,
     primaryKey: true,
     type:DataTypes.STRING,
     unique:true,
   },
-  nombre: {
+  nombre_materia: {
     field: 'nombre_materia',
     allowNull: false,
     type: DataTypes.STRING,
 
   },
-  creditos:{
+  creditos_materia:{
     field:'creditos_materia',
     allowNull:false,
     type:DataTypes.INTEGER
   },
-  status:{
+  status_materia:{
     field:'status_materia',
     allowNull:false,
     type:DataTypes.INTEGER,

@@ -59,9 +59,9 @@ router.get('/:grupo/:mtro',
 
 
 router.post('/',
-  passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createMateriaSchema, 'body'),
+  // passport.authenticate('jwt',{session:false}),
+  // checkAdminRole,
+  // validatorHandler(createMateriaSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
