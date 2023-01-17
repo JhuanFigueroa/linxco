@@ -88,13 +88,13 @@ router.patch('/:clave',
   }
 );
 
-router.delete('/:clave',
-  validatorHandler(getMateriaSchema, 'params'),
+router.delete('/:clave_materia',
+  // validatorHandler(getMateriaSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { clave } = req.params;
-      await service.delete(clave);
-      res.status(201).json({clave});
+      const { clave_materia } = req.params;
+      await service.delete(clave_materia);
+      res.status(201).json({clave_materia});
     } catch (error) {
       next(error);
     }

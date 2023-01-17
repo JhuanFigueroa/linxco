@@ -102,7 +102,7 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getGrupochema, 'params'),
+  // validatorHandler(getGrupochema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;

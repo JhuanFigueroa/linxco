@@ -16,7 +16,7 @@ class MateriaService {
   }
 
   async find() {
-    const rta = await models.Materia.findAll()
+    const rta = await models.Materia.findAll({where: {status_materia : 1}})
 
     return rta;
   }
@@ -58,7 +58,7 @@ class MateriaService {
 
   async delete(id) {
     const change ={
-      'status': 0
+      'status_materia': 0
     }
     const materia = await this.findOne(id);
     const rta = await materia.update(change);
