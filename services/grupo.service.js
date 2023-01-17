@@ -10,7 +10,6 @@ class GrupoService {
   async create(data) {
 
     const newCarrera=await models.Grupo.create(data);
-
     return newCarrera;
   }
 
