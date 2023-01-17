@@ -54,7 +54,7 @@ router.post('/horarios',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
     try {
-      const file=req.file
+      const file=req.file;
       const body = req.body;
       const newCategory = await service.subirHorario(file,body);
       res.status(201).json(newCategory);
