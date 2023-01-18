@@ -59,7 +59,7 @@ router.get('/carrera/:clave',
   }
 );
 router.get('/:id',
-  validatorHandler(getGrupochema, 'params'),
+  // validatorHandler(getGrupochema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -87,8 +87,8 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getGrupochema, 'params'),
-  validatorHandler(updateGrupoSchema, 'body'),
+  // validatorHandler(getGrupochema, 'params'),
+  // validatorHandler(updateGrupoSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
