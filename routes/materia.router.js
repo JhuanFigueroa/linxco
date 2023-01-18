@@ -74,8 +74,8 @@ router.post('/',
 );
 
 router.patch('/:clave',
-  validatorHandler(getMateriaSchema, 'params'),
-  validatorHandler(updateMateriaSchema, 'body'),
+  // validatorHandler(getMateriaSchema, 'params'),
+  // validatorHandler(updateMateriaSchema, 'body'),
   async (req, res, next) => {
     try {
       const { clave } = req.params;
