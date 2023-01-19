@@ -47,15 +47,15 @@ router.get('/grupo/:grupo/',
 router.get('/:grupo/:mtro',
   passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
-  try {
-    const {grupo} = req.params
-    const {mtro} = req.params
-    const consul = await service.findMtro(grupo,mtro);
-    res.json(consul);
-  } catch (error) {
-    next(error);
-  }
-});
+    try {
+      const {grupo} = req.params
+      const {mtro} = req.params
+      const consul = await service.findMtro(grupo,mtro);
+      res.json(consul);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 
 router.post('/',
@@ -74,8 +74,8 @@ router.post('/',
 );
 
 router.patch('/:clave',
-  // validatorHandler(getMateriaSchema, 'params'),
-  // validatorHandler(updateMateriaSchema, 'body'),
+  validatorHandler(getMateriaSchema, 'params'),
+  validatorHandler(updateMateriaSchema, 'body'),
   async (req, res, next) => {
     try {
       const { clave } = req.params;
@@ -88,13 +88,13 @@ router.patch('/:clave',
   }
 );
 
-router.delete('/:clave_materia',
-  // validatorHandler(getMateriaSchema, 'params'),
+router.delete('/:clave',
+  validatorHandler(getMateriaSchema, 'params'),
   async (req, res, next) => {
     try {
-      const { clave_materia } = req.params;
-      await service.delete(clave_materia);
-      res.status(201).json({clave_materia});
+      const { clave } = req.params;
+      await service.delete(clave);
+      res.status(201).json({clave});
     } catch (error) {
       next(error);
     }

@@ -8,7 +8,7 @@ class MateriaService {
 
   async create(data) {
     const newMateria=await models.Materia.create(data
-      );
+    );
 
     delete newMateria.dataValues.password;
 
@@ -16,7 +16,7 @@ class MateriaService {
   }
 
   async find() {
-    const rta = await models.Materia.findAll({where: {status_materia : 1}})
+    const rta = await models.Materia.findAll({where: {status : 1}})
 
     return rta;
   }

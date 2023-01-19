@@ -66,7 +66,7 @@ class AlumnoService {
 
     const [data]=await sequilize.query(query);
 
-    return data;
+    return data[0];
   }
 
   async update(id, changes) {
