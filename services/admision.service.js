@@ -36,6 +36,17 @@ class AdmisionService {
     const [data] = await sequilize.query('select carrera.clave_carrera, carrera.nombre_carrera from carrera;')
     return data;
   }
+   async findAspitante() {
+    //const [data] = await sequilize.query('insert into admision values ('+data.numFicha+')')
+    const [data] = await sequilize.query('SELECT * FROM "admision";')
+    return data;
+  }
+  async findAspitanteCarrera(carrera) {
+    //const [data] = await sequilize.query('insert into admision values ('+data.numFicha+')')
+    const [data] = await sequilize.query(`SELECT * FROM admision WHERE clave_carrera = '${carrera}'`)
+    return data;
+  }
+
 
   async findOne(numero) {
     const rta = await models.Admision.findByPk(numero);

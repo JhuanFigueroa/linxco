@@ -11,7 +11,7 @@ const service = new AlumnoService();
 
 
 router.get('/',
-  passport.authenticate('jwt',{session:false}),
+  // passport.authenticate('jwt',{session:false}),
   async (req, res, next) => {
     try {
       const users = await service.find();
@@ -59,9 +59,9 @@ router.get('/constancia/:matricula',
 );
 
 router.post('/',
-  passport.authenticate('jwt',{session:false}),
-  checkAdminRole,
-  validatorHandler(createAlumnoSchema, 'body'),
+  // passport.authenticate('jwt',{session:false}),
+  // checkAdminRole,
+  // validatorHandler(createAlumnoSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;

@@ -8,6 +8,7 @@ const telefono = Joi.string();
 const correo = Joi.string().email();
 const curp = Joi.string();
 const domicilio = Joi.string();
+const numeroSeguro = Joi.string();
 const status=Joi.number();
 const username=Joi.string();
 const password = Joi.string().min(8);
@@ -23,13 +24,14 @@ const createAlumnoSchema = Joi.object({
   correo:correo.required(),
   curp:curp.required(),
   domicilio:domicilio.required(),
-  telefono:telefono,
+  numeroSeguro:numeroSeguro.required(),
+  status:status.required(),
+  telefono:telefono.required(),
   username:username.required(),
   password:password.required(),
   idRol:idRol.required(),
   claveCarrera:claveCarrera.required(),
   idSemestre:idSemestre.required()
-
 });
 
 const updateAlumnoSchema = Joi.object({

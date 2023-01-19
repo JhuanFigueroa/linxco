@@ -11,6 +11,27 @@ const router = express.Router();
 const service = new AdmisionService();
 
 
+router.get('/aspiranteB',
+  //passport.authenticate('jwt',{session:false}),//Esta sirve va validar que se haya iniciado sesion
+  async (req, res, next) => {
+    try {
+      const users = await service.findAspitante();//Aqui se ejecuta el metodo que ete en service
+      res.json(users);
+    } catch (error) {
+      next(error);
+    }
+  });
+  router.get('/aspiranteB/:claveCarrera',
+  //passport.authenticate('jwt',{session:false}),//Esta sirve va validar que se haya iniciado sesion
+  async (req, res, next) => {
+    try {
+      const {claveCarrera} = req.params;
+      const users = await service.findAspitanteCarrera(claveCarrera);//Aqui se ejecuta el metodo que ete en service
+      res.json(users);
+    } catch (error) {
+      next(error);
+    }
+  });
 router.get('/',
   //passport.authenticate('jwt',{session:false}),//Esta sirve va validar que se haya iniciado sesion
   async (req, res, next) => {
